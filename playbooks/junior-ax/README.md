@@ -27,6 +27,7 @@
 > **책임:** 환경 설정 및 기본 워크플로우 마스터
 
 **Tasks:**
+- ⭐ [Git 첫 설정](./01-vibe-coding-basics/git-first-setup/) - 계정 생성부터 클론까지
 - ⭐ [Git Worktree 설정](./01-vibe-coding-basics/git-worktree-setup/) - 브랜치 전환 0초
 - ⭐ [화면 분할 환경](./01-vibe-coding-basics/screen-split/) - 창 전환 0회
 - 🔜 [No Context Switching](./01-vibe-coding-basics/no-context-switching/) - 몰입 유지
