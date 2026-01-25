@@ -1,0 +1,511 @@
+###############################################################################
+# OPPORTUNITY B: CashLens - Cash Flow Intelligence for Micro-SaaS
+###############################################################################
+
+mvp_spec:
+  name: "CashLens"
+  tagline: "AI cash flow forecasting built for founders, not accountants."
+  
+  core_features:
+    - feature_1:
+        name: "Auto Revenue Import (Stripe/MRR Sync)"
+        description: "One-click Stripe connection. Auto-pulls MRR, churn, LTV. Daily updates. Founder sees 'cash in' forecast instantly."
+        priority: "P0"
+        build_time: "2 weeks"
+        complexity: "MEDIUM"
+        
+    - feature_2:
+        name: "AI Expense Forecasting"
+        description: "Auto-categorizes expenses from bank feed (Plaid/Brex). AI predicts seasonal patterns (hiring surge, conference season). User overrides forecast with manual estimates."
+        priority: "P0"
+        build_time: "2.5 weeks"
+        complexity: "MEDIUM-HIGH"
+        
+    - feature_3:
+        name: "Runway Projection Dashboard"
+        description: "Visual 24-month cash runway. Shows 'cash out date' if burn continues. One-click scenario: 'What if we raise $500K?' or 'If we cut burn 20%?'. Red/yellow/green indicator."
+        priority: "P0"
+        build_time: "1.5 weeks"
+        complexity: "LOW"
+        
+    - feature_4:
+        name: "Monthly Close Automation"
+        description: "Auto-generate monthly P&L + cash flow statement. Highlights month-over-month variances. Exportable to CSV/PDF for board/investor updates."
+        priority: "P1"
+        build_time: "1 week"
+        complexity: "LOW"
+        
+    - feature_5:
+        name: "Cash Flow Alerts"
+        description: "Slack/email alerts: 'Runway = 6 months', 'Unexpected expense spike (20% above forecast)', 'Churn alert: up 2% this month'."
+        priority: "P1"
+        build_time: "0.5 weeks"
+        complexity: "LOW"
+  
+  integrations:
+    - integration_1:
+        name: "Stripe"
+        why: "Core revenue source for 95% of SaaS; direct API to MRR, churn, LTV"
+        complexity: "LOW"
+        build_time: "1 week"
+        mvp_inclusion: true
+        api_docs: "Stripe Reporting API"
+        
+    - integration_2:
+        name: "Plaid (Bank Feed)"
+        why: "Connects to 11,000+ banks; auto-categorizes expenses; replaces manual spreadsheet"
+        complexity: "MEDIUM"
+        build_time: "1.5 weeks"
+        mvp_inclusion: true
+        api_docs: "Plaid Transactions + Webhooks"
+        
+    - integration_3:
+        name: "Brex"
+        why: "70% of SaaS founders use Brex; direct API access; spend categorization"
+        complexity: "LOW"
+        build_time: "1 week"
+        mvp_inclusion: true
+        api_docs: "Brex Reporting API"
+        
+    - integration_4:
+        name: "Slack"
+        why: "Alert delivery (runway warnings, expense anomalies)"
+        complexity: "LOW"
+        build_time: "3 days"
+        mvp_inclusion: false
+        
+    - integration_5:
+        name: "HubSpot / Salesforce"
+        why: "Pipeline visibility; post-MVP; helps forecast ARR growth"
+        complexity: "MEDIUM"
+        build_time: "1 week"
+        mvp_inclusion: false
+  
+  pricing:
+    model: "Usage-based (spend volume) + feature-based tier"
+    free_tier: true
+    free_tier_details: "3-month forecast, Stripe only, basic dashboard"
+    
+    founder_plan:
+      name: "Founder"
+      price: "$299/month"
+      annual_discount: "$2,990/year (17% savings)"
+      target_ica: "$2-8M ARR SaaS"
+      includes:
+        - "24-month forecast"
+        - "Stripe + 1 bank integration"
+        - "AI expense forecasting"
+        - "Runway projection + alerts"
+        - "Monthly P&L export"
+        - "Email support"
+        - "Slack alerts"
+      
+    growth_plan:
+      name: "Growth"
+      price: "$799/month"
+      annual_discount: "$7,990/year (17% savings)"
+      target_ica: "$8-20M ARR SaaS"
+      includes:
+        - "Everything in Founder"
+        - "Unlimited bank integrations (Plaid)"
+        - "Brex integration"
+        - "Advanced scenario modeling"
+        - "Custom revenue streams (consulting, etc)"
+        - "Board deck auto-generation"
+        - "Priority email + Slack"
+      
+    enterprise_plan:
+      name: "Enterprise"
+      price: "Custom ($2,000+/month)"
+      target_ica: "$20M+ ARR or Series B+"
+      includes:
+        - "Everything in Growth"
+        - "CRM integration (HubSpot/Salesforce)"
+        - "Custom expense categories"
+        - "Dedicated dashboard for board"
+        - "API access"
+        - "SSO (SAML)"
+        - "Phone support (US hours)"
+        - "Custom integrations"
+  
+  expansion_triggers:
+    - "Multi-company view (holding companies) → +$300/mo"
+    - "Board meeting deck automation → +$200/mo"
+    - "CRM pipeline sync (forecast ARR growth) → +$400/mo"
+    - "Investor update automation → +$300/mo"
+    - "Multi-currency support → +$150/mo"
+    
+  onboarding:
+    steps:
+      - step_1:
+          name: "Connect Stripe"
+          description: "OAuth integration. System pulls last 24 months of MRR, churn, LTV."
+          time: "2 minutes"
+          action: "OAuth redirect"
+          
+      - step_2:
+          name: "Connect Bank"
+          description: "Plaid integration for expense data. Founder selects bank; Plaid fetches last 24 months of transactions."
+          time: "3 minutes"
+          action: "Plaid Link flow"
+          
+      - step_3:
+          name: "Categorize Expenses"
+          description: "AI auto-categorizes 80% of expenses (rent, salaries, tools). User edits remaining 20%."
+          time: "5 minutes"
+          action: "Bulk categorization review"
+          
+      - step_4:
+          name: "Review Forecast"
+          description: "System generates 24-month cash forecast. Founder can adjust assumptions (churn %, hiring plan, runway)."
+          time: "8 minutes"
+          action: "Interactive forecast editor"
+          
+      - step_5:
+          name: "Set Alerts"
+          description: "Founder sets Slack channel for runway alerts. System auto-detects thresholds (6 months, 3 months, 1 month)."
+          time: "3 minutes"
+          action: "Slack channel picker + threshold settings"
+    
+    time_to_value: "< 25 minutes to first 24-month cash forecast"
+    activation_metrics:
+      - "Forecast generation rate: 90%+ users generate forecast by day 2"
+      - "Integration completion: 100% connect Stripe, 80%+ connect bank"
+      - "Alert adoption: 70%+ enable Slack alerts"
+  
+  gtm:
+    first_10_customers:
+      channels:
+        - "Warm outreach to fintech/SaaS founders in network (LinkedIn, Twitter)"
+        - "Target YC / 500 Global companies needing cash management (use directories)"
+        - "ProductHunt launch (fintech/SaaS tools category)"
+        - "SaaS founder communities (Indie Hackers, SaaS Founder Breakfast, Slack groups)"
+        - "Accounting firms serving SaaS (referral partnership)"
+      
+      messaging: "Stop spending 40 hours on month-end close. Your cash forecast is ready in 20 minutes."
+      
+      ideal_first_customer_profile:
+        - "Series A/B SaaS founder (already has cash concerns)"
+        - "Previously used Stripe Radar / spreadsheet forecasting (known pain)"
+        - "Recently hired first CFO/Finance person (they need better data)"
+      
+      acquisition_cost: "$400-600 per customer (2-3 discovery calls per deal)"
+      
+    channel_strategy:
+      phase_1_month_1_2:
+        channel: "Founder-led outreach + warm network"
+        target: "5 customers"
+        method: "30 min calls with CFOs/founders; 50% discount Year 1"
+        messaging: "Know your runway in 20 minutes, not 20 days."
+        
+      phase_2_month_3_4:
+        channel: "Content marketing + SEO + community"
+        target: "+ 5 customers"
+        content:
+          - "Blog: 'How SaaS Founders Should Forecast Cash Flow' (rank for 'cash flow forecast')"
+          - "Twitter thread: 'I built CashLens to replace my $8K/month accountant' (viral potential)"
+          - "Case study: Customer #1 saved 8 hours/month on close"
+          - "ProductHunt launch with technical post"
+        distribution:
+          - "Share on SaaS communities (YC Slack, Indie Hackers, Reddit /r/startups)"
+          - "Guest post on Stripe/Brex partner blogs"
+        
+      phase_3_month_5_6:
+        channel: "Referral program + partnership"
+        target: "10-20 customers cumulative"
+        partnerships:
+          - "Partner with CFO services (referral: $300/customer)"
+          - "Affiliate with accounting software platforms (Expensify, Brex integration)"
+          - "Co-marketing with Stripe (case study)"
+        referral_program: "$200 credit per referred customer (10x adoption)"
+    
+    month_6_target: "15-20 paying customers, $12-15K MRR, 45%+ trial-to-paid"
+  
+  tech_stack:
+    frontend:
+      framework: "React 18 + TypeScript"
+      visualization: "Recharts or D3.js (interactive charts, scenario modeling)"
+      ui_library: "shadcn/ui + TailwindCSS"
+      state_management: "React Query (server state) + Zustand (client state)"
+      deployment: "Vercel (auto-scaling)"
+    
+    backend:
+      language: "Node.js (TypeScript)"
+      framework: "NestJS (structured, enterprise-ready)"
+      database:
+        primary: "PostgreSQL (transactions, audit logs)"
+        cache: "Redis (forecast caching, user sessions)"
+        timeseries: "TimescaleDB or InfluxDB (optional; for expense trends)"
+      authentication: "Supabase Auth + JWT"
+      jobs: "Bull + Redis (background jobs for daily Stripe sync)"
+      
+    integrations_sdk:
+      stripe: "Stripe Node.js SDK (Reporting API)"
+      plaid: "Plaid Node.js SDK (bank transactions)"
+      brex: "Brex API (direct HTTP, rate limiting)"
+      slack: "Slack Bolt for JavaScript (webhooks)"
+      
+    infra:
+      hosting: "AWS (ECS + RDS)"
+      database_backup: "AWS RDS automated snapshots"
+      monitoring: "Datadog (latency, error tracking)"
+      security: "AWS Secrets Manager"
+      
+    key_apis:
+      - "Stripe Reporting API (MRR, churn, LTV)"
+      - "Plaid Transactions API (expense categorization)"
+      - "Brex API (spend data)"
+      - "OpenAI API (expense categorization, forecast anomalies)"
+      - "Slack API (alerts, notifications)"
+    
+    external_services:
+      ai_forecasting: "Custom algorithm (linear regression + seasonal decomposition + ML for churn prediction)"
+      ai_categorization: "OpenAI GPT-4 (expense categorization)"
+      pdf_generation: "headless-chrome or React PDF"
+      email_service: "SendGrid"
+  
+  build_timeline:
+    week_1_2:
+      focus: "Auth + Stripe + Data model"
+      deliverables:
+        - "User auth (Supabase)"
+        - "Stripe OAuth + Reporting API integration"
+        - "Database schema (companies, transactions, forecasts, actuals)"
+        - "Basic dashboard UI (React boilerplate)"
+        - "MRR/churn data storage from Stripe"
+      
+    week_3_4:
+      focus: "Plaid integration + Expense categorization"
+      deliverables:
+        - "Plaid Link integration (get bank transactions)"
+        - "AI expense categorization (GPT-4 powered)"
+        - "Expense dashboard (view, categorize, adjust)"
+        - "Category management UI"
+      
+    week_5_6:
+      focus: "Forecasting engine + Runway dashboard"
+      deliverables:
+        - "Forecast algorithm (revenue + expense projection)"
+        - "Runway visualization (24-month projection)"
+        - "Scenario modeling UI ('What if' sliders)"
+        - "Red/yellow/green indicator logic"
+      
+    week_7_8:
+      focus: "Polish + alerts + launch"
+      deliverables:
+        - "Monthly P&L + cash flow statements (PDF/CSV export)"
+        - "Slack integration (alerts)"
+        - "Email alerts"
+        - "Brex integration"
+        - "Landing page + onboarding flow"
+        - "Stripe billing setup"
+        - "First 3 beta customer onboarding"
+  
+  success_metrics:
+    activation_rate: "80%+ users generate forecast within 2 days of signup"
+    trial_conversion_rate: "45%+ of 14-day trials convert to paid"
+    time_to_first_value: "< 25 min to 24-month forecast"
+    integration_completion: "100% Stripe, 75%+ Bank"
+    alert_adoption: "70%+ enable Slack alerts"
+    monthly_engagement: "80%+ log in 2+ times/month"
+    nrr_target: "115% by month 12"
+    churn_rate: "< 6% monthly (sticky due to integrations)"
+    
+    revenue_targets:
+      month_1: "$0 (beta)"
+      month_3: "$6-8K MRR (10-15 customers)"
+      month_6: "$12-15K MRR (15-20 customers)"
+      month_12: "$40-50K MRR (50+ customers, 18% expansion)"
+
+###############################################################################
+# UNIT ECONOMICS: CASH FLOW INTELLIGENCE
+###############################################################################
+
+unit_economics:
+  revenue:
+    customer_mix:
+      founder_40_percent: "$299/mo × 40% = $120 ARPU"
+      growth_50_percent: "$799/mo × 50% = $400 ARPU"
+      enterprise_10_percent: "$2,500/mo × 10% = $250 ARPU"
+    
+    blended_arpu: "$770/customer/month (weighted average)"
+    annual_acv: "$9,240 (blended, with annual discount)"
+    
+  customer_acquisition:
+    cac_month_1_4:
+      founder_sales_time: "200 hours @ $150/hr = $30K total"
+      per_customer_cost: "$30K / 5 customers = $6,000 per customer"
+      note: "Founder time; expensive but high-touch sales needed"
+    
+    cac_month_5_12:
+      content_marketing: "$6K/mo (contract writer, tools, distribution)"
+      sdr_part_time: "$2K/mo"
+      partnership_commission: "2% of new revenue"
+      blended_cac: "$1,500 per customer"
+      note: "Content marketing highly effective in finance niche"
+    
+    blended_cac_year_1: "$2,500 per customer"
+  
+  retention:
+    gross_churn: "3%/month (low; data integration lock-in)"
+    net_churn: "-(8%)/month (expansion revenue from upsells)"
+    nrr: "115% (strong retention + expansion)"
+    
+    expansion_sources:
+      board_deck_automation: "$200/mo (20% of customers by month 6)"
+      crm_integration: "$400/mo (12% of customers by month 9)"
+      investor_update_automation: "$300/mo (8% of customers by month 12)"
+      
+    blended_lifetime: "33 months (inverse of gross churn)"
+  
+  ltv_calculation:
+    revenue_per_customer_lifetime: "$770/mo × 33 months = $25,410"
+    minus_cost_of_goods_sold_35pct: "- $8,894"
+    minus_support_4pct: "- $1,016"
+    gross_ltv: "$15,500 per customer"
+    minus_cac: "- $2,500"
+    net_ltv: "$13,000 per customer"
+    
+    ltv_cac_ratio: "5.2:1 (EXCELLENT)"
+    payback_period: "3.2 months (solid)"
+  
+  unit_economics_verdict:
+    ✅_very_healthy_unit_model: "LTV:CAC > 5:1, Payback < 4 months"
+    ✅_scalable_with_content: "Content marketing efficient in fintech niche"
+    ✅_strong_nrr: "NRR 115% means low CAC payback"
+    
+    viability_score: "9.0/10 (very high confidence)"
+    risk_factors:
+      - "Larger competitors (Cube, Mosaic) have $50M+ funding; pricing pressure"
+      - "Feature parity with Excel + Stripe Dashboard could slow adoption"
+      - "Bank integration complexity (Plaid maintenance)"
+      - "Churn risk if Stripe/Brex add native forecasting"
+
+###############################################################################
+# FOUNDER-MARKET FIT ASSESSMENT
+###############################################################################
+
+founder_market_fit:
+  required_skills:
+    - skill_1:
+        name: "Finance/SaaS Domain Knowledge"
+        required: true
+        current: "Strong (finance expert on team)"
+        gap: "None"
+        
+    - skill_2:
+        name: "B2B SaaS Sales (CFO/Finance buyer)"
+        required: true
+        current: "Moderate"
+        gap: "Learnable; CFO buyers are more rational than CTOs"
+        
+    - skill_3:
+        name: "API Integration (Stripe, Plaid, Brex)"
+        required: true
+        current: "Strong (10x dev expertise)"
+        gap: "None"
+        
+    - skill_4:
+        name: "Financial Modeling / Forecasting"
+        required: true
+        current: "Strong (finance expert)"
+        gap: "None"
+  
+  founder_fit_score: "9.5/10 (Finance expert + 10x dev is ideal for this product)"
+  
+  validator_calls_needed: "15-20 discovery calls with CFOs/Finance leads at $5-20M ARR SaaS"
+  
+  go_nogo_criteria:
+    - "Do 80%+ of target customers currently use Excel for forecasting? (YES = proceed)"
+    - "Would they pay $3-8K/year to automate month-end close? (YES = proceed)"
+    - "Can we reach 20+ qualified prospects in 30 days? (YES = proceed)"
+    - "Is cash forecasting in top 5 pain points? (YES = proceed)"
+
+###############################################################################
+# COMPETITIVE DIFFERENTIATION
+###############################################################################
+
+competitive_positioning:
+  vs_cube:
+    cube_weakness: "Designed for larger companies ($20M+); enterprise pricing; slow sales cycle"
+    our_strength: "$299/mo; self-serve; 14-day free trial; built for founders"
+    our_angle: "Founder-first, not enterprise-first; founder retention focus"
+    
+  vs_mosaic:
+    mosaic_weakness: "$30K+/year; requires accounting/finance team; implementation heavy"
+    our_strength: "Simple setup (3 integrations); no finance team required; AI-driven"
+    our_angle: "For founders without CFO/finance team"
+    
+  vs_travelperk_float:
+    float_weakness: "European focus; complex setup; traditional forecasting"
+    our_strength: "US SaaS focus; 20-minute setup; AI-powered"
+    our_angle: "Built for Stripe/Brex native integration"
+    
+  vs_spreadsheets:
+    spreadsheet_weakness: "Manual, error-prone, 40 hours/month to maintain"
+    our_strength: "Automated, real-time, 20 minutes/month for updates"
+    our_angle: "10x time savings for month-end close"
+    
+  our_unique_value_prop: "Only tool that forecasts cash flow using Stripe MRR + bank expenses + AI for $299/mo"
+
+###############################################################################
+# RISK MITIGATION
+###############################################################################
+
+risks_and_mitigations:
+  risk_1:
+    name: "Sales cycle longer than expected (90+ days vs 60)"
+    likelihood: "MEDIUM"
+    impact: "HIGH"
+    mitigation: "Free tier with 3-month forecast; self-serve onboarding; 14-day paid trial reduces friction"
+    
+  risk_2:
+    name: "Stripe/Brex build native forecasting, killing TAM"
+    likelihood: "MEDIUM"
+    impact: "CRITICAL"
+    mitigation: "Move upmarket faster (focus on Growth plan); add adjacent features (board prep, investor updates)"
+    
+  risk_3:
+    name: "Bank integration breaks (Plaid API changes, rate limits)"
+    likelihood: "HIGH"
+    impact: "MEDIUM"
+    mitigation: "Hire integrations engineer month 3; maintain backup integrations (Brex); monitor APIs closely"
+    
+  risk_4:
+    name: "Forecast accuracy issues lead to customer churn"
+    likelihood: "MEDIUM"
+    impact: "HIGH"
+    mitigation: "Get early customer feedback; publish forecast accuracy metrics; allow manual overrides"
+    
+  risk_5:
+    name: "Competition from well-funded startups (Cube raised $50M+)"
+    likelihood: "HIGH"
+    impact: "HIGH"
+    mitigation: "Differentiate on UX (simplicity) + focus on founders (not enterprises); expand to adjacent products (payroll, hiring forecasts)"
+
+###############################################################################
+# NEXT STEPS: WEEK 0-1 (BEFORE MVP LAUNCH)
+###############################################################################
+
+pre_launch_validation:
+  step_1:
+    task: "Talk to 15 CFOs at target ICPs"
+    goal: "Validate 70%+ spend 8+ hours/month on month-end close; would pay $250-500/mo"
+    timeline: "Week 1"
+    
+  step_2:
+    task: "Test forecast accuracy against 3 beta customers"
+    goal: "Ensure forecast error < 10% for 90-day window"
+    timeline: "Week 3-4"
+    
+  step_3:
+    task: "Build MVP integrations in parallel"
+    goal: "Stripe + Plaid + Brex working end-to-end by week 5"
+    timeline: "Weeks 1-5"
+    
+  step_4:
+    task: "Secure Stripe/Brex partnership for co-marketing"
+    goal: "Get early customer referrals; credibility boost"
+    timeline: "Week 3-4"
+
+###############################################################################

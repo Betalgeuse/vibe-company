@@ -1,0 +1,479 @@
+###############################################################################
+# OPPORTUNITY A: ComplianceRunner - Compliance Automation for SMB Tech
+###############################################################################
+
+mvp_spec:
+  name: "ComplianceRunner"
+  tagline: "SOC2 compliance in 8 weeks, not 8 months. For SMBs."
+  
+  core_features:
+    - feature_1:
+        name: "AI Control Generator"
+        description: "Auto-generate SOC2 controls based on tech stack (GitHub, AWS, Okta, etc). Founder inputs 3 integrations, system generates 80% of controls."
+        priority: "P0"
+        build_time: "2.5 weeks"
+        complexity: "MEDIUM"
+        
+    - feature_2:
+        name: "Evidence Collector Dashboard"
+        description: "Aggregates evidence from connected tools (AWS CloudTrail, GitHub logs, Okta MFA logs). Automated categorization into control buckets."
+        priority: "P0"
+        build_time: "2 weeks"
+        complexity: "MEDIUM"
+        
+    - feature_3:
+        name: "SOC2 Report Builder"
+        description: "Generate audit-ready SOC2 Type 1 report (narrative + evidence). Exported as PDF/DOC for auditor submission."
+        priority: "P0"
+        build_time: "1.5 weeks"
+        complexity: "LOW"
+        
+    - feature_4:
+        name: "Policy Library & Templates"
+        description: "500+ pre-written policies for SaaS companies. Customizable for company, searchable. Version control for audit trail."
+        priority: "P1"
+        build_time: "1 week"
+        complexity: "LOW"
+        
+    - feature_5:
+        name: "Team Collaboration & Assignments"
+        description: "Assign evidence collection tasks to team. Track completion. Audit-trail comments on each control."
+        priority: "P1"
+        build_time: "1 week"
+        complexity: "MEDIUM"
+  
+  integrations:
+    - integration_1:
+        name: "AWS CloudTrail"
+        why: "80% of target ICP uses AWS; CloudTrail logs = primary evidence source"
+        complexity: "MEDIUM"
+        build_time: "1 week"
+        mvp_inclusion: true
+        
+    - integration_2:
+        name: "GitHub"
+        why: "Proves code review controls, access management, deployment logs"
+        complexity: "LOW"
+        build_time: "3 days"
+        mvp_inclusion: true
+        
+    - integration_3:
+        name: "Okta / Auth0"
+        why: "MFA logs, access controls, user provisioning = security requirements"
+        complexity: "MEDIUM"
+        build_time: "1 week"
+        mvp_inclusion: true
+        
+    - integration_4:
+        name: "Stripe / Brex"
+        why: "Financial controls evidence; post-MVP"
+        complexity: "LOW"
+        build_time: "3 days"
+        mvp_inclusion: false
+        
+    - integration_5:
+        name: "PagerDuty"
+        why: "Incident response evidence; post-MVP"
+        complexity: "LOW"
+        build_time: "3 days"
+        mvp_inclusion: false
+  
+  pricing:
+    model: "Usage-based + seat-based hybrid"
+    free_tier: true
+    free_tier_details: "3 controls, 1 integration, read-only"
+    
+    starter_plan:
+      name: "Starter"
+      price: "$499/month"
+      annual_discount: "$4,990/year (17% savings)"
+      target_ica: "15-30 person startup"
+      includes:
+        - "Up to 25 controls"
+        - "3 integrations"
+        - "10 team members"
+        - "Basic evidence collection"
+        - "Email support"
+      
+    growth_plan:
+      name: "Growth"
+      price: "$1,299/month"
+      annual_discount: "$12,990/year (17% savings)"
+      target_ica: "30-100 person growth stage"
+      includes:
+        - "Unlimited controls"
+        - "Unlimited integrations"
+        - "50 team members"
+        - "AI policy library"
+        - "Report generation"
+        - "Priority email + chat"
+        - "Custom branding (for auditor review)"
+      
+    enterprise_plan:
+      name: "Enterprise"
+      price: "Custom"
+      minimum_spend: "$3,000/month"
+      target_ica: "100+ person Series A+"
+      includes:
+        - "Everything in Growth"
+        - "SSO (SAML)"
+        - "Data export API"
+        - "Dedicated success manager"
+        - "Custom integrations"
+        - "Phone support (US hours)"
+  
+  expansion_triggers:
+    - "When adding 2nd SOC2 framework (ISO 27001) → +$300/mo"
+    - "Per 50 additional team members → +$200/mo"
+    - "GDPR compliance module → +$400/mo"
+    - "Custom audit integration → +$500/mo"
+    
+  onboarding:
+    steps:
+      - step_1:
+          name: "Stack Input"
+          description: "User selects 3-5 tools they use (AWS, GitHub, Okta, etc)"
+          time: "2 minutes"
+          action: "Multi-select dropdown"
+          
+      - step_2:
+          name: "Connect Integrations"
+          description: "OAuth for each tool. User approves scopes. System validates."
+          time: "5 minutes"
+          action: "OAuth flow with validation"
+          
+      - step_3:
+          name: "Generate Controls"
+          description: "System auto-generates 25 controls based on stack. User reviews, marks complete."
+          time: "10 minutes"
+          action: "One-click 'Auto-Generate' then bulk review"
+          
+      - step_4:
+          name: "Collect Evidence"
+          description: "System auto-fetches 60% of evidence. User uploads remaining 40%."
+          time: "8 minutes"
+          action: "Evidence aggregation dashboard"
+          
+      - step_5:
+          name: "Generate Report"
+          description: "Click 'Generate SOC2 Report'. PDF ready in 30 seconds."
+          time: "2 minutes"
+          action: "One-click PDF generation"
+    
+    time_to_value: "< 30 minutes to first SOC2 report draft"
+    activation_metrics:
+      - "Evidence collection rate: >80% controls have evidence by day 5"
+      - "Report generation: First report generated by day 7"
+      - "Integration count: >2 integrations connected by day 3"
+  
+  gtm:
+    first_10_customers:
+      channels:
+        - "Warm outreach to Y Combinator / 500 Global alumni networks (founder has network)"
+        - "LinkedIn message to CTOs at 20-50 person funded startups"
+        - "Product Hunt launch (compliance automation niche)"
+        - "Reddit/HackerNews: 'Got SOC2 compliance in 3 weeks, here's how'"
+        - "Startup communities: YC Slack, Indie Hackers, SaaS Founder groups"
+      
+      messaging: "Stop paying $50K for compliance consultants. Generate audit-ready SOC2 reports in hours."
+      
+      ideal_first_customer_profile:
+        - "Recently raised Series A (compliance = customer requirement)"
+        - "Enterprise customer asking for SOC2 (urgent pain)"
+        - "Previous used Drata/Vanta, found it too expensive"
+      
+      acquisition_cost: "$500-800 per customer (3-4 discovery calls per deal)"
+      
+    channel_strategy:
+      phase_1_month_1_2:
+        channel: "Founder-led outbound + warm network"
+        target: "5 customers"
+        method: "30 min calls with CTOs/COOs; offer 50% discount for Year 1"
+        messaging: "Got SOC2? We cut your compliance cost 10x."
+        
+      phase_2_month_3_4:
+        channel: "Content marketing + SEO"
+        target: "+ 5 customers"
+        content:
+          - "Blog post: 'SOC2 Checklist for Startups' (rank for 'SOC2 requirements')"
+          - "Case study from Customer #1: 'How we got SOC2 in 3 weeks'"
+          - "HackerNews post: technical breakdown of auto-control generation"
+        
+      phase_3_month_5_6:
+        channel: "Strategic partnerships + referrals"
+        target: "10-20 customers cumulative"
+        partnerships:
+          - "Partner with Stripe/AWS consulting partners (resell model)"
+          - "Affiliate with accountants/CPAs serving startups"
+          - "Referral program: $500 per referred customer"
+    
+    month_6_target: "20-25 paying customers, $20-25K MRR, 40%+ trial-to-paid"
+  
+  tech_stack:
+    frontend:
+      framework: "React 18 + TypeScript (existing team expertise)"
+      ui_library: "shadcn/ui + TailwindCSS (speed)"
+      state_management: "React Query + Zustand (simplicity over Redux)"
+      deployment: "Vercel (auto-scaling, CDN)"
+    
+    backend:
+      language: "Node.js (TypeScript) - leverage 10x dev expertise"
+      framework: "NestJS (enterprise-ready structure)"
+      database:
+        primary: "PostgreSQL (audit logs, relationships)"
+        cache: "Redis (session management, control cache)"
+      authentication: "Supabase Auth + JWT (reduces dev time)"
+      
+    integrations_sdk:
+      aws: "AWS SDK for JavaScript (CloudTrail logs)"
+      github: "Octokit (GitHub API client)"
+      okta: "Okta SDK (OAuth + API calls)"
+      stripe: "Stripe SDK (post-MVP)"
+      
+    infra:
+      hosting: "AWS (ECS + RDS; leverage 10x dev)"
+      ci_cd: "GitHub Actions (built-in, free)"
+      monitoring: "Datadog (observability, audit logs)"
+      backups: "AWS RDS automated backups"
+      security: "AWS Secrets Manager + environment variables"
+    
+    key_apis:
+      - "AWS CloudTrail API (log retrieval)"
+      - "GitHub REST + GraphQL (repo, PR, deployment data)"
+      - "Okta Management API (user, MFA, access logs)"
+      - "Stripe Reporting API (financial controls)"
+      - "OpenAI API (control generation + evidence summarization)"
+    
+    external_services:
+      ai_control_generation: "OpenAI GPT-4 (prompt-engineered for SOC2 controls)"
+      pdf_generation: "React PDF or headless-chrome (report generation)"
+      email_service: "SendGrid or Postmark (notifications)"
+  
+  build_timeline:
+    week_1_2:
+      focus: "MVP setup + AWS integration"
+      deliverables:
+        - "Auth system (Supabase Auth, JWT)"
+        - "Database schema (users, companies, controls, evidence)"
+        - "AWS CloudTrail integration (read-only logs)"
+        - "Basic dashboard UI (React boilerplate)"
+      
+    week_3_4:
+      focus: "Control generation + GitHub integration"
+      deliverables:
+        - "GPT-4 based control generator (templated prompts)"
+        - "Control review/editing UI"
+        - "GitHub integration (repo, PR, branch protection logs)"
+        - "Evidence aggregation service"
+      
+    week_5_6:
+      focus: "Okta integration + Report generation"
+      deliverables:
+        - "Okta MFA + access logs integration"
+        - "Evidence dashboard (filterable by control)"
+        - "SOC2 Type 1 report PDF generator (template-based)"
+        - "Email notifications (evidence collection status)"
+      
+    week_7_8:
+      focus: "Polish + launch prep + first customers"
+      deliverables:
+        - "Team collaboration UI (task assignment)"
+        - "Policy library (seed 100 policies)"
+        - "Landing page + onboarding flow"
+        - "Stripe integration for billing (Stripe SDK)"
+        - "First 3 beta customer onboarding"
+  
+  success_metrics:
+    activation_rate: "75%+ users complete onboarding (all 5 steps)"
+    trial_conversion_rate: "35%+ of 14-day trials convert to paid"
+    time_to_first_value: "< 30 min to SOC2 report"
+    evidence_collection_rate: "80%+ controls have evidence by day 7"
+    month_1_retention: "85%+ (14-day trials continuing)"
+    nrr_target: "120% by month 12 (expansion revenue)"
+    churn_rate: "< 5% monthly (sticky product)"
+    
+    revenue_targets:
+      month_1: "$0 (beta, discounted)"
+      month_3: "$8-10K MRR (10-15 customers)"
+      month_6: "$20-25K MRR (20-25 customers)"
+      month_12: "$60K+ MRR (50-60 customers, 20% expansion)"
+
+###############################################################################
+# UNIT ECONOMICS: COMPLIANCE AUTOMATION
+###############################################################################
+
+unit_economics:
+  revenue:
+    customer_mix:
+      starter_30_percent: "$499/mo × 30% = $150 ARPU"
+      growth_50_percent: "$1,299/mo × 50% = $650 ARPU"
+      enterprise_20_percent: "$3,000/mo × 20% = $600 ARPU"
+    
+    blended_arpu: "$1,130/customer/month (weighted average)"
+    annual_acv: "$13,560 (blended, with annual discount)"
+    
+  customer_acquisition:
+    cac_month_1_4:
+      founder_outreach_cost: "250 hours @ $150/hr = $37.5K total"
+      per_customer_cost: "$37.5K / 10 customers = $3,750 per customer"
+      note: "Founder time; expensive to scale"
+    
+    cac_month_5_12:
+      marketing_content_cost: "$8K/mo (contract writer + tools)"
+      sdr_cost: "$3K/mo (part-time)"
+      partnership_commission: "2% of new customer revenue"
+      blended_cac: "$1,200 per customer"
+      note: "Scales with content + partnerships"
+    
+    blended_cac_year_1: "$2,000 per customer"
+  
+  retention:
+    gross_churn: "4%/month (3% price increase shock, 1% product churn)"
+    net_churn: "-(10%)/month (expansion revenue + upsells)"
+    nrr: "125% (high leverage on enterprise segment)"
+    
+    expansion_sources:
+      policy_library_addon: "$300/mo (15% of customers in mo 6)"
+      iso27001_framework: "$400/mo (10% of customers in mo 9)"
+      api_access: "$600/mo (5% of customers in mo 12)"
+      
+    blended_lifetime: "25 months (inverse of churn)"
+  
+  ltv_calculation:
+    revenue_per_customer_lifetime: "$1,130/mo × 25 months = $28,250"
+    minus_gross_margin_loss_30pct: "- $8,475"
+    minus_support_5pct: "- $1,413"
+    gross_ltv: "$18,362 per customer"
+    minus_cac: "- $2,000"
+    net_ltv: "$16,362 per customer"
+    
+    ltv_cac_ratio: "8.2:1 (EXCELLENT)"
+    payback_period: "2.2 months (very fast)"
+  
+  unit_economics_verdict:
+    ✅_extremely_healthy: "LTV:CAC > 5:1, Payback < 3 months"
+    ✅_sustainable_unit_model: "Gross margin 70%+ supports 10x scaling"
+    ✅_land_expand_ready: "NRR 125% enables efficient growth"
+    
+    viability_score: "9.2/10 (very high confidence)"
+    risk_factors:
+      - "Competitor (Drata/Vanta) price drop to $3-5K could pressure margin"
+      - "Sales cycle can extend to 90 days with larger deals"
+      - "Integration maintenance cost not fully modeled"
+
+###############################################################################
+# FOUNDER-MARKET FIT ASSESSMENT
+###############################################################################
+
+founder_market_fit:
+  required_skills:
+    - skill_1:
+        name: "B2B SaaS Sales Experience"
+        required: true
+        current: "Strong (10x dev founder can sell)"
+        gap: "None"
+        
+    - skill_2:
+        name: "Security/Compliance Domain Knowledge"
+        required: true
+        current: "Moderate (need 2-3 weeks onboarding)"
+        gap: "Low (learnable; many founders excel here)"
+        
+    - skill_3:
+        name: "API Integration Architecture"
+        required: true
+        current: "Strong (10x dev core skill)"
+        gap: "None"
+        
+    - skill_4:
+        name: "Network in Startup Community"
+        required: true
+        current: "Moderate to Strong"
+        gap: "Leverage YC/accelerator networks"
+  
+  validator_calls_needed: "10-15 discovery calls with CTOs at 20-100 person SaaS"
+  
+  go_nogo_criteria:
+    - "Does target customer currently own compliance problem? (YES = proceed)"
+    - "Would they pay $6K-15K/year to avoid $50K audit cost? (YES = proceed)"
+    - "Can we reach 20+ qualified prospects in next 30 days? (YES = proceed)"
+    - "Is compliance the TOP 3 pain point for founder? (YES = proceed)"
+
+###############################################################################
+# COMPETITIVE DIFFERENTIATION
+###############################################################################
+
+competitive_positioning:
+  vs_drata:
+    drata_weakness: "Pricing: $7.5-50K/year; long implementation; 8-12 week sales cycle"
+    our_strength: "$499-1,299/mo; 30-min setup; 14-day free trial"
+    our_angle: "Self-serve tier for early-stage; SMB affordability"
+    
+  vs_vanta:
+    vanta_weakness: "$10K minimum/year; feels like enterprise tool; no free tier"
+    our_strength: "Free tier for 3 controls; designed for founder workflows"
+    our_angle: "Founder-first UX; no sales call required"
+    
+  vs_secureframe:
+    secureframe_weakness: "$15K+/year; consultant-heavy model"
+    our_strength: "AI-driven automation; no manual consulting"
+    our_angle: "Tech-native compliance; faster time-to-audit"
+    
+  our_unique_value_prop: "Only tool that generates SOC2 reports in < 1 hour for < $1.5K/mo"
+
+###############################################################################
+# RISK MITIGATION
+###############################################################################
+
+risks_and_mitigations:
+  risk_1:
+    name: "Long sales cycle (60+ days)"
+    likelihood: "MEDIUM"
+    impact: "HIGH"
+    mitigation: "Launch free tier first; 14-day trial converts 35%+; focus on warm outreach (YC networks)"
+    
+  risk_2:
+    name: "Enterprise customers want white-label / custom integrations"
+    likelihood: "MEDIUM"
+    impact: "MEDIUM"
+    mitigation: "Enterprise tier at $3K+/mo includes custom integrations; hire integrations engineer month 6"
+    
+  risk_3:
+    name: "Compliance/auditor feedback: our reports not audit-ready"
+    likelihood: "LOW"
+    impact: "CRITICAL"
+    mitigation: "Partner with big4 auditor firm in week 4-5 for review; iterate report template"
+    
+  risk_4:
+    name: "Integration breaks (AWS API changes, GitHub deprecation)"
+    likelihood: "MEDIUM"
+    impact: "MEDIUM"
+    mitigation: "Hire DevOps engineer month 4; implement API monitoring/alerts; maintain backup integrations"
+    
+  risk_5:
+    name: "Founder burnout (B2B sales + product + engineering)"
+    likelihood: "HIGH"
+    impact: "HIGH"
+    mitigation: "Hire SDR/sales person month 4-5; focus founder on top 5 accounts only"
+
+###############################################################################
+# NEXT STEPS: WEEK 0-1 (BEFORE MVP LAUNCH)
+###############################################################################
+
+pre_launch_validation:
+  step_1:
+    task: "Talk to 10 CTOs at target ICPs"
+    goal: "Validate 80%+ would pay $500-1.5K/mo vs $50K consultants"
+    timeline: "Week 1"
+    
+  step_2:
+    task: "Partner with 1 Big4 auditor (Deloitte/EY/PwC) for report review"
+    goal: "Confirm our generated reports are audit-ready"
+    timeline: "Week 2"
+    
+  step_3:
+    task: "Build minimal MVP features (Weeks 1-4) in parallel"
+    goal: "Get alpha build in 3 weeks; integrate with 3 beta customers in week 4-5"
+    timeline: "Weeks 1-4"
+
+###############################################################################

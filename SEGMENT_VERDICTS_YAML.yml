@@ -1,0 +1,445 @@
+segment_analysis:
+
+  - segment_name: "Trade Compliance / Tariff Management for SMBs"
+    market_maturity: "Growing (Explosive 2024-2026)"
+    market_size_addressable: "1M+ SMB importers/exporters globally"
+    
+    top_competitors:
+      - name: "KYG Trade"
+        founding_year: "Recent (Series-B)"
+        target_customer: "SMB / Mid-Market (Tech, Manufacturing)"
+        pricing_model: "$5-20K ACV estimated (custom)"
+        key_features: "AI HS classification, FTA qualification, forced labor compliance, tariff analytics"
+        customer_base_estimate: "Startups, small tech, manufacturer early adopters"
+        gartner_mention: "Gartner 2025 Global Trade Management Market Guide - new entrant"
+        funding: "Unknown, likely Series A-B"
+        
+      - name: "Quickcode"
+        founding_year: "Recent"
+        target_customer: "SMB"
+        pricing_model: "Freemium → $10K ACV"
+        key_features: "AI tariff risk identification, product catalog automation, 80% time savings"
+        customer_base_estimate: "E-commerce, importers, startups"
+        free_tier: true
+        
+      - name: "Flexport Tariff Simulator"
+        founding_year: "Recent"
+        target_customer: "SMB / Free Tool"
+        pricing_model: "Free + premium services"
+        key_features: "US tariff calculator, HTS lookup, real-time rates"
+        
+      - name: "Descartes Global Trade Intelligence"
+        founding_year: "1985"
+        target_customer: "Enterprise (NOT SMB-focused)"
+        pricing_model: "$50K+ ACV"
+        key_features: "HS classification, duty determination, FTZ management, integration"
+        
+    competitive_gaps:
+      - gap_title: "Scenario modeling for tariff changes / what-if analysis"
+        opportunity_size: "High"
+        smb_need: "Cost forecasting for sourcing decisions, not just compliance tracking"
+        
+      - gap_title: "Forced labor compliance (UFLPA) + tariff obligations bundled"
+        opportunity_size: "Medium-High"
+        smb_need: "Jan 2025 UFLPA enforcement creating compliance panic"
+        
+      - gap_title: "Tariff-aware procurement workflow integration"
+        opportunity_size: "Medium"
+        smb_need: "Influence sourcing decisions in real-time, not just track/alert"
+
+    unit_economics_benchmark:
+      typical_cac: "$2K-5K (self-serve SMB)"
+      sales_cycle_weeks: "2-4 weeks"
+      monthly_churn_pct: "5-7% (policy-driven)"
+      annual_churn_pct: "50-70%"
+      ltv_cac_ratio: "2:1 to 3:1"
+      acv_range_low: "$3K"
+      acv_range_high: "$20K"
+      seat_pricing_monthly: "$50-150"
+      payback_months: "4-6"
+      estimated_roi_savings: "10-30% duty reduction"
+
+    market_dynamics:
+      - "2025 tariff volatility: US 10-25% rates, reciprocal tariffs"
+      - "UFLPA enforcement (Jan 2025) creating urgent compliance need"
+      - "AI-assisted classification gaining traction: 70%+ time savings claims"
+      - "Freemium models proving SMB demand (Quickcode, Flexport free tools)"
+      - "Enterprise players (Descartes, e2open, Altana) expensive ($100K+ ACV) and slow"
+      - "Recent funding: Interos $40M (Jan 2026), Altana $235M (Apr 2024)"
+
+    verdict: "Highly Attractive"
+    score: 9
+    reasoning: |
+      Market in inflection point 2024-2026 due to tariff volatility + UFLPA enforcement.
+      Enterprise players expensive ($100K+ ACV) and slow (6+ month deployment).
+      SMB tier severely underserved - KYG Trade entering with AI-native approach signals opportunity.
+      Unit economics excellent: $2-5K CAC, 2-4 week sales cycle, 4-6 month payback.
+      High churn (50-70%) offset by recurring policy changes (structural, not discretionary).
+      ROI-driven positioning (tariff savings, duty optimization) resonates with SMB buyers.
+
+---
+
+  - segment_name: "Defense Procurement Tools for Small Subcontractors"
+    market_maturity: "Niche / Growing (Emerging SMB-focused tools)"
+    market_size_addressable: "50K+ SMB defense subcontractors in US"
+    
+    top_competitors:
+      - name: "Wintract"
+        founding_year: "Recent"
+        target_customer: "Small Defense Contractors (SMB)"
+        pricing_model: "$5-15K ACV estimated"
+        key_features: "SAM.gov/FPDS opportunity discovery, RFP/bid analysis, compliance matrix, 95% CAC savings"
+        positioning: "AI-powered opportunity discovery and RFP analysis"
+        
+      - name: "NextStage"
+        founding_year: "Recent"
+        target_customer: "Defense Contractors (SMB focus)"
+        pricing_model: "$8-20K ACV estimated"
+        key_features: "Opportunity management, CRM, competitor intelligence, early ID (36mo pre-RFP)"
+        positioning: "Capture/proposal management for GovCon"
+        
+      - name: "Sustainment"
+        founding_year: "Recent"
+        target_customer: "Defense OEMs, contract manufacturers (SMB)"
+        pricing_model: "$10-30K ACV estimated"
+        key_features: "AI-native sourcing, procurement workflows, supply chain resilience for defense"
+        positioning: "Defense-focused, American manufacturing first"
+        
+      - name: "SyncFab"
+        founding_year: "Recent"
+        target_customer: "Defense SMB suppliers"
+        pricing_model: "$5-15K ACV estimated"
+        key_features: "RFQ management, supplier verification, AS9100/DFARS/ITAR compliance"
+        positioning: "Aerospace & Defense procurement, SMB supplier focus"
+        
+      - name: "Deltek Costpoint"
+        founding_year: "1983"
+        target_customer: "Enterprise (NOT SMB-focused)"
+        pricing_model: "$30-100K+ ACV"
+        key_features: "Government contracting, EVM, cost tracking, project management"
+        positioning: "Market leader but enterprise-only"
+
+    competitive_gaps:
+      - gap_title: "Compliance-first procurement (DFARS, ITAR, CMMC navigation)"
+        opportunity_size: "High"
+        smb_need: "CMMC 2.0 Jan 2025 mandate overwhelming SMB contractors"
+        
+      - gap_title: "Supply chain risk for defense (FOCI verification, export control)"
+        opportunity_size: "Medium-High"
+        smb_need: "ITAR/EAR restrictions on components; few tools verify Foreign Ownership, Control or Influence"
+        
+      - gap_title: "Cost tracking & EVM (earned value reporting) for SMBs"
+        opportunity_size: "Medium"
+        smb_need: "Government requires EVM; only Deltek does well; gap for lightweight SMB alternative"
+
+    unit_economics_benchmark:
+      typical_cac: "$3K-8K (GovCon sales specialist)"
+      sales_cycle_weeks: "6-12 weeks (relationship-heavy)"
+      monthly_churn_pct: "2-3% (sticky, high switching costs)"
+      annual_churn_pct: "20-35%"
+      ltv_cac_ratio: "4:1 to 6:1 (excellent)"
+      acv_range_low: "$8K"
+      acv_range_high: "$30K"
+      seat_pricing_monthly: "$50-150"
+      payback_months: "6-9"
+
+    market_dynamics:
+      - "US defense spending $800B+ annually; SMBs are ~25% of supplier base"
+      - "CMMC 2.0 Jan 2025 enforcement: cybersecurity mandate affecting 50K+ contractors"
+      - "DFARS 252.203 tightened: supplier tracking requirements increasing"
+      - "UFLPA enforcement (Jan 2025): defense contractors exposed"
+      - "Buy American / CHIPS Act policy: preference for domestic SMB suppliers"
+      - "Venture funding rising: Wintract, NextStage, Sustainment attracting investment"
+
+    verdict: "Attractive"
+    score: 8
+    reasoning: |
+      Defense procurement is niche SMB segment with unique compliance needs poorly served by general tools.
+      Deltek expensive ($30-100K+ ACV) and slow; emerging SMB players ($5-30K ACV) gaining traction.
+      Unit economics excellent: $3-8K CAC, 6-12 week sales cycle, 6-9 month payback, 4-6:1 LTV:CAC.
+      Churn low (2-3% monthly, 20-35% annual) due to high switching costs.
+      Strong tailwinds: CMMC 2.0 mandate, DFARS compliance, defense spending rising.
+      SMB tier opportunity-rich and less saturated than Enterprise.
+
+---
+
+  - segment_name: "Export Compliance Software for Small Tech Companies"
+    market_maturity: "Mature / Growing (SMB sub-segment fragmenting)"
+    market_size_addressable: "300K+ small tech companies globally"
+    
+    top_competitors:
+      - name: "KYG Trade"
+        founding_year: "Recent (Series-B stage)"
+        target_customer: "SMB / Mid-Market Tech"
+        pricing_model: "$5-20K ACV estimated"
+        key_features: "AI HS classification, FTA qualification, forced labor compliance, tariff analytics, ESG scoring"
+        positioning: "AI-native, SMB-optimized trade compliance"
+        
+      - name: "Quickcode"
+        founding_year: "Recent"
+        target_customer: "SMB"
+        pricing_model: "Freemium → $10K ACV"
+        key_features: "AI compliance risk ID, product catalog automation, 80% time savings"
+        positioning: "Freemium AI-powered tariff/export risk"
+        
+      - name: "Visual Compliance"
+        founding_year: "~2000s"
+        target_customer: "SMB / Mid-Market"
+        pricing_model: "$10-30K ACV estimated"
+        key_features: "Denied party screening, export classification, audit trails"
+        note: "Descartes subsidiary - acquisition risk for SMB independence"
+        
+      - name: "Descartes Visual Compliance (Consolidated)"
+        founding_year: "1985 + acquisition"
+        target_customer: "Enterprise"
+        pricing_model: "$50K+ ACV"
+        key_features: "Market-leading but expensive"
+        positioning: "Enterprise consolidation"
+
+    competitive_gaps:
+      - gap_title: "Forced Labor Compliance (UFLPA) automation"
+        opportunity_size: "High"
+        smb_need: "Only KYG Trade has native UFLPA module; enforcement Jan 2025 driving urgent demand"
+        
+      - gap_title: "Product-level ESG/traceability scoring"
+        opportunity_size: "Medium-High"
+        smb_need: "Only KYG Trade offers product ESG; EU EUDR driving demand"
+        
+      - gap_title: "Developer-friendly API for product classification"
+        opportunity_size: "Medium"
+        smb_need: "Embed classification into product design workflow, not just customs"
+
+    unit_economics_benchmark:
+      typical_cac: "$2K-5K (SMB tier)"
+      sales_cycle_weeks: "2-3 weeks (self-serve)"
+      monthly_churn_pct: "4-6% (SMB tech, higher volatility)"
+      annual_churn_pct: "40-55%"
+      ltv_cac_ratio: "2.5:1 to 3.5:1"
+      acv_range_low: "$3K"
+      acv_range_high: "$20K"
+      seat_pricing_monthly: "$30-100"
+      payback_months: "6-9"
+
+    market_dynamics:
+      - "2025 tariff volatility: 10-25% US rates"
+      - "UFLPA enforcement (Jan 2025): detention notices creating compliance panic"
+      - "AI-assisted classification: 70%+ time savings claims"
+      - "Freemium models emerging: Quickcode, Flexport free tools"
+      - "Consolidation: Descartes acquired Visual Compliance"
+
+    verdict: "Attractive"
+    score: 8
+    reasoning: |
+      Market mature but fragmenting into SMB sub-segment.
+      KYG Trade entering with AI-native approach shows market appetite.
+      Freemium models (Quickcode, Flexport) proving SMBs want low-friction entry.
+      Key gaps: UFLPA compliance automation, product ESG, developer APIs.
+      Unit economics strong: $7-15K ACV with 2-3 week sales cycle.
+      High churn (40-55%) offset by strong product-market fit signals.
+
+---
+
+  - segment_name: "Supply Chain Risk / Compliance Management for SMB Manufacturers"
+    market_maturity: "Growing"
+    market_size_addressable: "500K+ SMB manufacturers globally"
+    
+    top_competitors:
+      - name: "Interos.ai"
+        founding_year: "2005"
+        target_customer: "Fortune 1000 / Enterprise (NOT SMB)"
+        pricing_model: "$50K+ ACV"
+        funding: "$204M total; latest $40M (Jan 2026)"
+        key_features: "i-Score™ risk assessment, multi-tier mapping, cyber/financial/ESG/geopolitical"
+        positioning: "AI-powered supply chain resilience for Fortune 1000"
+        
+      - name: "Everstream Analytics"
+        founding_year: "~2010"
+        target_customer: "Enterprise"
+        pricing_model: "$100K+ ACV"
+        key_features: "Predictive analytics, network mapping, AI alerts"
+        
+      - name: "Resilinc"
+        founding_year: "2005"
+        target_customer: "Mid-Market / Enterprise"
+        pricing_model: "$30K+ ACV estimated"
+        key_features: "EventWatch, multi-tier mapping, supplier network management"
+        
+      - name: "Prevalent"
+        founding_year: "~2000s"
+        target_customer: "Mid-Market / Enterprise"
+        pricing_model: "$50K+ ACV"
+        key_features: "Risk assessment automation, continuous monitoring"
+        
+      - name: "ProcessUnity"
+        founding_year: "~2000s"
+        target_customer: "Mid-Market / Enterprise"
+        pricing_model: "$40K+ ACV"
+        gartner_rating: "4.4/5"
+        note: "Good configurability but performance issues reported"
+
+    competitive_gaps:
+      - gap_title: "SMB price point ($3K-8K ACV)"
+        opportunity_size: "High"
+        smb_need: "Entire market is $30K+ ACV; massive gap for $5-20K tier"
+        
+      - gap_title: "Implementation speed"
+        opportunity_size: "High"
+        smb_need: "Enterprise tools require 6+ months; SMBs need <30 days"
+        
+      - gap_title: "Simplicity vs. complexity"
+        opportunity_size: "High"
+        smb_need: "Rule of 40 simplicity vs. enterprise configurability"
+        
+      - gap_title: "Tariff + supply chain compliance bundled"
+        opportunity_size: "Medium"
+        smb_need: "Integrated tariff exposure + supply chain risk scoring"
+
+    unit_economics_benchmark:
+      typical_cac: "$3K-8K (self-serve)"
+      sales_cycle_weeks: "2-4 weeks"
+      monthly_churn_pct: "3-5%"
+      annual_churn_pct: "30-40%"
+      ltv_cac_ratio: "3:1 to 5:1"
+      acv_range_low: "$5K"
+      acv_range_high: "$30K"
+      seat_pricing_monthly: "$50-150"
+
+    market_dynamics:
+      - "SCRM market growing to $8B+ by early 2030s"
+      - "2025 tariff volatility driving SCRM adoption"
+      - "Recent funding: Interos $40M (Jan 2026)"
+      - "No major consolidation yet; market still fragmented"
+
+    verdict: "Attractive (Moderate opportunity)"
+    score: 7
+    reasoning: |
+      Market growing but severely underserved at SMB tier ($5-20K ACV).
+      All major players target Enterprise/Fortune 1000.
+      White space exists for cloud-native, SMB-friendly SCRM tool.
+      Unit economics viable: $8-15K ACV with <4 week sales cycle.
+      Risk: Low SMB willingness-to-pay for "risk management" if not tied to cost savings.
+
+---
+
+  - segment_name: "Vendor / Supplier Management for Small Businesses"
+    market_maturity: "Mature / Consolidating"
+    market_size_addressable: "200K+ SMBs with vendor risk concerns"
+    
+    top_competitors:
+      - name: "CobbleStone Software"
+        founding_year: "1990s"
+        target_customer: "SMB / Mid-Market"
+        pricing_model: "$15K-50K ACV estimated"
+        key_features: "Vendor onboarding, performance tracking, compliance"
+        
+      - name: "Order.co"
+        founding_year: "Recent"
+        target_customer: "SMB / Mid-Market"
+        pricing_model: "$10K-30K ACV estimated"
+        key_features: "Centralized vendor hub, automation, payment consolidation"
+        
+      - name: "MRPeasy"
+        founding_year: "~2010"
+        target_customer: "Small Manufacturing"
+        pricing_model: "$50-500/month"
+        key_features: "PO automation, supplier quality, inventory"
+        
+      - name: "Venminder"
+        founding_year: "2005"
+        target_customer: "SMB / Mid-Market / Enterprise"
+        pricing_model: "$20K-100K ACV"
+        
+      - name: "ServiceNow VRM"
+        founding_year: "Large enterprise"
+        target_customer: "Enterprise only"
+        pricing_model: "$100K+ ACV"
+
+    competitive_gaps:
+      - gap_title: "SMB price point ($3K-8K ACV)"
+        opportunity_size: "High"
+        smb_need: "Gap between spreadsheet and $15K tools"
+        note: "But low SMB perceived value for VRM"
+        
+      - gap_title: "Ease of use"
+        opportunity_size: "Medium"
+        smb_need: "Steep learning curves; SMB procurement teams typically 1-2 people"
+        
+      - gap_title: "Micro-vendor management (5-15 suppliers)"
+        opportunity_size: "Medium"
+        smb_need: "Current tools assume 50+ vendors"
+        
+      - gap_title: "Integration with SMB tools"
+        opportunity_size: "Medium"
+        smb_need: "QuickBooks, Xero, Shopify not SAP/Salesforce"
+
+    unit_economics_benchmark:
+      typical_cac: "$4K-8K"
+      sales_cycle_weeks: "4-8 weeks"
+      monthly_churn_pct: "3-4%"
+      annual_churn_pct: "35-45%"
+      ltv_cac_ratio: "3:1 to 4:1"
+      acv_range_low: "$5K"
+      acv_range_high: "$25K"
+      payback_months: "8-12"
+
+    market_dynamics:
+      - "VRM category growing due to third-party risk awareness"
+      - "Enterprise consolidation: ServiceNow, OneTrust, Aravo capturing mid-market"
+      - "SMB tier underserved; most products premium-positioned"
+      - "64% of companies use dedicated VRM platforms (2025)"
+
+    verdict: "Moderate opportunity (declining pure VMS appeal)"
+    score: 5
+    reasoning: |
+      Market is mature and consolidating upmarket (ServiceNow, OneTrust, Aravo).
+      SMB tier historically underserved but emerging alternatives (MRPeasy, Order.co) address needs.
+      Differentiation requires vertical specialization (manufacturing, ecommerce) + SMB stack integration.
+      High CAC ($4-8K) relative to ACV ($5-20K) limits profitability.
+      Recommendation: Vertical VMS or compliance layer (export + vendor) bundled vs. pure VMS.
+
+---
+
+overall_market_assessment:
+
+  key_findings:
+    - "SMB tier severely underserved across all segments - most solutions target Enterprise/Fortune 1000"
+    - "2024-2026 geopolitical headwinds (tariffs, UFLPA, Buy American, CMMC) creating urgent demand"
+    - "AI-native platforms outcompeting legacy tools on speed/ease of use"
+    - "Freemium/low-cost entry models proving SMB demand"
+    - "Recent VC funding (Interos $40M, Altana $235M, VISO TRUST $24M) indicates investor confidence"
+    - "Consolidation at enterprise layer; SMB layer fragmented and opportunity-rich"
+
+  segment_ranking:
+    1:
+      name: "Trade Compliance / Tariff Management"
+      score: 9
+      verdict: "Highly Attractive"
+      
+    2:
+      name: "Defense Procurement (SMB Subcontractors)"
+      score: 8
+      verdict: "Attractive"
+      
+    3:
+      name: "Export Compliance (Tech Companies)"
+      score: 8
+      verdict: "Attractive"
+      
+    4:
+      name: "Supply Chain Risk / Compliance"
+      score: 7
+      verdict: "Attractive (Moderate)"
+      
+    5:
+      name: "Vendor / Supplier Management"
+      score: 5
+      verdict: "Moderate (Declining)"
+
+  critical_success_factors:
+    - "SMB-specific UX (not simplified enterprise UI)"
+    - "ROI-driven positioning (compliance = cost savings)"
+    - "Freemium or <$500/mo entry tier"
+    - "Integration with SMB stack (QuickBooks, Xero, Shopify)"
+    - "Fast implementation (<2 weeks vs. 6 months)"
+    - "AI-native (not bolted-on) for 50%+ time savings"
+
