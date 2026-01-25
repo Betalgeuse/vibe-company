@@ -368,24 +368,96 @@ Step 4    → Growth Readiness (Optional)
 | GTM Fit | Clear model |
 | Payback | ≤6 months |
 
-## Output Structure
+## ⚠️ OUTPUT RULES (MUST FOLLOW)
 
-각 실행마다 프로젝트별 폴더가 생성됩니다:
+> **중요: 아래 규칙을 반드시 따라야 합니다. 루트나 임의 위치에 파일 생성 금지.**
+
+### 1. 폴더 먼저 생성 (MANDATORY)
+
+프로젝트 시작 시 **반드시** 폴더를 먼저 생성:
+
+```bash
+# 프로젝트명 예: export-compliance
+mkdir -p /Users/zayden/Documents/assets/draft/biz-idea-b2b/export-compliance/
+```
+
+### 2. 파일 위치 규칙
+
+| ❌ 금지 | ✅ 필수 |
+|--------|--------|
+| `/Users/zayden/Documents/assets/ANALYSIS.md` | `/Users/zayden/Documents/assets/draft/biz-idea-b2b/{project}/` |
+| 루트에 파일 생성 | 프로젝트 폴더 안에만 생성 |
+| 임의 파일명 | `{project-name}-{type}.md` 형식 |
+
+### 3. 파일명 규칙
+
+**모든 파일은 프로젝트명을 prefix로:**
+
+```
+{project-name}-summary.md        ← 최종 요약
+{project-name}-icp-analysis.md   ← Step 1 결과
+{project-name}-gtm-strategy.md   ← Step 1.5 결과
+{project-name}-unit-economics.md ← Step 2.5 결과
+{project-name}-mvp-spec.md       ← Step 2 결과
+{project-name}-validation.md     ← Step 3 결과
+```
+
+### 4. Step별 출력 파일 매핑
+
+| Step | 완료 시 생성할 파일 | 경로 |
+|------|---------------------|------|
+| Step 1 (Market Research) | `{name}-icp-analysis.md` | `draft/biz-idea-b2b/{name}/` |
+| Step 1.5 (GTM Fit) | `{name}-gtm-strategy.md` | `draft/biz-idea-b2b/{name}/` |
+| Step 2 (MVP Design) | `{name}-mvp-spec.md` | `draft/biz-idea-b2b/{name}/` |
+| Step 2.5 (Unit Economics) | `{name}-unit-economics.md` | `draft/biz-idea-b2b/{name}/` |
+| Step 3 (Validation) | `{name}-validation.md` | `draft/biz-idea-b2b/{name}/` |
+| **Final** | `{name}-summary.md` | `draft/biz-idea-b2b/{name}/` |
+
+### 5. 중간 리서치 파일
+
+Step 진행 중 생성되는 리서치/분석 파일:
+
+```
+draft/biz-idea-b2b/{project-name}/research/
+├── competitor-analysis.md
+├── market-sizing.md
+├── interview-notes.md
+└── ...
+```
+
+### 6. REJECT 케이스
+
+Score < 80 또는 Unit Economics FAIL인 경우:
+
+```
+draft/biz-idea-b2b/{project-name}-rejected/
+├── {project-name}-rejection-summary.md  ← 필수
+└── research/                            ← 리서치 파일들
+```
+
+---
+
+## Output Structure 예시
 
 ```
 draft/biz-idea-b2b/
-├── ai-meeting-scheduler/              # PASS 케이스
-│   ├── ai-meeting-scheduler-summary.md
-│   ├── ai-meeting-scheduler-icp-analysis.md
-│   ├── ai-meeting-scheduler-gtm-strategy.md
-│   ├── ai-meeting-scheduler-unit-economics.md
-│   ├── ai-meeting-scheduler-mvp-spec.md
-│   ├── ai-meeting-scheduler-validation.md
-│   └── research/                      # 리서치 문서
-├── blockchain-smb-rejected/           # REJECT 케이스
-│   └── rejection-summary.md
+├── export-compliance/                 # ✅ PASS 케이스
+│   ├── export-compliance-summary.md
+│   ├── export-compliance-icp-analysis.md
+│   ├── export-compliance-gtm-strategy.md
+│   ├── export-compliance-unit-economics.md
+│   ├── export-compliance-mvp-spec.md
+│   ├── export-compliance-validation.md
+│   └── research/
+│       ├── competitor-analysis.md
+│       └── market-sizing.md
+├── blockchain-smb-rejected/           # ❌ REJECT 케이스
+│   ├── blockchain-smb-rejection-summary.md
+│   └── research/
 └── _shared-research/                  # 공통 리서치 자료
 ```
+
+---
 
 ## Usage
 
@@ -393,3 +465,10 @@ draft/biz-idea-b2b/
 /biz-idea-b2b [keyword]
 /biz-idea-b2b "AI meeting scheduler for SMB sales teams"
 ```
+
+## Checklist (실행 전 확인)
+
+- [ ] 프로젝트 폴더 생성했는가?
+- [ ] 모든 파일이 `draft/biz-idea-b2b/{project}/` 안에 있는가?
+- [ ] 파일명이 `{project-name}-{type}.md` 형식인가?
+- [ ] 루트에 파일 생성하지 않았는가?
