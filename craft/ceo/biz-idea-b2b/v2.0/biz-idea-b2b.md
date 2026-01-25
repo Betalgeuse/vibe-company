@@ -257,12 +257,12 @@
   
   "success_criteria": {
     "score_threshold": 80,
-    "pass_action": "save all documents to /Users/zayden/Documents/assets/draft/biz-idea/b2b/{project-name}/",
-    "reject_action": "save rejection summary to /Users/zayden/Documents/assets/draft/biz-idea/b2b/{project-name}-rejected/"
+    "pass_action": "save all documents to /Users/zayden/Documents/assets/draft/biz-idea-b2b/{project-name}/",
+    "reject_action": "save rejection summary to /Users/zayden/Documents/assets/draft/biz-idea-b2b/{project-name}-rejected/"
   },
   
   "output": {
-    "directory": "/Users/zayden/Documents/assets/draft/biz-idea/b2b/{project-name}/",
+    "directory": "/Users/zayden/Documents/assets/draft/biz-idea-b2b/{project-name}/",
     "folder_structure": {
       "description": "각 실행마다 프로젝트별 폴더 생성",
       "files": [
@@ -274,7 +274,7 @@
         "{project-name}-validation.md"
       ],
       "example": {
-        "folder": "draft/biz-idea/b2b/ai-meeting-scheduler/",
+        "folder": "draft/biz-idea-b2b/ai-meeting-scheduler/",
         "contents": [
           "ai-meeting-scheduler-summary.md",
           "ai-meeting-scheduler-icp-analysis.md",
@@ -373,16 +373,18 @@ Step 4    → Growth Readiness (Optional)
 각 실행마다 프로젝트별 폴더가 생성됩니다:
 
 ```
-draft/biz-idea/b2b/
+draft/biz-idea-b2b/
 ├── ai-meeting-scheduler/              # PASS 케이스
 │   ├── ai-meeting-scheduler-summary.md
 │   ├── ai-meeting-scheduler-icp-analysis.md
 │   ├── ai-meeting-scheduler-gtm-strategy.md
 │   ├── ai-meeting-scheduler-unit-economics.md
 │   ├── ai-meeting-scheduler-mvp-spec.md
-│   └── ai-meeting-scheduler-validation.md
-└── blockchain-smb-rejected/           # REJECT 케이스
-    └── blockchain-smb-rejection-summary.md
+│   ├── ai-meeting-scheduler-validation.md
+│   └── research/                      # 리서치 문서
+├── blockchain-smb-rejected/           # REJECT 케이스
+│   └── rejection-summary.md
+└── _shared-research/                  # 공통 리서치 자료
 ```
 
 ## Usage
