@@ -261,7 +261,7 @@ Skill은 바로 실행하지 않고 먼저 계획을 보여줍니다.
 ## 관련 문서
 
 - [.factory/skills/prompt-enhancer/SKILL.md](../../../../.factory/skills/prompt-enhancer/SKILL.md) - Skill 상세 스펙
-- [03-prompt-engineering/4-step-prompt/](../../03-prompt-engineering/4-step-prompt/) - 기본 프롬프트 작성법
+- [4-step-prompt/](../4-step-prompt/) - 기본 프롬프트 작성법 (수동)
 
 ---
 
