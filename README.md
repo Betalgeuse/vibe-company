@@ -110,8 +110,8 @@ assets/
 ### 2. 회사 핵심 문서 이해
 
 **필독 3대 문서:**
-1. [company.md](./docs/company.md) - 회사의 Why, Vision, Core Values
-2. [roles-and-metrics.md](./docs/roles-and-metrics.md) - 전체 직무 R&R과 One Number
+1. [company.md](docs/company/company.md) - 회사의 Why, Vision, Core Values
+2. [roles-and-metrics.md](docs/company/roles-and-metrics.md) - 전체 직무 R&R과 One Number
 3. [junior-ax-playbook.md](./playbooks/junior-ax-playbook.md) - 일하는 방법론
 
 ### 3. Custom Droid & Command 활용
@@ -219,7 +219,7 @@ craft/v1.1/
 | Junior AX | FCSR | 80%+ |
 | Admin | 자동화된 업무 % | 80%+ |
 
-자세한 내용: [roles-and-metrics.md](./docs/roles-and-metrics.md)
+자세한 내용: [roles-and-metrics.md](docs/company/roles-and-metrics.md)
 
 ### FCSR (First-Command Success Rate)
 
@@ -346,7 +346,7 @@ craft/
 ### 새 팀원 온보딩 (3단계)
 
 **Day 1:**
-1. [company.md](./docs/company.md) 읽기
+1. [company.md](docs/company/company.md) 읽기
 2. [junior-ax-playbook.md](./playbooks/junior-ax-playbook.md) 읽기
 3. 내 직무 Playbook 읽기
 

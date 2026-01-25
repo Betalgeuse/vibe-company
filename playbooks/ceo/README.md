@@ -127,8 +127,8 @@
 
 ## 📚 관련 문서
 
-- [../../docs/company.md](../../docs/company.md) - 회사 비전
-- [../../docs/roles-and-metrics.md](../../docs/roles-and-metrics.md) - 전체 R&R
+- [../../docs/company.md](../../docs/company/company.md) - 회사 비전
+- [../../docs/roles-and-metrics.md](../../docs/company/roles-and-metrics.md) - 전체 R&R
 - [Buy Back Your Time - Dan Martell](https://buybackyourtime.com/)
 
 ---

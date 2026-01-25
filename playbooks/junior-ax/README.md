@@ -179,7 +179,7 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 
 ## 📚 관련 문서
 
-- [../../docs/company.md](../../docs/company.md) - 회사 비전
+- [../../docs/company.md](../../docs/company/company.md) - 회사 비전
 - [../../.factory/commands/junior-ax/](../../.factory/commands/junior-ax/) - 사용 가능한 Craft
 - [vibe-coding-playbook.md (archive)](../../playbooks/_archive/vibe-coding-playbook.md.backup) - 전체 원본
 
