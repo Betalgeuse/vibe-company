@@ -257,22 +257,59 @@
   
   "success_criteria": {
     "score_threshold": 80,
-    "pass_action": "save to /Users/zayden/Documents/assets/draft/biz-idea/b2b/idea-{project-name}.md",
-    "reject_action": "log failure reason with specific score breakdown"
+    "pass_action": "save all documents to /Users/zayden/Documents/assets/draft/biz-idea/b2b/{project-name}/",
+    "reject_action": "save rejection summary to /Users/zayden/Documents/assets/draft/biz-idea/b2b/{project-name}-rejected/"
   },
   
   "output": {
-    "directory": "/Users/zayden/Documents/assets/draft/biz-idea/b2b/",
-    "filename_pattern": "idea-{project-name}.md",
-    "required_sections": [
-      "Executive Summary",
-      "SMB ICP Analysis (/20)",
-      "GTM Strategy Fit (/30)",
-      "Unit Economics Analysis",
-      "MVP Spec (SMB-Ready)",
-      "Onboarding & Activation Flow",
-      "Validation Score (/100)",
-      "Final Verdict"
+    "directory": "/Users/zayden/Documents/assets/draft/biz-idea/b2b/{project-name}/",
+    "folder_structure": {
+      "description": "각 실행마다 프로젝트별 폴더 생성",
+      "files": [
+        "{project-name}-summary.md",
+        "{project-name}-icp-analysis.md",
+        "{project-name}-gtm-strategy.md",
+        "{project-name}-unit-economics.md",
+        "{project-name}-mvp-spec.md",
+        "{project-name}-validation.md"
+      ],
+      "example": {
+        "folder": "draft/biz-idea/b2b/ai-meeting-scheduler/",
+        "contents": [
+          "ai-meeting-scheduler-summary.md",
+          "ai-meeting-scheduler-icp-analysis.md",
+          "ai-meeting-scheduler-gtm-strategy.md",
+          "ai-meeting-scheduler-unit-economics.md",
+          "ai-meeting-scheduler-mvp-spec.md",
+          "ai-meeting-scheduler-validation.md"
+        ]
+      }
+    },
+    "required_documents": [
+      {
+        "file": "{project-name}-summary.md",
+        "sections": ["Executive Summary", "Final Verdict", "Key Metrics"]
+      },
+      {
+        "file": "{project-name}-icp-analysis.md",
+        "sections": ["SMB ICP Analysis (/20)", "Target Segment", "Buying Committee"]
+      },
+      {
+        "file": "{project-name}-gtm-strategy.md",
+        "sections": ["GTM Strategy Fit (/30)", "Recommended Model", "Sales Playbook Outline"]
+      },
+      {
+        "file": "{project-name}-unit-economics.md",
+        "sections": ["Unit Economics Analysis", "ACV", "CAC", "LTV:CAC", "Payback"]
+      },
+      {
+        "file": "{project-name}-mvp-spec.md",
+        "sections": ["MVP Spec (SMB-Ready)", "Core Features", "Onboarding Flow"]
+      },
+      {
+        "file": "{project-name}-validation.md",
+        "sections": ["Validation Score (/100)", "Attack/Defense Rounds", "Risk Assessment"]
+      }
     ]
   }
 }
@@ -330,6 +367,23 @@ Step 4    → Growth Readiness (Optional)
 | Unit Economics | PASS |
 | GTM Fit | Clear model |
 | Payback | ≤6 months |
+
+## Output Structure
+
+각 실행마다 프로젝트별 폴더가 생성됩니다:
+
+```
+draft/biz-idea/b2b/
+├── ai-meeting-scheduler/              # PASS 케이스
+│   ├── ai-meeting-scheduler-summary.md
+│   ├── ai-meeting-scheduler-icp-analysis.md
+│   ├── ai-meeting-scheduler-gtm-strategy.md
+│   ├── ai-meeting-scheduler-unit-economics.md
+│   ├── ai-meeting-scheduler-mvp-spec.md
+│   └── ai-meeting-scheduler-validation.md
+└── blockchain-smb-rejected/           # REJECT 케이스
+    └── blockchain-smb-rejection-summary.md
+```
 
 ## Usage
 
