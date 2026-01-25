@@ -58,15 +58,16 @@
 
 ---
 
-### 04. Custom Droid (자동화)
-> **책임:** 반복 작업을 Droid로 자동화
+### 04. Custom Droid & Skills (자동화)
+> **책임:** Droid와 Skill로 작업 자동화
 
 **Tasks:**
+- ⭐ [Skill 사용하기](./04-custom-droid/using-skills/) - prompt-enhancer로 프롬프트 품질 높이기
 - 🔜 [언제 만들까?](./04-custom-droid/when-to-create/) - 3회 반복 = Droid화
 - 🔜 [Droid 생성하기](./04-custom-droid/create-droid/)
 - 🔜 [Droid 템플릿](./04-custom-droid/droid-templates/)
 
-**목표:** 3번 이상 반복되는 작업은 Droid화
+**목표:** Skill로 프롬프트 품질 높이고, 반복 작업은 Droid화
 
 ---
 
@@ -182,23 +183,25 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 
 ## 📈 진행 상황
 
-**완성된 Task:** 12개 ⭐  
+**완성된 Task:** 14개 ⭐  
 **전체 파일:** 39개  
 **커버리지:** vibe-coding-playbook 핵심 내용 ~80%
 
 **완성 Task 목록:**
-1. Git Worktree 설정
-2. 화면 분할 환경
-3. 레퍼런스 찾기
-4. 4단계 Prompt
-5. Spline 3D 통합
-6. FCSR 추적
-7. Day 1 Quick Start
-8. AI 디자인 도구 (v0, Google Stitch, Galileo AI)
-9. 디자인 레퍼런스 (Mobbin, Dribbble, Behance)
-10. 컴포넌트 라이브러리 (shadcn/ui, Magic UI)
-11. 프로토타이핑 도구 (Figma, Framer, Builder.io)
-12. Tech Stack 표준화 (Next.js 14, shadcn/ui, React Query)
+1. Git 첫 설정
+2. Git Worktree 설정
+3. 화면 분할 환경
+4. 레퍼런스 찾기
+5. 4단계 Prompt
+6. Skill 사용하기 (prompt-enhancer)
+7. Spline 3D 통합
+8. FCSR 추적
+9. Day 1 Quick Start
+10. AI 디자인 도구 (v0, Google Stitch, Galileo AI)
+11. 디자인 레퍼런스 (Mobbin, Dribbble, Behance)
+12. 컴포넌트 라이브러리 (shadcn/ui, Magic UI)
+13. 프로토타이핑 도구 (Figma, Framer, Builder.io)
+14. Tech Stack 표준화 (Next.js 14, shadcn/ui, React Query)
 
 ---
 
