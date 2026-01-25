@@ -82,10 +82,14 @@
 ---
 
 ### 06. Design & Frontend (디자인 구현)
-> **책임:** Figma, Spline 기반 프론트엔드 개발
+> **책임:** AI 도구 및 컴포넌트 라이브러리 기반 프론트엔드 개발
 
 **Tasks:**
 - ⭐ [Spline 3D 통합](./06-design-frontend/spline-3d/) - 5분 안에 3D 추가
+- ⭐ [AI 디자인 도구](./06-design-frontend/ai-design-tools/) - v0, Google Stitch로 5분 안에 프로토타입
+- ⭐ [디자인 레퍼런스](./06-design-frontend/design-references/) - Mobbin, Dribbble로 영감 수집
+- ⭐ [컴포넌트 라이브러리](./06-design-frontend/component-libraries/) - shadcn/ui, Magic UI 활용
+- ⭐ [프로토타이핑 도구](./06-design-frontend/prototyping-tools/) - Figma, Framer로 빠른 검증
 - 🔜 [Figma to Code](./06-design-frontend/figma-to-code/)
 - 🔜 [CSS 트러블슈팅](./06-design-frontend/css-troubleshooting/)
 
@@ -176,9 +180,9 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 
 ## 📈 진행 상황
 
-**완성된 Task:** 7개 ⭐  
-**전체 파일:** 24개  
-**커버리지:** vibe-coding-playbook 핵심 내용 ~60%
+**완성된 Task:** 11개 ⭐  
+**전체 파일:** 36개  
+**커버리지:** vibe-coding-playbook 핵심 내용 ~75%
 
 **완성 Task 목록:**
 1. Git Worktree 설정
@@ -188,6 +192,10 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 5. Spline 3D 통합
 6. FCSR 추적
 7. Day 1 Quick Start
+8. AI 디자인 도구 (v0, Google Stitch, Galileo AI)
+9. 디자인 레퍼런스 (Mobbin, Dribbble, Behance)
+10. 컴포넌트 라이브러리 (shadcn/ui, Magic UI)
+11. 프로토타이핑 도구 (Figma, Framer, Builder.io)
 
 ---
 
