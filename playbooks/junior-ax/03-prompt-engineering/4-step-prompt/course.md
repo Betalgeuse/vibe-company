@@ -132,3 +132,23 @@ app/login/page.tsx 파일로 생성
 
 작업을 시작할 때마다 화면을 분할해두세요.
 
+---
+
+## 4. 🚀 다음 단계: prompt-enhancer Skill
+
+4단계 프롬프트를 매번 수동으로 작성하기 귀찮다면?
+
+**→ [prompt-enhancer Skill](../using-prompt-enhancer/)을 사용하세요!**
+
+```
+# 간단한 요청만 하면 AI가 구조화해줌
+prompt-enhancer skill 써서 구조화해줘:
+로그인 기능 추가해줘
+```
+
+Skill이 자동으로 `<문제정의>` `<목표>` `<비목표>` `<성공기준>` `<실행계획>` 구조로 변환해줍니다.
+
+**학습 순서:**
+1. ✅ 4-step 수동 작성 (이 문서) - 원리 이해
+2. → [prompt-enhancer Skill](../using-prompt-enhancer/) - 자동화
+

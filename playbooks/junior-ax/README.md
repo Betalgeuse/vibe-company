@@ -51,10 +51,13 @@
 > **책임:** AI에게 명확하게 명령하기
 
 **Tasks:**
-- ⭐ [4단계 프롬프트 작성](./03-prompt-engineering/4-step-prompt/) - Context-Action-Constraint-Output
+- ⭐ [4단계 프롬프트 작성](./03-prompt-engineering/4-step-prompt/) - Context-Action-Constraint-Output (수동)
+- ⭐ [prompt-enhancer Skill](./03-prompt-engineering/using-prompt-enhancer/) - Skill로 프롬프트 자동 구조화
 - 🔜 [고급 Prompt 기법](./03-prompt-engineering/advanced/)
 
 **목표:** FCSR 80% 달성 (첫 시도 성공률)
+
+**학습 순서:** 4-step 수동 작성 → Skill로 자동화
 
 ---
 
@@ -67,6 +70,8 @@
 - 🔜 [Droid 템플릿](./04-custom-droid/droid-templates/)
 
 **목표:** 3번 이상 반복되는 작업은 Droid화
+
+> 💡 Skill 사용법은 [03. Prompt Engineering](./03-prompt-engineering/using-prompt-enhancer/)에서 다룹니다.
 
 ---
 
@@ -82,20 +87,20 @@
 
 ---
 
-### 06. Design & Frontend (디자인 구현)
-> **책임:** AI 도구 및 컴포넌트 라이브러리 기반 프론트엔드 개발
+### 06. Rapid Prototyping (빠른 프로토타이핑)
+> **책임:** Next.js 풀스택 + AI 도구로 빠른 프로토타입 개발
 
 **Tasks:**
-- ⭐ [Tech Stack 표준화](./06-design-frontend/tech-stack-setup/) - 표준 스택으로 프로젝트 시작 → [docs/tech-stack/](../../docs/tech-stack/)
-- ⭐ [Spline 3D 통합](./06-design-frontend/spline-3d/) - 5분 안에 3D 추가
-- ⭐ [AI 디자인 도구](./06-design-frontend/ai-design-tools/) - v0, Google Stitch로 5분 안에 프로토타입
-- ⭐ [디자인 레퍼런스](./06-design-frontend/design-references/) - Mobbin, Dribbble로 영감 수집
-- ⭐ [컴포넌트 라이브러리](./06-design-frontend/component-libraries/) - shadcn/ui, Magic UI 활용
-- ⭐ [프로토타이핑 도구](./06-design-frontend/prototyping-tools/) - Figma, Framer로 빠른 검증
-- 🔜 [Figma to Code](./06-design-frontend/figma-to-code/)
-- 🔜 [CSS 트러블슈팅](./06-design-frontend/css-troubleshooting/)
+- ⭐ [Tech Stack 표준화](./06-rapid-prototyping/tech-stack-setup/) - 표준 스택으로 프로젝트 시작 → [docs/tech-stack/](../../docs/tech-stack/)
+- ⭐ [Spline 3D 통합](./06-rapid-prototyping/spline-3d/) - 5분 안에 3D 추가
+- ⭐ [AI 디자인 도구](./06-rapid-prototyping/ai-design-tools/) - v0, Google Stitch로 5분 안에 프로토타입
+- ⭐ [디자인 레퍼런스](./06-rapid-prototyping/design-references/) - Mobbin, Dribbble로 영감 수집
+- ⭐ [컴포넌트 라이브러리](./06-rapid-prototyping/component-libraries/) - shadcn/ui, Magic UI 활용
+- ⭐ [프로토타이핑 도구](./06-rapid-prototyping/prototyping-tools/) - Figma, Framer로 빠른 검증
+- 🔜 [Figma to Code](./06-rapid-prototyping/figma-to-code/)
+- 🔜 [CSS 트러블슈팅](./06-rapid-prototyping/css-troubleshooting/)
 
-**목표:** 표준 스택 + 디자인을 정확하게 코드로 구현
+**목표:** 표준 풀스택 환경에서 프로토타입 빠르게 만들고 검증
 
 ---
 
@@ -167,7 +172,7 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 
 ### Week 3-4 (마스터)
 1. FCSR 80% 달성
-2. ⭐ [Spline 3D 통합](./06-design-frontend/spline-3d/) (필요 시)
+2. ⭐ [Spline 3D 통합](./06-rapid-prototyping/spline-3d/) (필요 시)
 3. Custom Droid 생성 (반복 작업 발견 시)
 
 ---
@@ -182,23 +187,25 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 
 ## 📈 진행 상황
 
-**완성된 Task:** 12개 ⭐  
+**완성된 Task:** 14개 ⭐  
 **전체 파일:** 39개  
 **커버리지:** vibe-coding-playbook 핵심 내용 ~80%
 
 **완성 Task 목록:**
-1. Git Worktree 설정
-2. 화면 분할 환경
-3. 레퍼런스 찾기
-4. 4단계 Prompt
-5. Spline 3D 통합
-6. FCSR 추적
-7. Day 1 Quick Start
-8. AI 디자인 도구 (v0, Google Stitch, Galileo AI)
-9. 디자인 레퍼런스 (Mobbin, Dribbble, Behance)
-10. 컴포넌트 라이브러리 (shadcn/ui, Magic UI)
-11. 프로토타이핑 도구 (Figma, Framer, Builder.io)
-12. Tech Stack 표준화 (Next.js 14, shadcn/ui, React Query)
+1. Git 첫 설정
+2. Git Worktree 설정
+3. 화면 분할 환경
+4. 레퍼런스 찾기
+5. 4단계 Prompt
+6. Skill 사용하기 (prompt-enhancer)
+7. Spline 3D 통합
+8. FCSR 추적
+9. Day 1 Quick Start
+10. AI 디자인 도구 (v0, Google Stitch, Galileo AI)
+11. 디자인 레퍼런스 (Mobbin, Dribbble, Behance)
+12. 컴포넌트 라이브러리 (shadcn/ui, Magic UI)
+13. 프로토타이핑 도구 (Figma, Framer, Builder.io)
+14. Tech Stack 표준화 (Next.js 14, shadcn/ui, React Query)
 
 ---
 
