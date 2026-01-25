@@ -1,53 +1,67 @@
 # Craft Changelog
 
+## v2.0 (2026-01-25)
+
+**B2B SaaS 파이프라인 추가 + 폴더 구조 개편**
+
+### Added
+- **CEO Craft:**
+  - `biz-idea-b2b` (v2.0) - B2B SaaS 아이디어 검증 파이프라인
+    - 타겟: SMB → Mid-Market → Enterprise
+    - ACV: $10K-100K+
+    - GTM: Sales-Assisted / Hybrid
+    - 핵심 지표: ACV, CAC, LTV:CAC, NRR
+    - Pass 기준: 80점 + Unit Economics PASS
+
+### Changed
+- **폴더 구조 개편**: `{role}/{command}/{version}/{command}.md` 형태로 변경
+  - 파일명이 command명과 동일 → `.factory/commands/`로 바로 복사 가능
+  ```
+  # Before
+  craft/v1.0/ceo/biz-idea.md
+  
+  # After
+  craft/ceo/biz-idea/v1.0/biz-idea.md
+  craft/ceo/biz-idea-b2b/v2.0/biz-idea-b2b.md
+  
+  # 배포 방법
+  cp craft/ceo/biz-idea-b2b/v2.0/biz-idea-b2b.md .factory/commands/
+  ```
+
+### New Droids
+- `@b2b-market-hunter` - B2B 버티컬 마켓 발굴
+- `@b2b-mvp-architect` - B2B MVP 설계 & Sales Playbook
+
+### New Workflow
+- `.factory/workflows/biz-idea-b2b-pipeline.md`
+
+---
+
 ## v1.0 (2026-01-17)
 
 **초기 버전 - 4개 Role, 5개 Craft**
 
 ### Added
 - **CEO Craft:**
-  - `biz-idea` - 신사업 아이디어 검증 파이프라인 (30분, 85점+)
+  - `biz-idea` (v1.0) - Micro-SaaS 아이디어 검증 파이프라인
+    - 타겟: 1인 기업, 프리랜서, Prosumer
+    - ACV: $0-5K
+    - GTM: PLG (Self-serve)
+    - Pass 기준: 85점 + Monopoly 20/25
   
 - **Junior AX Craft:**
-  - `paper2code` - 논문/문서 → 코드 변환 (2시간)
+  - `paper2code` (v1.0) - 논문/문서 → 코드 변환
   
 - **FDE Craft:**
-  - `research-idea` - 기술 아이디어 리서치 (1시간)
+  - `research-idea` (v1.0) - 기술 아이디어 리서치
+  - `orchestrator` (v1.0) - FDE 워크플로우 자동화
   
 - **Shared Craft:**
-  - `orchestrator` - 전체 워크플로우 자동화 (5분)
+  - `orchestrator` (v1.0) - 전체 워크플로우 자동화
 
-### Structure
-```
-.factory/commands/
-├── ceo/
-│   ├── biz-idea.md
-│   └── README.md
-├── junior-ax/
-│   └── paper2code.md
-├── FDE/
-│   └── research-idea.md
-├── lead-ax-engineer/
-├── shared/
-│   └── orchestrator.md
-```
-
-### Metrics
-- 총 Craft 수: 5개
-- Role 커버리지: 4개 (CEO, Junior AX, FDE, Shared)
-- 평균 성공률: 86%
-- 평균 소요 시간: 1시간
+- **Lead AX Engineer Craft:**
+  - `orchestrator` (v1.0) - AX 팀 워크플로우 자동화
 
 ---
 
-## v1.1 (예정)
-
-**계획:**
-- [ ] Lead AX Engineer Craft 추가
-- [ ] AX Admin Craft 추가
-- [ ] biz-idea v2 (점수 90%+ 목표)
-- [ ] paper2code 성능 개선 (1시간 목표)
-
----
-
-*"매달 말일에 스냅샷 생성"*
+*Last Updated: 2026-01-25*
