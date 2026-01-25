@@ -28,9 +28,8 @@ config/*.md
 # Factory.ai 관련 (템플릿만 관리)
 # ==========================================
 
-# Droids - 실제 사용 파일
-.factory/droids/*.md
-!.factory/droids/templates/
+# Droids - Git 관리 (템플릿 + 실제 사용 파일 모두 포함)
+# .factory/droids/*.md
 
 # Commands - 실제 사용 파일
 .factory/commands/*.md
