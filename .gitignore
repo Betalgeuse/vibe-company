@@ -1,0 +1,182 @@
+# ============================================
+# Vibe Coding Framework - 개인 파일 제외
+# ============================================
+# 템플릿은 Git 관리 ✅
+# 실제 사용 파일은 Git 무시 ❌
+# ============================================
+
+
+# ==========================================
+# 실행 파일들 (템플릿만 관리)
+# ==========================================
+
+# Scripts - 실제 사용 파일
+scripts/*.sh
+scripts/*.py
+scripts/*.js
+!scripts/templates/
+
+# Config - 실제 설정 파일
+config/*.json
+config/*.yaml
+config/*.yml
+config/*.md
+!config/templates/
+
+
+# ==========================================
+# Factory.ai 관련 (템플릿만 관리)
+# ==========================================
+
+# Droids - Git 관리 (템플릿 + 실제 사용 파일 모두 포함)
+# .factory/droids/*.md
+
+# Commands - 실제 사용 파일
+.factory/commands/*.md
+!.factory/commands/templates/
+
+# Factory Config - 실제 사용 파일
+.factory/config.json
+!.factory/config.example.json
+
+
+# ==========================================
+# GitHub Actions (템플릿만 관리)
+# ==========================================
+
+.github/workflows/*.yml
+.github/workflows/*.yaml
+!.github/workflows/templates/
+
+
+# ==========================================
+# 개인 데이터 및 로그
+# ==========================================
+
+# Vibe Coding 개인 데이터
+.vibe/
+.local/
+*.local.*
+
+# FCSR 로그
+fcsr-logs/
+*.fcsr.json
+
+# 작업 로그
+work-logs/
+*.work.json
+
+
+# ==========================================
+# 민감 정보 (절대 커밋 금지!)
+# ==========================================
+
+# Private Submodule (개인정보는 submodule로 관리)
+# private/ 폴더는 submodule이므로 gitignore하지 않음
+
+# 개인정보 파일 패턴
+**/FOUNDER-PROFILE.md
+**/*-founder-profile.yaml
+**/founder-profile.yaml
+docs/company/company.md
+archive/backup/company_*.md
+
+# 환경 변수
+.env
+.env.*
+!.env.example
+
+# 시크릿
+secrets/
+*.secret.*
+*.key
+*.pem
+*.p12
+
+# API 키
+*api-key*
+*api_key*
+*apikey*
+
+
+# ==========================================
+# IDE 설정 (개인화된 것만)
+# ==========================================
+
+# VS Code
+.vscode/settings.json
+!.vscode/settings.example.json
+.vscode/launch.json
+!.vscode/launch.example.json
+
+# IntelliJ
+.idea/workspace.xml
+.idea/tasks.xml
+
+
+# ==========================================
+# 빌드 및 캐시
+# ==========================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+
+# 빌드
+dist/
+build/
+*.build
+
+# 로그
+logs/
+*.log
+
+# 캐시
+.cache/
+.tmp/
+tmp/
+
+
+# ==========================================
+# OS 관련
+# ==========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+
+# ==========================================
+# 기타
+# ==========================================
+
+# 백업 파일
+*.backup
+*.bak
+*.swp
+*.swo
+
+# 임시 파일
+*.tmp
+*.temp
