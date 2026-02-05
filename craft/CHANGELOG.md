@@ -1,5 +1,20 @@
 # Craft Changelog
 
+## v2.1 (2026-02-05)
+
+**MVP 프로젝트 생성 Craft 추가**
+
+### Added
+- **Junior AX Craft:**
+  - `mvp` (v1.0) - Draft 기반 MVP 프로젝트 생성
+    - Draft 문서에서 요구사항 추출
+    - Next.js 14 + shadcn/ui 표준 스택
+    - GitHub 레포 자동 생성 (gh CLI)
+    - private 레포에 submodule로 연결
+    - playbooks/junior-ax/ 기반 Tech Stack
+
+---
+
 ## v2.0 (2026-01-25)
 
 **B2B SaaS 파이프라인 추가 + 폴더 구조 개편**
