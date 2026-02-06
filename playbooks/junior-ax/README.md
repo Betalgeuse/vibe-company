@@ -127,6 +127,7 @@
 > **책임:** IaC 기반 인프라 관리 (선택)
 
 **Tasks:**
+- ⭐ [Database Conventions](./07-infrastructure/database-conventions/) - PostgreSQL 네이밍 규칙 및 설계 패턴
 - 📄 [Supabase 표준화](./07-infrastructure/supabase/) - Auth, DB, Storage 통합
 - 🔜 [Terraform 기초](./07-infrastructure/terraform/)
 
@@ -211,8 +212,8 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 
 ## 📈 진행 상황
 
-**완성된 Task:** 14개 ⭐  
-**전체 파일:** 39개  
+**완성된 Task:** 15개 ⭐  
+**전체 파일:** 42개  
 **커버리지:** vibe-coding-playbook 핵심 내용 ~80%
 
 **완성 Task 목록:**
@@ -230,6 +231,7 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 12. 컴포넌트 라이브러리 (shadcn/ui, Magic UI)
 13. 프로토타이핑 도구 (Figma, Framer, Builder.io)
 14. Tech Stack 표준화 (Next.js 14, shadcn/ui, React Query)
+15. Database Conventions (PostgreSQL 네이밍 및 설계 패턴)
 
 ---
 
