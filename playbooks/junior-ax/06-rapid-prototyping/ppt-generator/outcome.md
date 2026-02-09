@@ -22,7 +22,7 @@ AI(Gemini)로 고퀄리티 PPT 이미지를 자동 생성한다.
 
 ## 결과물
 
-```
+```text
 outputs/TIMESTAMP/
 ├── images/
 │   ├── slide-01.png

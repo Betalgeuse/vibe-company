@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPT播放器</title>
+    <title>PPT 플레이어</title>
     <style>
         * {
             margin: 0;
@@ -87,7 +87,7 @@
 </head>
 <body>
     <div class="container" id="slideContainer">
-        <!-- 图片将通过JS动态插入 -->
+        <!-- 이미지가 JS로 동적 삽입됨 -->
     </div>
 
     <div class="indicator" id="indicator">
@@ -95,13 +95,13 @@
     </div>
 
     <div class="controls" id="controls">
-        ← → 切换页面 | ↑ 首页 | ↓ 末页 | ESC 全屏 | 空格 暂停/继续 | H 隐藏控件
+        ← → 페이지 전환 | ↑ 처음 | ↓ 마지막 | ESC 전체화면 | Space 재생/일시정지 | H 컨트롤 숨기기
     </div>
 
-    <div class="loading" id="loading">加载中...</div>
+    <div class="loading" id="loading">로딩 중...</div>
 
     <script>
-        // 图片列表将通过替换占位符注入
+        // 슬라이드 이미지 목록
         const slides = ['images/slide-01.png',
             'images/slide-02.png',
             'images/slide-03.png',
@@ -132,7 +132,7 @@
             const loading = document.getElementById('loading');
 
             if (slides.length === 0) {
-                loading.textContent = '未找到幻灯片图片';
+                loading.textContent = '슬라이드 이미지를 찾을 수 없습니다';
                 return;
             }
 
@@ -140,7 +140,7 @@
                 const img = document.createElement('img');
                 img.src = src;
                 img.className = 'slide' + (index === 0 ? ' active' : '');
-                img.alt = `幻灯片 ${index + 1}`;
+                img.alt = `슬라이드 ${index + 1}`;
                 img.onerror = function() {
                     console.error(`Failed to load image: ${src}`);
                 };
@@ -150,10 +150,9 @@
             document.getElementById('total').textContent = slides.length;
             updateIndicator();
 
-            // 隐藏加载提示
             loading.style.display = 'none';
 
-            // 3秒后自动隐藏控件
+            // 3초 후 컨트롤 자동 숨기기
             setTimeout(() => {
                 hideControls();
             }, 3000);
@@ -171,10 +170,8 @@
             currentSlide = index;
             updateIndicator();
 
-            // 显示控件
             showControls();
 
-            // 3秒后再次隐藏
             setTimeout(() => {
                 hideControls();
             }, 3000);
@@ -188,7 +185,6 @@
             if (currentSlide < slides.length - 1) {
                 showSlide(currentSlide + 1);
             } else if (isAutoPlaying) {
-                // 自动播放模式下循环
                 showSlide(0);
             }
         }
@@ -197,7 +193,6 @@
             if (currentSlide > 0) {
                 showSlide(currentSlide - 1);
             } else if (isAutoPlaying) {
-                // 自动播放模式下循环
                 showSlide(slides.length - 1);
             }
         }
@@ -224,7 +219,7 @@
             }
             autoPlayInterval = setInterval(() => {
                 nextSlide();
-            }, 3000); // 每3秒切换一次
+            }, 3000);
             isAutoPlaying = true;
             updateControlsText();
         }
@@ -240,8 +235,8 @@
 
         function updateControlsText() {
             const controls = document.getElementById('controls');
-            const playText = isAutoPlaying ? '暂停' : '继续';
-            controls.textContent = `← → 切换页面 | ↑ 首页 | ↓ 末页 | ESC 全屏 | 空格 ${playText} | H 隐藏控件`;
+            const playText = isAutoPlaying ? '일시정지' : '재생';
+            controls.textContent = `← → 페이지 전환 | ↑ 처음 | ↓ 마지막 | ESC 전체화면 | Space ${playText} | H 컨트롤 숨기기`;
         }
 
         function hideControls() {
@@ -268,12 +263,11 @@
             }
         }
 
-        // 键盘事件监听
         document.addEventListener('keydown', (e) => {
             switch(e.key) {
                 case 'ArrowLeft':
                     prevSlide();
-                    stopAutoPlay(); // 手动操作时停止自动播放
+                    stopAutoPlay();
                     break;
                 case 'ArrowRight':
                     nextSlide();
@@ -292,8 +286,8 @@
                 case 'Escape':
                     toggleFullscreen();
                     break;
-                case ' ': // 空格键
-                    e.preventDefault(); // 防止页面滚动
+                case ' ':
+                    e.preventDefault();
                     toggleAutoPlay();
                     break;
                 case 'h':
@@ -303,23 +297,17 @@
             }
         });
 
-        // 鼠标移动时显示控件
         let mouseTimer = null;
         document.addEventListener('mousemove', () => {
             showControls();
-
-            // 清除之前的定时器
             if (mouseTimer) {
                 clearTimeout(mouseTimer);
             }
-
-            // 3秒后隐藏控件
             mouseTimer = setTimeout(() => {
                 hideControls();
             }, 3000);
         });
 
-        // 触摸滑动支持（移动设备）
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -333,22 +321,19 @@
         });
 
         function handleSwipe() {
-            const swipeThreshold = 50; // 最小滑动距离
+            const swipeThreshold = 50;
 
             if (touchEndX < touchStartX - swipeThreshold) {
-                // 向左滑动，显示下一页
                 nextSlide();
                 stopAutoPlay();
             }
 
             if (touchEndX > touchStartX + swipeThreshold) {
-                // 向右滑动，显示上一页
                 prevSlide();
                 stopAutoPlay();
             }
         }
 
-        // 初始化
         init();
     </script>
 </body>

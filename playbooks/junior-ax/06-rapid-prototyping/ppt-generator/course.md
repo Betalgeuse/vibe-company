@@ -16,12 +16,21 @@ source venv/bin/activate
 # 3. 의존성 설치
 pip install google-genai pillow python-dotenv
 
-# 4. Gemini API 키 설정 (zsh 기준)
-echo 'export GEMINI_API_KEY="YOUR_API_KEY"' >> ~/.zshrc
-source ~/.zshrc
+# 4. Gemini API 키 설정
+cp .env.example .env
+# .env 파일을 열어 GEMINI_API_KEY=YOUR_API_KEY 입력
 ```
 
 > API 키 발급: https://aistudio.google.com/apikey
+
+**대안: 환경변수로 설정하기**
+```bash
+# zsh (macOS 기본)
+echo 'export GEMINI_API_KEY="YOUR_API_KEY"' >> ~/.zshrc && source ~/.zshrc
+
+# bash
+echo 'export GEMINI_API_KEY="YOUR_API_KEY"' >> ~/.bashrc && source ~/.bashrc
+```
 
 ### Step 2: 슬라이드 플랜 작성
 
@@ -88,7 +97,9 @@ GEMINI_API_KEY="your-key" ./run.sh --plan slides_plan.json --style styles/gradie
 
 ```bash
 # 브라우저에서 뷰어 열기
-open outputs/TIMESTAMP/index.html
+open outputs/TIMESTAMP/index.html          # macOS
+# xdg-open outputs/TIMESTAMP/index.html   # Linux
+# 또는 브라우저에서 직접 파일 열기
 ```
 
 - 좌우 화살표로 페이지 이동
