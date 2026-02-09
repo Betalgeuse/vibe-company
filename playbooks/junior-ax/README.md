@@ -127,12 +127,12 @@
 > **책임:** 프로토타입 완성 후 기본 브랜드 아이덴티티 구축
 
 **Tasks:**
-- ⭐ [Product Naming](./05-branding-basics/product-naming/) - 30분 안에 제품명 선정
-- ⭐ [Concept Definition](./05-branding-basics/concept-definition/) - 브랜드 컨셉 3-5개 키워드
-- ⭐ [CI/Logo Design](./05-branding-basics/ci-logo-design/) - AI로 45-60분 안에 로고 제작
-- ⭐ [Tone & Manner](./05-branding-basics/tone-and-manner/) - 브랜드 목소리 가이드 작성
-- ⭐ [Color Palette](./05-branding-basics/color-palette/) - Tailwind CSS 색상 시스템 구축
-- ⭐ [Typography](./05-branding-basics/typography/) - Google Fonts 선정 및 Next.js 적용
+- ⭐ [Product Naming](./07-branding-basics/product-naming/) - 30분 안에 제품명 선정
+- ⭐ [Concept Definition](./07-branding-basics/concept-definition/) - 브랜드 컨셉 3-5개 키워드
+- ⭐ [CI/Logo Design](./07-branding-basics/ci-logo-design/) - AI로 45-60분 안에 로고 제작
+- ⭐ [Tone & Manner](./07-branding-basics/tone-and-manner/) - 브랜드 목소리 가이드 작성
+- ⭐ [Color Palette](./07-branding-basics/color-palette/) - Tailwind CSS 색상 시스템 구축
+- ⭐ [Typography](./07-branding-basics/typography/) - Google Fonts 선정 및 Next.js 적용
 
 **목표:** AI 도구로 3시간 안에 기본 브랜딩 완성
 
@@ -153,7 +153,7 @@
 
 **목표:** 제로 예산으로 AI 도구 활용해 4-5시간 안에 소셜 미디어 마케팅 완성, 첫 100명 사용자 확보
 
-**전제 조건:** [06. Rapid Prototyping](./06-rapid-prototyping/) + [07. Branding Basics](./05-branding-basics/) 완료
+**전제 조건:** [06. Rapid Prototyping](./06-rapid-prototyping/) + [07. Branding Basics](./07-branding-basics/) 완료
 
 ---
 
@@ -161,8 +161,8 @@
 > **책임:** IaC 기반 인프라 관리 (선택)
 
 **Tasks:**
-- 📄 [Supabase 표준화](./07-infrastructure/supabase/) - Auth, DB, Storage 통합
-- 🔜 [Terraform 기초](./07-infrastructure/terraform/)
+- 📄 [Supabase 표준화](./09-infrastructure/supabase/) - Auth, DB, Storage 통합
+- 🔜 [Terraform 기초](./09-infrastructure/terraform/)
 
 **목표:** 클릭 금지, 모든 인프라는 코드로
 
@@ -172,7 +172,7 @@
 > **책임:** FCSR 측정 및 지속적 개선
 
 **Tasks:**
-- ⭐ [FCSR 추적하기](./09-measurement/fcsr-tracking/) - 매일/주간/월간 측정
+- ⭐ [FCSR 추적하기](./10-measurement/fcsr-tracking/) - 매일/주간/월간 측정
 
 **목표:** 주간 FCSR 80% 달성 및 유지
 
@@ -182,9 +182,9 @@
 > **책임:** 신입 온보딩 3일 완성
 
 **Tasks:**
-- ⭐ [Day 1: 환경 설정](./09-quick-start/day1/) - 화면 분할 + Git Worktree
-- 🔜 [Day 2: 첫 작업](./09-quick-start/day2/) - Reference + Prompt
-- 🔜 [Day 3: 실전 적용](./09-quick-start/day3/) - FCSR 측정 시작
+- ⭐ [Day 1: 환경 설정](./11-quick-start/day1/) - 화면 분할 + Git Worktree
+- 🔜 [Day 2: 첫 작업](./11-quick-start/day2/) - Reference + Prompt
+- 🔜 [Day 3: 실전 적용](./11-quick-start/day3/) - FCSR 측정 시작
 
 **목표:** 3일 안에 Vibe Coding 마스터
 
@@ -201,7 +201,7 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 예: 10개 작업, 8개 성공 → FCSR = 80% ✅
 ```
 
-**측정 방법:** [FCSR 추적하기](./08-measurement/fcsr-tracking/)
+**측정 방법:** [FCSR 추적하기](./10-measurement/fcsr-tracking/)
 
 **목표:** 80% 이상 유지
 
@@ -224,7 +224,7 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 2. ⭐ [레퍼런스 찾기](./02-reference-based/find-references/)
 
 ### Week 2 (실전 적용)
-1. ⭐ [FCSR 측정 시작](./08-measurement/fcsr-tracking/)
+1. ⭐ [FCSR 측정 시작](./10-measurement/fcsr-tracking/)
 2. 첫 작업: Reference → Prompt → 실행
 3. FCSR 기록 시작
 

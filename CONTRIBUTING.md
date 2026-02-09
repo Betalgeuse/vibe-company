@@ -1,5 +1,9 @@
 # Contributing to vibe-company
 
+> ⚠️ **서비스 관련 문서(love-practice, financial-analyzer 등의 브랜딩/마케팅/기획)는 이 레포가 아닌 `vibe-company-private` 레포에 넣어주세요!**
+> 이 레포는 **Public**이므로 전세계 누구나 볼 수 있습니다.
+> 자세한 기준은 `private/REPO-GUIDE.md`를 참고하세요.
+
 **바이브코딩 고수들의 검증된 Craft를 모읍니다!**
 
 ---

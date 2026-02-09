@@ -4,7 +4,7 @@
 
 **Pre-requisite:** 
 - [06. Rapid Prototyping](../06-rapid-prototyping/) 완료
-- [07. Branding Basics](../05-branding-basics/) 완료
+- [07. Branding Basics](../07-branding-basics/) 완료
 
 ---
 
@@ -258,7 +258,7 @@ Week 1-2: 지속적 포스팅 + 응답
 - [02. Reference-Based Development](../02-reference-based/find-references/) - 레퍼런스 찾는 법
 - [03. Prompt Engineering](../03-prompt-engineering/4-step-prompt/) - AI 프롬프트 작성
 - [06. Rapid Prototyping](../06-rapid-prototyping/) - 프로토타입 완성
-- [07. Branding Basics](../05-branding-basics/) - 브랜딩 완료
+- [07. Branding Basics](../07-branding-basics/) - 브랜딩 완료
 
 ### External Tools (Free Tier)
 | 카테고리 | 도구 | 용도 | 가격 |
