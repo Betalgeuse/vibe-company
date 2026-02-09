@@ -1,36 +1,25 @@
-# PPT Generator - 체크리스트
+# AI 도구 탐색 & 실행 - 체크리스트
 
-## ✅ 설치 전 확인
+## ✅ 도구 발견
 
-- [ ] Python 3.8+ 설치됨 (`python3 --version`)
-- [ ] Git 설치됨 (`git --version`)
-- [ ] Gemini API 키 발급 완료 (https://aistudio.google.com/apikey)
+- [ ] X, GitHub Trending, Product Hunt 등에서 관심 도구 발견
+- [ ] GitHub 레포 README 확인 (설치 가이드가 있는지)
+- [ ] 오픈소스인지, API 키가 필요한지 확인
 
-## ✅ 설치 확인
+## ✅ 에이전트에게 위임
 
-- [ ] NanoBanana-PPT-Skills 클론 완료
-- [ ] Python venv 생성 완료
-- [ ] `google-genai`, `pillow`, `python-dotenv` 설치 완료
-- [ ] `GEMINI_API_KEY` 환경변수 설정 완료
-- [ ] `./run.sh --help` 정상 출력 확인
+- [ ] README 설치 가이드를 에이전트에게 복붙
+- [ ] 필요한 API 키가 있다면 함께 전달
+- [ ] "설치하고 실행해줘" + 원하는 결과물 설명
 
-## ✅ 슬라이드 플랜 작성
+## ✅ 에이전트 실행 확인
 
-- [ ] JSON 파일 형식 확인 (`title`, `total_slides`, `slides` 배열)
-- [ ] 각 슬라이드에 `slide_number`, `page_type`, `content` 포함
-- [ ] `page_type`이 `cover` / `content` / `data` 중 하나
-- [ ] `total_slides` 숫자와 실제 슬라이드 배열 길이 일치
-- [ ] 첫 장과 마지막 장은 `cover` 타입 권장
+- [ ] 클론/설치 완료 확인
+- [ ] 에러 발생 시 에이전트가 자동 수정하는지 확인
+- [ ] 결과물이 정상적으로 생성되었는지 확인
 
-## ✅ 생성 실행
+## ✅ 결과물 활용
 
-- [ ] `--plan` 경로 정확한지 확인
-- [ ] `--style` 경로 정확한지 확인 (`styles/gradient-glass.md` 또는 `styles/vector-illustration.md`)
-- [ ] 생성 완료 후 `outputs/TIMESTAMP/images/` 에 PNG 파일 존재
-- [ ] `outputs/TIMESTAMP/index.html` 브라우저에서 정상 열림
-
-## ✅ 결과 공유
-
-- [ ] 이미지 파일 확인 (16:9 비율)
-- [ ] 필요 시 PDF 내보내기 (브라우저 Cmd+P → PDF 저장)
-- [ ] 결과물 적절한 폴더에 정리
+- [ ] 결과물 확인 (브라우저, 파일 등)
+- [ ] 필요 시 에이전트에게 수정 요청
+- [ ] 결과물 적절한 폴더에 정리/공유

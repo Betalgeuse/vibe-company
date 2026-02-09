@@ -116,7 +116,7 @@
 - ⭐ [디자인 레퍼런스](./06-rapid-prototyping/design-references/) - Mobbin, Dribbble로 영감 수집
 - ⭐ [컴포넌트 라이브러리](./06-rapid-prototyping/component-libraries/) - shadcn/ui, Magic UI 활용
 - ⭐ [프로토타이핑 도구](./06-rapid-prototyping/prototyping-tools/) - Figma, Framer로 빠른 검증
-- ⭐ [PPT Generator](./06-rapid-prototyping/ppt-generator/) - AI로 고퀄리티 PPT 이미지 자동 생성 (NanoBanana)
+- ⭐ [AI 도구 탐색 & 실행](./06-rapid-prototyping/ppt-generator/) - X에서 발견한 도구를 에이전트에게 먹여서 실행 (PPT 생성 사례)
 - 🔜 [Figma to Code](./06-rapid-prototyping/figma-to-code/)
 - 🔜 [CSS 트러블슈팅](./06-rapid-prototyping/css-troubleshooting/)
 
@@ -233,7 +233,7 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 13. 프로토타이핑 도구 (Figma, Framer, Builder.io)
 14. Tech Stack 표준화 (Next.js 14, shadcn/ui, React Query)
 15. Database Conventions (PostgreSQL 네이밍 및 설계 패턴)
-16. PPT Generator (NanoBanana AI PPT 생성)
+16. AI 도구 탐색 & 실행 (X 발견 → 에이전트 위임 → PPT 생성 사례)
 
 ---
 

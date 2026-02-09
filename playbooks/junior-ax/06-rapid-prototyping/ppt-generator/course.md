@@ -1,132 +1,105 @@
-# PPT Generator - 실행 가이드
+# AI 도구 탐색 & 실행 - 실행 가이드
 
-## 📚 단계별 실행
+## 📚 워크플로우: 발견 → 에이전트 위임 → 실행
 
-### Step 1: 설치 (최초 1회)
+### Step 1: 도구 발견하기
 
-```bash
-# 1. 프로젝트 클론
+**어디서 찾나?**
+- **X(트위터)**: `#BuildInPublic`, `#AITools`, `#VibeCoding` 해시태그
+- **GitHub Trending**: https://github.com/trending
+- **Product Hunt**: https://www.producthunt.com
+- **Hacker News**: https://news.ycombinator.com
+
+**무엇을 찾나?**
+- README에 설치 가이드가 있는 오픈소스 프로젝트
+- "Claude Code로 설치하세요" 같은 에이전트 친화적 프로젝트
+- Star 수보다 README 품질이 중요
+
+### Step 2: 에이전트에게 먹이기
+
+발견한 도구의 **README 설치 가이드를 그대로 복사**해서 터미널 에이전트에게 붙여넣는다.
+
+```
+[에이전트에게 보내는 메시지 예시]
+
+이 GitHub 프로젝트 설치해줘: https://github.com/xxx/yyy
+
+설치 방법은 README에 나와있어:
+(README 내용 복붙)
+```
+
+또는 더 간단하게:
+
+```
+이 README 보고 설치하고 실행해줘:
+(README URL)
+```
+
+**핵심: 직접 명령어를 치지 않는다. 에이전트가 알아서 한다.**
+
+### Step 3: 에이전트가 하는 일 (지켜보기)
+
+에이전트가 자동으로 처리하는 것들:
+1. 프로젝트 클론
+2. 의존성 설치 (venv, pip, npm 등)
+3. 환경 설정 (API 키, 설정 파일 등)
+4. **에러 발생 시 자동 디버깅** ← 이게 핵심
+5. 실행 및 결과 확인
+
+**실제 사례 (이 폴더의 PPT):**
+- `google-genai` 최신 버전에서 `image_size` 파라미터가 제거됨
+- 에이전트가 에러 메시지를 읽고 → 코드를 수정하고 → 다시 실행
+- 사람이 한 일: 0줄 코딩
+
+### Step 4: 결과물 활용
+
+에이전트가 실행을 완료하면:
+1. 결과물 확인 (브라우저, 파일 등)
+2. 필요하면 에이전트에게 추가 지시 (수정, 재실행 등)
+3. 결과물 저장/공유
+
+## 🎨 실전 예시: PPT 생성
+
+### 발견
+X에서 "NanoBanana PPT Skills" 발견 → Gemini로 PPT 이미지를 생성하는 도구
+
+### 에이전트에게 먹이기
+```
+이 프로젝트 설치해줘:
 git clone https://github.com/op7418/NanoBanana-PPT-Skills.git
-cd NanoBanana-PPT-Skills
 
-# 2. Python 가상환경 생성
-python3 -m venv venv
-source venv/bin/activate
+Python venv 만들고 의존성 설치하고
+Gemini API 키는 AIzaSy... 이거야
 
-# 3. 의존성 설치
-pip install google-genai pillow python-dotenv
-
-# 4. Gemini API 키 설정
-cp .env.example .env
-# .env 파일을 열어 GEMINI_API_KEY=YOUR_API_KEY 입력
+설치 끝나면 아래 목차로 PPT 만들어줘:
+1. 바이브코딩 소개
+2. PC 세팅
+3. 바이브코딩 시작
+...
 ```
 
-> API 키 발급: https://aistudio.google.com/apikey
+### 에이전트가 한 일
+- 클론, venv 생성, 의존성 설치
+- `python-dotenv` 누락 → 자동 추가 설치
+- `image_size` 파라미터 호환성 에러 → 코드 자동 수정
+- 슬라이드 플랜 JSON 자동 작성
+- 20장 PPT 생성 완료
 
-**대안: 환경변수로 설정하기**
-```bash
-# zsh (macOS 기본)
-echo 'export GEMINI_API_KEY="YOUR_API_KEY"' >> ~/.zshrc && source ~/.zshrc
+### 사람이 한 일
+- X에서 도구 발견 (5분)
+- 에이전트에게 "설치하고 이 목차로 PPT 만들어줘" (1분)
+- 결과물 확인 (1분)
 
-# bash
-echo 'export GEMINI_API_KEY="YOUR_API_KEY"' >> ~/.bashrc && source ~/.bashrc
-```
+**총 소요 시간: 약 15분 (에이전트 작업 시간 포함)**
 
-### Step 2: 슬라이드 플랜 작성
+## 💡 이 워크플로우가 통하는 다른 도구들
 
-`slides_plan.json` 파일을 만든다:
+| 발견 장소 | 도구 예시 | 에이전트에게 시킬 내용 |
+|-----------|----------|---------------------|
+| X | PPT 생성기 | "설치하고 이 내용으로 PPT 만들어줘" |
+| X | 로고 생성기 | "설치하고 우리 서비스 로고 만들어줘" |
+| GitHub Trending | 웹 스크래퍼 | "설치하고 이 사이트 데이터 수집해줘" |
+| Product Hunt | 랜딩페이지 빌더 | "설치하고 이 컨셉으로 랜딩페이지 만들어줘" |
+| HN | CLI 도구 | "설치하고 사용법 알려줘" |
 
-```json
-{
-  "title": "발표 제목",
-  "total_slides": 5,
-  "slides": [
-    {
-      "slide_number": 1,
-      "page_type": "cover",
-      "content": "Title: 발표 제목\nSubtitle: 부제목\n\n한 줄 설명"
-    },
-    {
-      "slide_number": 2,
-      "page_type": "content",
-      "content": "핵심 내용\n\n- 포인트 1\n- 포인트 2\n- 포인트 3"
-    },
-    {
-      "slide_number": 3,
-      "page_type": "data",
-      "content": "데이터 제목\n\n항목A: 80%\n항목B: 60%\n항목C: 45%"
-    }
-  ]
-}
-```
-
-**page_type 종류:**
-| 타입 | 용도 | 설명 |
-|------|------|------|
-| `cover` | 표지/마무리 | 큰 3D 오브젝트 + 제목 |
-| `content` | 내용 | Bento 그리드 레이아웃 |
-| `data` | 데이터/통계 | 분할 레이아웃 + 차트 |
-
-### Step 3: 생성 실행
-
-```bash
-cd NanoBanana-PPT-Skills
-
-# 기본 실행
-./run.sh --plan slides_plan.json --style styles/gradient-glass.md --resolution 2K
-
-# 또는 직접 실행
-GEMINI_API_KEY="your-key" ./run.sh --plan slides_plan.json --style styles/gradient-glass.md
-```
-
-**옵션:**
-| 옵션 | 설명 | 기본값 |
-|------|------|--------|
-| `--plan` | 슬라이드 플랜 JSON 파일 (필수) | - |
-| `--style` | 스타일 파일 (필수) | - |
-| `--resolution` | 해상도 (`2K` / `4K`) | `2K` |
-| `--output` | 출력 디렉토리 | `outputs/TIMESTAMP` |
-
-**스타일 종류:**
-| 스타일 | 파일 | 분위기 |
-|--------|------|--------|
-| 글래스모피즘 | `styles/gradient-glass.md` | Apple Keynote 느낌, 고급스러운 테크 |
-| 벡터 일러스트 | `styles/vector-illustration.md` | 따뜻한 플랫 디자인, 교육/브랜드 |
-
-### Step 4: 결과 확인
-
-```bash
-# 브라우저에서 뷰어 열기
-open outputs/TIMESTAMP/index.html          # macOS
-# xdg-open outputs/TIMESTAMP/index.html   # Linux
-# 또는 브라우저에서 직접 파일 열기
-```
-
-- 좌우 화살표로 페이지 이동
-- PDF로 내보내기: 브라우저에서 Cmd+P → "PDF로 저장"
-
-## 🎨 팁
-
-### 좋은 슬라이드 플랜 작성법
-
-1. **cover**: 핵심 메시지 한 줄 + 부제목
-2. **content**: 항목 3-5개 이내, 짧은 키워드 중심
-3. **data**: 숫자/퍼센트를 명시하면 차트로 시각화됨
-
-### AI에게 플랜 작성 시키기
-
-Claude나 ChatGPT에게 아래처럼 요청:
-
-```
-아래 목차로 PPT slides_plan.json을 만들어줘.
-page_type은 cover, content, data 중 선택.
-각 slide의 content는 핵심 키워드 중심으로 간결하게.
-
-[목차 붙여넣기]
-```
-
-## ⚠️ 알려진 이슈
-
-- `google-genai` 최신 버전에서 `image_size` 파라미터가 제거됨 → `generate_ppt.py`의 `ImageConfig`에서 `image_size=resolution` 라인 삭제 필요
-- Python 3.9 경고가 뜨지만 동작에는 문제 없음
-- 한 슬라이드당 약 30초 소요 (2K 기준)
+**패턴은 항상 동일: 발견 → README 복붙 → 에이전트 실행 → 결과 확인**
