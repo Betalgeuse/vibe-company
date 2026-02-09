@@ -123,7 +123,41 @@
 
 ---
 
-### 07. Infrastructure (인프라)
+### 07. Branding Basics (브랜딩 기초) ⭐
+> **책임:** 프로토타입 완성 후 기본 브랜드 아이덴티티 구축
+
+**Tasks:**
+- ⭐ [Product Naming](./05-branding-basics/product-naming/) - 30분 안에 제품명 선정
+- ⭐ [Concept Definition](./05-branding-basics/concept-definition/) - 브랜드 컨셉 3-5개 키워드
+- ⭐ [CI/Logo Design](./05-branding-basics/ci-logo-design/) - AI로 45-60분 안에 로고 제작
+- ⭐ [Tone & Manner](./05-branding-basics/tone-and-manner/) - 브랜드 목소리 가이드 작성
+- ⭐ [Color Palette](./05-branding-basics/color-palette/) - Tailwind CSS 색상 시스템 구축
+- ⭐ [Typography](./05-branding-basics/typography/) - Google Fonts 선정 및 Next.js 적용
+
+**목표:** AI 도구로 3시간 안에 기본 브랜딩 완성
+
+**전제 조건:** [06. Rapid Prototyping](./06-rapid-prototyping/) 완료
+
+---
+
+### 08. Social Media Marketing (소셜 미디어 마케팅) ⭐ NEW
+> **책임:** 프로토타입 + 브랜딩 완료 후 소셜 미디어에서 첫 사용자 확보
+
+**Tasks:**
+- ⭐ [Platform Selection](./08-social-media-marketing/platform-selection/) - 30분 안에 주력 플랫폼 2-3개 선정
+- ⭐ [Content Strategy](./08-social-media-marketing/content-strategy/) - 45분 안에 2주 콘텐츠 캘린더 작성
+- ⭐ [Launch Post Creation](./08-social-media-marketing/launch-post-creation/) - 60분 안에 플랫폼별 런칭 포스트 작성
+- ⭐ [Visual Assets](./08-social-media-marketing/visual-assets/) - 60분 안에 OG Image, 스크린샷, 데모 영상 제작
+- ⭐ [ProductHunt Launch](./08-social-media-marketing/producthunt-launch/) - Top 10 진입 및 100+ upvotes 달성
+- ⭐ [Engagement Strategy](./08-social-media-marketing/engagement-strategy/) - 45분 안에 댓글/DM 응답 템플릿 20개 준비
+
+**목표:** 제로 예산으로 AI 도구 활용해 4-5시간 안에 소셜 미디어 마케팅 완성, 첫 100명 사용자 확보
+
+**전제 조건:** [06. Rapid Prototyping](./06-rapid-prototyping/) + [07. Branding Basics](./05-branding-basics/) 완료
+
+---
+
+### 09. Infrastructure (인프라)
 > **책임:** IaC 기반 인프라 관리 (선택)
 
 **Tasks:**
@@ -134,17 +168,17 @@
 
 ---
 
-### 08. Measurement & Tracking (측정)
+### 10. Measurement & Tracking (측정)
 > **책임:** FCSR 측정 및 지속적 개선
 
 **Tasks:**
-- ⭐ [FCSR 추적하기](./08-measurement/fcsr-tracking/) - 매일/주간/월간 측정
+- ⭐ [FCSR 추적하기](./09-measurement/fcsr-tracking/) - 매일/주간/월간 측정
 
 **목표:** 주간 FCSR 80% 달성 및 유지
 
 ---
 
-### 09. Quick Start Guide (빠른 시작)
+### 11. Quick Start Guide (빠른 시작)
 > **책임:** 신입 온보딩 3일 완성
 
 **Tasks:**
@@ -211,9 +245,9 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 
 ## 📈 진행 상황
 
-**완성된 Task:** 14개 ⭐  
-**전체 파일:** 39개  
-**커버리지:** vibe-coding-playbook 핵심 내용 ~80%
+**완성된 Task:** 26개 ⭐  
+**전체 파일:** 75개  
+**커버리지:** vibe-coding-playbook 핵심 내용 ~90%
 
 **완성 Task 목록:**
 1. Git 첫 설정
@@ -230,6 +264,18 @@ FCSR = (첫 시도 성공 작업) / (전체 작업) × 100%
 12. 컴포넌트 라이브러리 (shadcn/ui, Magic UI)
 13. 프로토타이핑 도구 (Figma, Framer, Builder.io)
 14. Tech Stack 표준화 (Next.js 14, shadcn/ui, React Query)
+15. Product Naming (제품명 선정)
+16. Concept Definition (컨셉 정의)
+17. CI/Logo Design (로고 제작)
+18. Tone & Manner (톤앤매너)
+19. Color Palette (컬러 팔레트)
+20. Typography (타이포그래피)
+21. Platform Selection (플랫폼 선택)
+22. Content Strategy (콘텐츠 전략)
+23. Launch Post Creation (런칭 포스트 작성)
+24. Visual Assets (비주얼 에셋)
+25. ProductHunt Launch (프로덕트헌트 런칭)
+26. Engagement Strategy (참여 유도 전략)
 
 ---
 
