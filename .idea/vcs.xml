@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/private" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/private/mvp/financial-analyzer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/private/mvp/fraud-detector" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/private/mvp/love-practice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/private/mvp/vibe-command-dashboard" vcs="Git" />
   </component>
 </project>
