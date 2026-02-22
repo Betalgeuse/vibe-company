@@ -1,0 +1,16 @@
+{
+  "active": false,
+  "mode": "team",
+  "iteration": 0,
+  "max_iterations": 50,
+  "current_phase": "cancelled",
+  "task_description": "[biz-idea v2.0 workflow] 주제: 'r/selfie에서 얼평(외모 평가)하며 도파민 결핍을 채우는 사용자군'. 너희 4명은 아래 페르소나로 토론하고, 리더에게 최종 합의안을 보고하라. (1) Niche Market Hunter: 시장/세그먼트/수요 신호 탐색. (2) Reference Scout: 글로벌 레퍼런스/경쟁/대체재 분석. (3) MVP Architect(Defender): Step1 결과 기반 MVP Option 3개 설계 및 방어. (4) Devil's Advocate(Critic): 약점 공격/반론 검증/최종 판정. 실행순서: Step1 병렬 리서치→Step2 MVP 3안→Step3 3라운드(attack/counter/verdict). 조건: 리더(중재자)는 토론에 끼어들지 말고 의견 취합만 가능. 각 라운드별 주장/근거를 명시하고, 마지막에 100점 만점 스코어와 PASS(>=85) 여부를 제시. 최종 산출은 한국어 Markdown으로 아래 섹션 필수: Score & Verdict, The Micro Opportunity, Product Spec (MVP), Competition Check, Automation Strategy, Cost Estimate. 윤리/안전 리스크(외모 평가 서비스의 정신건강·괴롭힘 문제)와 완화책을 반드시 포함.",
+  "started_at": "2026-02-19T07:24:23.477Z",
+  "tmux_pane_id": "%300",
+  "tmux_pane_set_at": "2026-02-19T07:24:23.477Z",
+  "linked_ralph": false,
+  "team_name": "biz-idea-v2-0-workflow-r-selfi",
+  "agent_count": 4,
+  "agent_types": "executor",
+  "completed_at": "2026-02-19T07:29:37.670Z"
+}

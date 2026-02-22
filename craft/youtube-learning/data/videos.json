@@ -1,0 +1,57 @@
+[
+  {
+    "id": "v-1",
+    "channelId": "ch-1",
+    "youtubeVideoId": "dQw4w9WgXcQ",
+    "title": "2025년 글로벌 경제 전망: 미국 금리 인하의 파급 효과",
+    "publishedAt": "2025-02-10T09:00:00Z",
+    "duration": "PT25M",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "collectedAt": "2025-02-10T12:00:00Z",
+    "isSummarized": true
+  },
+  {
+    "id": "v-2",
+    "channelId": "ch-2",
+    "youtubeVideoId": "dQw4w9WgXcQ",
+    "title": "AI 반도체 전쟁: 엔비디아 vs AMD vs 인텔 승자는?",
+    "publishedAt": "2025-02-09T15:00:00Z",
+    "duration": "PT32M",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "collectedAt": "2025-02-10T12:00:00Z",
+    "isSummarized": true
+  },
+  {
+    "id": "v-3",
+    "channelId": "ch-1",
+    "youtubeVideoId": "dQw4w9WgXcQ",
+    "title": "한국은행 기준금리 결정 분석 & 부동산 시장 영향",
+    "publishedAt": "2025-02-08T10:00:00Z",
+    "duration": "PT18M",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "collectedAt": "2025-02-10T12:00:00Z",
+    "isSummarized": true
+  },
+  {
+    "id": "v-4",
+    "channelId": "ch-3",
+    "youtubeVideoId": "dQw4w9WgXcQ",
+    "title": "딥시크 쇼크 이후: 중국 AI 생태계의 미래",
+    "publishedAt": "2025-02-07T08:00:00Z",
+    "duration": "PT45M",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "collectedAt": "2025-02-10T12:00:00Z",
+    "isSummarized": true
+  },
+  {
+    "id": "v-5",
+    "channelId": "ch-2",
+    "youtubeVideoId": "dQw4w9WgXcQ",
+    "title": "비트코인 10만달러 시대: 가상자산 투자 전략 총정리",
+    "publishedAt": "2025-02-06T14:00:00Z",
+    "duration": "PT28M",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "collectedAt": "2025-02-10T12:00:00Z",
+    "isSummarized": true
+  }
+]

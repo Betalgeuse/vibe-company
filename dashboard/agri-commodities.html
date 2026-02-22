@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriPulse | Agricultural Commodities Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e17;--surface:#111827;--surface2:#1a2235;--border:#1e293b;
+  --text:#e2e8f0;--text2:#94a3b8;--accent:#3b82f6;--green:#10b981;
+  --red:#ef4444;--orange:#f59e0b;--purple:#8b5cf6;--cyan:#06b6d4;
+}
+body{font-family:'SF Mono','Fira Code','Consolas',monospace;background:var(--bg);color:var(--text);overflow-x:hidden}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--border)}
+.header h1{font-size:16px;font-weight:700;letter-spacing:1px}
+.header h1 span{color:var(--green)}
+.header-right{display:flex;align-items:center;gap:16px;font-size:12px;color:var(--text2)}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.clock{font-variant-numeric:tabular-nums;color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:12px;padding:12px;height:calc(100vh - 52px)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.panel-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text2)}
+.panel-head .tag{font-size:9px;padding:2px 6px;border-radius:3px;background:rgba(16,185,129,.15);color:var(--green)}
+.panel-body{flex:1;padding:10px 14px;overflow-y:auto}
+.ticker-strip{grid-column:1/-1;display:flex;align-items:center;gap:0;overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0 14px;min-height:48px}
+.ticker-item{display:flex;align-items:center;gap:8px;padding:8px 20px;white-space:nowrap;font-size:12px;border-right:1px solid var(--border)}
+.ticker-item:last-child{border-right:none}
+.ticker-name{color:var(--text2);font-weight:600}
+.ticker-price{font-weight:700;font-variant-numeric:tabular-nums}
+.ticker-change{font-size:11px;font-weight:600}
+.up{color:var(--green)}.down{color:var(--red)}
+
+.chart-panel{grid-column:1/3;grid-row:2/3}
+.chart-panel .panel-body{padding:8px}
+.chart-tabs{display:flex;gap:6px;margin-bottom:8px}
+.chart-tab{padding:4px 10px;font-size:10px;border-radius:4px;cursor:pointer;background:var(--surface2);color:var(--text2);border:1px solid var(--border);transition:.2s}
+.chart-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chart-wrap{position:relative;height:calc(100% - 36px)}
+
+.news-panel{grid-column:3/4;grid-row:2/4}
+.news-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-time{font-size:10px;color:var(--accent);margin-bottom:3px}
+.news-title{font-size:12px;font-weight:600;line-height:1.4;margin-bottom:4px}
+.news-src{font-size:10px;color:var(--text2)}
+.news-tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;margin-right:4px}
+.news-tag.alert{background:rgba(239,68,68,.15);color:var(--red)}
+.news-tag.info{background:rgba(59,130,246,.15);color:var(--accent)}
+.news-tag.positive{background:rgba(16,185,129,.15);color:var(--green)}
+
+.satellite-panel{grid-column:1/2;grid-row:3/4}
+.sat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sat-card{background:var(--surface2);border-radius:6px;padding:10px;border:1px solid var(--border)}
+.sat-label{font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.sat-value{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
+.sat-bar{height:4px;background:var(--border);border-radius:2px;margin-top:6px;overflow:hidden}
+.sat-bar-fill{height:100%;border-radius:2px;transition:width .8s ease}
+.sat-mini{font-size:9px;color:var(--text2);margin-top:4px}
+
+.analytics-panel{grid-column:2/3;grid-row:3/4}
+.risk-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
+.risk-row:last-child{border-bottom:none}
+.risk-name{color:var(--text2)}
+.risk-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px}
+.risk-low{background:rgba(16,185,129,.15);color:var(--green)}
+.risk-mid{background:rgba(245,158,11,.15);color:var(--orange)}
+.risk-high{background:rgba(239,68,68,.15);color:var(--red)}
+.signal-row{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:11px}
+.signal-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>AGRI<span>PULSE</span> &mdash; Commodities Intelligence</h1>
+  <div class="header-right">
+    <div style="display:flex;align-items:center;gap:6px"><div class="live-dot"></div>LIVE</div>
+    <div>CME / CBOT / ICE</div>
+    <div class="clock" id="clock"></div>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- Ticker Strip -->
+  <div class="ticker-strip" id="ticker"></div>
+
+  <!-- Main Chart -->
+  <div class="panel chart-panel">
+    <div class="panel-head">
+      <span>Futures Price Chart</span>
+      <span class="tag">REALTIME</span>
+    </div>
+    <div class="panel-body">
+      <div class="chart-tabs" id="chartTabs"></div>
+      <div class="chart-wrap"><canvas id="mainChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- News -->
+  <div class="panel news-panel">
+    <div class="panel-head">
+      <span>Agri News Feed</span>
+      <span class="tag">LIVE</span>
+    </div>
+    <div class="panel-body" id="newsFeed"></div>
+  </div>
+
+  <!-- Satellite Data -->
+  <div class="panel satellite-panel">
+    <div class="panel-head">
+      <span>Satellite & Crop Intelligence</span>
+      <span class="tag">SENTINEL-2</span>
+    </div>
+    <div class="panel-body">
+      <div class="sat-grid" id="satGrid"></div>
+    </div>
+  </div>
+
+  <!-- Analytics -->
+  <div class="panel analytics-panel">
+    <div class="panel-head">
+      <span>Risk & Signal Analysis</span>
+      <span class="tag">AI MODEL</span>
+    </div>
+    <div class="panel-body" id="analytics"></div>
+  </div>
+</div>
+
+<script>
+// --- COMMODITIES DATA ---
+const COMMODITIES = [
+  { sym: 'ZC', name: 'Corn', unit: '¢/bu', base: 485, vol: 3.5 },
+  { sym: 'ZW', name: 'Wheat', unit: '¢/bu', base: 625, vol: 4.2 },
+  { sym: 'ZS', name: 'Soybeans', unit: '¢/bu', base: 1185, vol: 5.0 },
+  { sym: 'ZR', name: 'Rice', unit: '$/cwt', base: 17.8, vol: 0.12 },
+  { sym: 'KC', name: 'Coffee', unit: '¢/lb', base: 245, vol: 4.8 },
+  { sym: 'SB', name: 'Sugar', unit: '¢/lb', base: 22.5, vol: 0.35 },
+  { sym: 'CT', name: 'Cotton', unit: '¢/lb', base: 82, vol: 1.2 },
+  { sym: 'OJ', name: 'Orange Juice', unit: '¢/lb', base: 345, vol: 5.5 },
+];
+
+const state = {};
+COMMODITIES.forEach(c => {
+  state[c.sym] = { price: c.base, history: [], change: 0, changePct: 0 };
+  for (let i = 120; i >= 0; i--) {
+    const p = c.base + (Math.random() - 0.5) * c.vol * 20;
+    state[c.sym].history.push(+p.toFixed(2));
+  }
+  state[c.sym].price = state[c.sym].history[state[c.sym].history.length - 1];
+});
+
+let activeSym = 'ZC';
+
+// --- CLOCK ---
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clock').textContent = now.toLocaleTimeString('en-US', { hour12: false }) + ' KST';
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// --- TICKER ---
+function renderTicker() {
+  const el = document.getElementById('ticker');
+  el.innerHTML = COMMODITIES.map(c => {
+    const s = state[c.sym];
+    const cls = s.change >= 0 ? 'up' : 'down';
+    const arrow = s.change >= 0 ? '&#9650;' : '&#9660;';
+    return `<div class="ticker-item">
+      <span class="ticker-name">${c.sym}</span>
+      <span class="ticker-price">${s.price.toFixed(2)}</span>
+      <span class="ticker-change ${cls}">${arrow} ${Math.abs(s.change).toFixed(2)} (${Math.abs(s.changePct).toFixed(2)}%)</span>
+    </div>`;
+  }).join('');
+}
+
+// --- PRICE UPDATE ---
+function tickPrices() {
+  COMMODITIES.forEach(c => {
+    const s = state[c.sym];
+    const prev = s.price;
+    const delta = (Math.random() - 0.48) * c.vol;
+    s.price = +(s.price + delta).toFixed(2);
+    if (s.price < c.base * 0.8) s.price = c.base * 0.8;
+    if (s.price > c.base * 1.2) s.price = c.base * 1.2;
+    s.change = +(s.price - c.base).toFixed(2);
+    s.changePct = +((s.change / c.base) * 100).toFixed(2);
+    s.history.push(s.price);
+    if (s.history.length > 121) s.history.shift();
+  });
+  renderTicker();
+  updateChart();
+}
+
+// --- CHART ---
+const chartTabs = document.getElementById('chartTabs');
+COMMODITIES.forEach(c => {
+  const btn = document.createElement('div');
+  btn.className = 'chart-tab' + (c.sym === activeSym ? ' active' : '');
+  btn.textContent = c.name;
+  btn.onclick = () => {
+    activeSym = c.sym;
+    document.querySelectorAll('.chart-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateChart();
+  };
+  chartTabs.appendChild(btn);
+});
+
+const ctx = document.getElementById('mainChart').getContext('2d');
+const mainChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: Array.from({ length: 121 }, (_, i) => i % 20 === 0 ? `-${120 - i}s` : ''),
+    datasets: [{
+      data: state[activeSym].history.slice(),
+      borderColor: '#3b82f6',
+      backgroundColor: 'rgba(59,130,246,0.08)',
+      borderWidth: 1.5,
+      pointRadius: 0,
+      fill: true,
+      tension: 0.3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: { duration: 300 },
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: 'rgba(30,41,59,0.5)' }, ticks: { color: '#64748b', font: { size: 9 } } },
+      y: { grid: { color: 'rgba(30,41,59,0.5)' }, ticks: { color: '#64748b', font: { size: 9 } },
+        afterFit: s => { s.width = 60; }
+      }
+    }
+  }
+});
+
+function updateChart() {
+  const s = state[activeSym];
+  const c = COMMODITIES.find(c => c.sym === activeSym);
+  const color = s.change >= 0 ? '#10b981' : '#ef4444';
+  mainChart.data.datasets[0].data = s.history.slice();
+  mainChart.data.datasets[0].borderColor = color;
+  mainChart.data.datasets[0].backgroundColor = color.replace(')', ',0.08)').replace('rgb', 'rgba');
+  mainChart.update('none');
+}
+
+// --- NEWS ---
+const NEWS_TEMPLATES = [
+  { tag: 'alert', title: 'USDA 보고서: {crop} 작황 예상치 하회, 공급 우려 확대', src: 'USDA/WASDE' },
+  { tag: 'info', title: '{crop} 선물 거래량 전일 대비 {pct}% 급증, 투기 수요 유입', src: 'CME Group' },
+  { tag: 'alert', title: '브라질 {region} 지역 가뭄 지속, {crop} 수확량 영향 불가피', src: 'Reuters Agri' },
+  { tag: 'positive', title: '중국 {crop} 수입 쿼터 확대 발표, 아시아 시장 호재', src: 'Bloomberg' },
+  { tag: 'info', title: 'El Nino 패턴 강화 전망, 동남아 {crop} 생산 차질 우려', src: 'NOAA Climate' },
+  { tag: 'alert', title: '우크라이나 흑해 곡물 수출 재차 차질, {crop} 가격 상승 압력', src: 'S&P Platts' },
+  { tag: 'positive', title: '인도 {crop} 풍작 전망, 글로벌 공급 안정 기대', src: 'FAO Report' },
+  { tag: 'info', title: 'CBOT {crop} 선물 옵션 풋/콜 비율 {ratio}로 하락, 강세 신호', src: 'Options Flow' },
+  { tag: 'alert', title: 'EU 탄소국경세 시행으로 {crop} 수출입 구조 변화 예상', src: 'EC Trade' },
+  { tag: 'positive', title: '{crop} 선물 주간 수익률 +{pct}%, 헤지펀드 매수 포지션 확대', src: 'CFTC CoT' },
+  { tag: 'info', title: '아르헨티나 {crop} 수출세 인하 검토, 남미 공급 확대 가능성', src: 'Mercopress' },
+  { tag: 'alert', title: '미국 중서부 조기 서리 경고, {crop} 마감 수확 차질 우려', src: 'NOAA Weather' },
+  { tag: 'positive', title: 'Sentinel-2 분석: 미국 콘벨트 NDVI 지수 전년 대비 {pct}% 상승', src: 'CropWatch AI' },
+  { tag: 'info', title: '글로벌 {crop} 재고/소비 비율 {ratio}%로 5년 최저, 가격 지지', src: 'IGC Report' },
+  { tag: 'alert', title: '호주 퀸즐랜드 홍수 피해 확대, {crop} 수출 물량 감소 우려', src: 'ABC Rural' },
+];
+const CROPS = ['옥수수', '밀', '대두', '쌀', '커피', '설탕', '면화', '오렌지주스'];
+const REGIONS = ['마토그로소', '고이아스', '파라나', '리오그란데도술'];
+const newsItems = [];
+
+function generateNews() {
+  const tmpl = NEWS_TEMPLATES[Math.floor(Math.random() * NEWS_TEMPLATES.length)];
+  const crop = CROPS[Math.floor(Math.random() * CROPS.length)];
+  const region = REGIONS[Math.floor(Math.random() * REGIONS.length)];
+  const pct = (Math.random() * 15 + 2).toFixed(1);
+  const ratio = (Math.random() * 2 + 0.3).toFixed(2);
+  const title = tmpl.title.replace('{crop}', crop).replace('{region}', region).replace('{pct}', pct).replace('{ratio}', ratio);
+  const now = new Date();
+  const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  newsItems.unshift({ tag: tmpl.tag, title, src: tmpl.src, time });
+  if (newsItems.length > 30) newsItems.pop();
+  renderNews();
+}
+
+function renderNews() {
+  const el = document.getElementById('newsFeed');
+  el.innerHTML = newsItems.map(n => `
+    <div class="news-item">
+      <div class="news-time">${n.time}</div>
+      <div class="news-title"><span class="news-tag ${n.tag}">${n.tag === 'alert' ? 'ALERT' : n.tag === 'positive' ? 'BULLISH' : 'INFO'}</span>${n.title}</div>
+      <div class="news-src">${n.src}</div>
+    </div>
+  `).join('');
+}
+
+for (let i = 0; i < 8; i++) generateNews();
+
+// --- SATELLITE DATA ---
+const SAT_METRICS = [
+  { id: 'ndvi', label: 'NDVI Index', min: 0.45, max: 0.92, unit: '', color: '#10b981', decimals: 3 },
+  { id: 'soil', label: 'Soil Moisture', min: 18, max: 45, unit: '%', color: '#3b82f6', decimals: 1 },
+  { id: 'lst', label: 'Land Temp (LST)', min: 22, max: 38, unit: '°C', color: '#ef4444', decimals: 1 },
+  { id: 'precip', label: 'Precipitation', min: 0, max: 120, unit: 'mm', color: '#06b6d4', decimals: 0 },
+  { id: 'evi', label: 'EVI Index', min: 0.2, max: 0.7, unit: '', color: '#8b5cf6', decimals: 3 },
+  { id: 'cover', label: 'Cloud Cover', min: 5, max: 85, unit: '%', color: '#f59e0b', decimals: 0 },
+];
+
+const satState = {};
+SAT_METRICS.forEach(m => { satState[m.id] = m.min + Math.random() * (m.max - m.min); });
+
+function updateSatellite() {
+  SAT_METRICS.forEach(m => {
+    const drift = (Math.random() - 0.5) * (m.max - m.min) * 0.05;
+    satState[m.id] = Math.min(m.max, Math.max(m.min, satState[m.id] + drift));
+  });
+  renderSatellite();
+}
+
+function renderSatellite() {
+  const el = document.getElementById('satGrid');
+  el.innerHTML = SAT_METRICS.map(m => {
+    const val = satState[m.id];
+    const pct = ((val - m.min) / (m.max - m.min)) * 100;
+    return `<div class="sat-card">
+      <div class="sat-label">${m.label}</div>
+      <div class="sat-value" style="color:${m.color}">${val.toFixed(m.decimals)}${m.unit}</div>
+      <div class="sat-bar"><div class="sat-bar-fill" style="width:${pct}%;background:${m.color}"></div></div>
+      <div class="sat-mini">Source: Sentinel-2 / MODIS &bull; Updated ${new Date().toLocaleTimeString('en-US',{hour12:false})}</div>
+    </div>`;
+  }).join('');
+}
+renderSatellite();
+
+// --- RISK & SIGNALS ---
+const RISK_ITEMS = [
+  { name: 'Supply Disruption', key: 'supply' },
+  { name: 'Weather Impact', key: 'weather' },
+  { name: 'Demand Shock', key: 'demand' },
+  { name: 'Geopolitical Risk', key: 'geo' },
+  { name: 'Currency Effect', key: 'fx' },
+];
+const SIGNALS = [
+  'Corn 일봉 Golden Cross 감지 (MA50/MA200)',
+  'Wheat RSI 72.3 — 과매수 구간 진입',
+  'Soybeans 볼린저 밴드 하단 이탈 후 반등',
+  'Coffee OBV 상승 다이버전스 감지',
+  'Sugar MACD 히스토그램 양전환',
+  'Cotton 피보나치 61.8% 되돌림 지지',
+  'Rice ADX 28.4 — 추세 강화 중',
+  'OJ 스토캐스틱 %K/%D 데드크로스',
+];
+
+function renderAnalytics() {
+  const levels = ['LOW', 'MID', 'HIGH'];
+  const el = document.getElementById('analytics');
+  let html = '<div style="margin-bottom:12px;font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px">Risk Assessment</div>';
+  RISK_ITEMS.forEach(r => {
+    const lvl = levels[Math.floor(Math.random() * 3)];
+    const cls = lvl === 'LOW' ? 'risk-low' : lvl === 'MID' ? 'risk-mid' : 'risk-high';
+    html += `<div class="risk-row"><span class="risk-name">${r.name}</span><span class="risk-badge ${cls}">${lvl}</span></div>`;
+  });
+  html += '<div style="margin:14px 0 8px;font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px">Trading Signals</div>';
+  const shuffled = SIGNALS.sort(() => Math.random() - 0.5).slice(0, 4);
+  shuffled.forEach(s => {
+    const colors = ['var(--green)', 'var(--red)', 'var(--orange)', 'var(--cyan)', 'var(--purple)'];
+    const c = colors[Math.floor(Math.random() * colors.length)];
+    html += `<div class="signal-row"><div class="signal-dot" style="background:${c}"></div>${s}</div>`;
+  });
+  el.innerHTML = html;
+}
+renderAnalytics();
+
+// --- INTERVALS ---
+setInterval(tickPrices, 1500);
+setInterval(generateNews, 8000);
+setInterval(updateSatellite, 3000);
+setInterval(renderAnalytics, 10000);
+tickPrices();
+</script>
+</body>
+</html>

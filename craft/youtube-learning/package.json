@@ -1,0 +1,27 @@
+{
+  "name": "youtube-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "collect": "ts-node src/index.ts collect",
+    "summarize": "ts-node src/index.ts summarize",
+    "report": "ts-node src/index.ts report",
+    "demo": "ts-node src/index.ts demo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.95.3",
+    "@types/node": "^25.2.3",
+    "dotenv": "^17.2.4",
+    "openai": "^6.21.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "youtube-transcript": "^1.2.1"
+  }
+}

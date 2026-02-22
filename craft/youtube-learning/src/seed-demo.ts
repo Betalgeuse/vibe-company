@@ -1,0 +1,137 @@
+ import { Channel, Video, VideoSummary } from './types';
+ import { Store } from './modules/store';
+ 
+ const channels: Channel[] = [
+   { id: 'ch-1', name: '삼프로TV', youtubeChannelId: 'UCrMBpfFQMFzb4D27m8Pbyxw', category: '경제', isActive: true, createdAt: '2025-01-01' },
+   { id: 'ch-2', name: '슈카월드', youtubeChannelId: 'UCsJ6RuBiTVWRX156FVbeaGg', category: '투자', isActive: true, createdAt: '2025-01-01' },
+   { id: 'ch-3', name: '안될과학', youtubeChannelId: 'UCmFjEhp9DgOc49xHxMbUzTw', category: '시사', isActive: true, createdAt: '2025-01-01' },
+ ];
+ 
+ const videos: Video[] = [
+   {
+     id: 'v-1', channelId: 'ch-1', youtubeVideoId: 'dQw4w9WgXcQ',
+     title: '2025년 글로벌 경제 전망: 미국 금리 인하의 파급 효과',
+     publishedAt: '2025-02-10T09:00:00Z', duration: 'PT25M', thumbnailUrl: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+     collectedAt: '2025-02-10T12:00:00Z', isSummarized: true,
+   },
+   {
+     id: 'v-2', channelId: 'ch-2', youtubeVideoId: 'dQw4w9WgXcQ',
+     title: 'AI 반도체 전쟁: 엔비디아 vs AMD vs 인텔 승자는?',
+     publishedAt: '2025-02-09T15:00:00Z', duration: 'PT32M', thumbnailUrl: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+     collectedAt: '2025-02-10T12:00:00Z', isSummarized: true,
+   },
+   {
+     id: 'v-3', channelId: 'ch-1', youtubeVideoId: 'dQw4w9WgXcQ',
+     title: '한국은행 기준금리 결정 분석 & 부동산 시장 영향',
+     publishedAt: '2025-02-08T10:00:00Z', duration: 'PT18M', thumbnailUrl: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+     collectedAt: '2025-02-10T12:00:00Z', isSummarized: true,
+   },
+   {
+     id: 'v-4', channelId: 'ch-3', youtubeVideoId: 'dQw4w9WgXcQ',
+     title: '딥시크 쇼크 이후: 중국 AI 생태계의 미래',
+     publishedAt: '2025-02-07T08:00:00Z', duration: 'PT45M', thumbnailUrl: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+     collectedAt: '2025-02-10T12:00:00Z', isSummarized: true,
+   },
+   {
+     id: 'v-5', channelId: 'ch-2', youtubeVideoId: 'dQw4w9WgXcQ',
+     title: '비트코인 10만달러 시대: 가상자산 투자 전략 총정리',
+     publishedAt: '2025-02-06T14:00:00Z', duration: 'PT28M', thumbnailUrl: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+     collectedAt: '2025-02-10T12:00:00Z', isSummarized: true,
+   },
+ ];
+ 
+ const summaries: VideoSummary[] = [
+   {
+     videoId: 'v-1',
+     coreSummary: '2025년 하반기 미국 연준의 금리 인하가 본격화되면서 글로벌 자금 흐름에 큰 변화가 예상됩니다. 신흥국 시장으로의 자금 유입이 증가하고, 달러 약세가 원화 강세로 이어질 가능성이 높습니다. 다만 미국 경기침체 리스크와 지정학적 불확실성이 여전히 변수로 작용할 전망입니다.',
+     insights: [
+       '연준 금리 인하 시 한국 수출주에 긍정적 영향 예상',
+       '달러 약세 전환 시 원자재 가격 상승 가능성',
+       '미국 국채 금리 하락으로 성장주 재평가 기대',
+     ],
+     keywords: ['금리인하', '연준', '달러약세', '신흥국', '경기침체'],
+     timestamps: [
+       { time: '02:15', label: '2025 글로벌 경제 핵심 변수 3가지' },
+       { time: '08:40', label: '미국 금리 인하 타임라인 분석' },
+       { time: '15:20', label: '한국 경제에 미치는 영향' },
+       { time: '21:00', label: '투자자 대응 전략' },
+     ],
+     createdAt: '2025-02-10T12:30:00Z',
+   },
+   {
+     videoId: 'v-2',
+     coreSummary: 'AI 반도체 시장에서 엔비디아의 독주가 이어지고 있으나, AMD의 MI300X와 인텔의 Gaudi3가 추격하고 있습니다. 특히 추론(inference) 시장에서의 경쟁이 치열해지며, 커스텀 ASIC(구글 TPU, AWS Trainium) 역시 주요 변수입니다. 2025년 AI 반도체 시장 규모는 전년 대비 40% 성장 전망.',
+     insights: [
+       'AI 추론 칩 시장이 학습 칩 시장보다 빠르게 성장 중',
+       'HBM(고대역폭 메모리) 공급 부족이 핵심 병목',
+       '빅테크의 자체 칩 개발이 엔비디아 독점 견제 요인',
+     ],
+     keywords: ['AI반도체', '엔비디아', 'HBM', '추론칩', 'ASIC'],
+     timestamps: [
+       { time: '03:00', label: 'AI 반도체 시장 현황 개요' },
+       { time: '10:30', label: '엔비디아 B200 성능 분석' },
+       { time: '18:45', label: 'AMD vs 인텔 전략 비교' },
+       { time: '25:10', label: '투자 관점에서 본 수혜주' },
+     ],
+     createdAt: '2025-02-10T12:30:00Z',
+   },
+   {
+     videoId: 'v-3',
+     coreSummary: '한국은행이 기준금리를 동결하면서 시장에 안도감을 주었으나, 가계부채 관리와 경기 부양 사이의 딜레마가 지속되고 있습니다. 부동산 시장은 서울 핵심 지역 중심으로 가격 안정세를 보이나, 지방은 여전히 하락 압력이 큰 상황입니다.',
+     insights: [
+       '기준금리 동결은 부동산 시장에 중립적 영향',
+       '전세가율 상승이 매매가 지지 역할',
+       '2025년 입주 물량 감소가 서울 집값 상승 요인',
+     ],
+     keywords: ['기준금리', '한국은행', '부동산', '가계부채', '전세가율'],
+     timestamps: [
+       { time: '01:30', label: '금통위 결정 요약' },
+       { time: '06:00', label: '가계부채 현황과 리스크' },
+       { time: '11:20', label: '서울 vs 지방 부동산 전망' },
+     ],
+     createdAt: '2025-02-10T12:30:00Z',
+   },
+   {
+     videoId: 'v-4',
+     coreSummary: '딥시크의 등장으로 미국 AI 기업들의 밸류에이션에 의문이 제기되고 있습니다. 중국이 오픈소스 전략과 비용 효율적 학습 방법으로 빠르게 추격하면서, AI 기술 패권 경쟁이 더욱 치열해지고 있습니다. 반도체 수출 규제의 실효성에 대한 재검토도 필요해 보입니다.',
+     insights: [
+       '딥시크는 적은 비용으로 GPT-4급 성능 달성 → 비용 효율성의 중요성 부각',
+       '미중 AI 패권 경쟁이 오픈소스 생태계 확장 촉진',
+       '한국 AI 기업에는 오히려 기회: 저비용 모델 활용 가능',
+     ],
+     keywords: ['딥시크', '중국AI', '오픈소스', 'AI패권', '반도체규제'],
+     timestamps: [
+       { time: '00:45', label: '딥시크 쇼크란 무엇인가' },
+       { time: '12:00', label: '딥시크의 기술적 혁신 분석' },
+       { time: '25:30', label: '미국의 대응과 규제 강화' },
+       { time: '35:00', label: '한국 AI 산업에 미치는 영향' },
+       { time: '40:15', label: '투자자 관점의 시사점' },
+     ],
+     createdAt: '2025-02-10T12:30:00Z',
+   },
+   {
+     videoId: 'v-5',
+     coreSummary: '비트코인이 10만달러를 돌파하면서 가상자산 시장 전체가 활기를 띠고 있습니다. 비트코인 ETF 승인 이후 기관 투자자들의 유입이 크게 증가했으며, 이더리움과 솔라나 등 알트코인도 강세를 보이고 있습니다. 다만 과열 신호도 감지되어 리스크 관리가 필수적입니다.',
+     insights: [
+       '비트코인 ETF를 통한 기관 자금 유입이 가격 상승 핵심 동력',
+       '온체인 데이터 기반 과열/저평가 판단이 중요',
+       '알트시즌 진입 시 분산 투자 전략 필요',
+     ],
+     keywords: ['비트코인', '가상자산', 'ETF', '알트코인', '온체인'],
+     timestamps: [
+       { time: '02:00', label: '비트코인 10만달러 돌파 배경' },
+       { time: '09:15', label: 'ETF 자금 흐름 분석' },
+       { time: '16:40', label: '알트코인 투자 전략' },
+       { time: '22:30', label: '리스크 관리 체크리스트' },
+     ],
+     createdAt: '2025-02-10T12:30:00Z',
+   },
+ ];
+ 
+ Store.saveChannels(channels);
+ Store.saveVideos(videos);
+ Store.saveSummaries(summaries);
+ console.log('Demo data seeded successfully.');
+ console.log(`  - ${channels.length} channels`);
+ console.log(`  - ${videos.length} videos`);
+ console.log(`  - ${summaries.length} summaries`);

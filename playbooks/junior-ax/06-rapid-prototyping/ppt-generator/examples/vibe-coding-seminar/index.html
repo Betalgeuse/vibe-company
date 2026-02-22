@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPT播放器</title>
+    <title>VIBE CODING - 비개발자를 위한 AI 코딩 특강</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             overflow: hidden;
-            background: #000;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #0a0a0a;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #fff;
         }
 
         .container {
@@ -29,328 +28,590 @@
         .slide {
             width: 100%;
             height: 100%;
-            object-fit: contain;
             display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            position: relative;
         }
 
-        .slide.active {
-            display: block;
+        .slide.active { display: flex; }
+
+        /* Cover slides */
+        .slide.cover {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            text-align: center;
+        }
+        .slide.cover .title {
+            font-size: 72px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, #a78bfa, #818cf8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .slide.cover .subtitle {
+            font-size: 28px;
+            font-weight: 300;
+            color: #c4b5fd;
+            margin-bottom: 40px;
+        }
+        .slide.cover .body {
+            font-size: 22px;
+            line-height: 1.8;
+            color: #e2e8f0;
+            max-width: 700px;
         }
 
-        .controls {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
+        /* Content slides */
+        .slide.content, .slide.data {
+            background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 100%);
+            align-items: flex-start;
+            text-align: left;
+        }
+        .slide .part-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #818cf8;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .slide .heading {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 36px;
+            line-height: 1.3;
+            color: #f1f5f9;
+        }
+        .slide .content-body {
+            font-size: 22px;
+            line-height: 2;
+            color: #cbd5e1;
+            max-width: 900px;
+        }
+        .slide .content-body strong {
+            color: #a78bfa;
+            font-weight: 700;
+        }
+
+        /* List items */
+        .slide .content-body .item {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .slide .content-body .item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            background: #818cf8;
+            border-radius: 50%;
+        }
+
+        /* Card style for data slides */
+        .slide.data .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .slide.data .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
             backdrop-filter: blur(10px);
-            padding: 12px 24px;
-            border-radius: 25px;
-            color: white;
+        }
+        .slide.data .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #a78bfa;
+            margin-bottom: 8px;
+        }
+
+        /* Step indicator */
+        .step-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
             font-size: 14px;
-            z-index: 100;
-            transition: opacity 0.3s ease;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
         }
 
-        .controls.hidden {
-            opacity: 0;
+        /* Numbered list */
+        .numbered-list {
+            counter-reset: step;
+            list-style: none;
+            padding: 0;
+        }
+        .numbered-list li {
+            counter-increment: step;
+            padding: 10px 0 10px 50px;
+            position: relative;
+            font-size: 22px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        .numbered-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 34px;
+            height: 34px;
+            background: rgba(99, 102, 241, 0.3);
+            border: 2px solid #818cf8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #a78bfa;
         }
 
+        /* QnA style */
+        .qa-block { margin-bottom: 24px; }
+        .qa-block .q {
+            font-size: 20px;
+            font-weight: 700;
+            color: #a78bfa;
+            margin-bottom: 4px;
+        }
+        .qa-block .a {
+            font-size: 20px;
+            color: #cbd5e1;
+            padding-left: 24px;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.15);
+            border-left: 4px solid #818cf8;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 16px 0;
+            font-size: 20px;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact-info {
+            font-size: 24px;
+            color: #cbd5e1;
+            line-height: 2;
+            margin-top: 20px;
+        }
+        .contact-info a {
+            color: #a78bfa;
+            text-decoration: none;
+        }
+
+        /* Indicator */
         .indicator {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0,0,0,0.6);
             backdrop-filter: blur(10px);
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 20px;
-            color: white;
+            color: #94a3b8;
             font-size: 14px;
             z-index: 100;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s;
         }
+        .indicator.hidden { opacity: 0; }
 
-        .indicator.hidden {
-            opacity: 0;
-        }
-
-        .loading {
+        .progress-bar {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 18px;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6366f1, #a78bfa);
+            transition: width 0.3s ease;
             z-index: 200;
         }
     </style>
 </head>
 <body>
-    <div class="container" id="slideContainer">
-        <!-- 图片将通过JS动态插入 -->
-    </div>
-
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="container" id="slideContainer"></div>
     <div class="indicator" id="indicator">
-        <span id="current">1</span> / <span id="total">0</span>
+        <span id="current">1</span> / <span id="total">18</span>
     </div>
-
-    <div class="controls" id="controls">
-        ← → 切换页面 | ↑ 首页 | ↓ 末页 | ESC 全屏 | 空格 暂停/继续 | H 隐藏控件
-    </div>
-
-    <div class="loading" id="loading">加载中...</div>
 
     <script>
-        // 图片列表将通过替换占位符注入
-        const slides = ['images/slide-01.png',
-            'images/slide-02.png',
-            'images/slide-03.png',
-            'images/slide-04.png',
-            'images/slide-05.png',
-            'images/slide-06.png',
-            'images/slide-07.png',
-            'images/slide-08.png',
-            'images/slide-09.png',
-            'images/slide-10.png',
-            'images/slide-11.png',
-            'images/slide-12.png',
-            'images/slide-13.png',
-            'images/slide-14.png',
-            'images/slide-15.png',
-            'images/slide-16.png',
-            'images/slide-17.png',
-            'images/slide-18.png',
-            'images/slide-19.png',
-            'images/slide-20.png',
-            'images/slide-21.png'];
-        let currentSlide = 0;
-        let autoPlayInterval = null;
-        let isAutoPlaying = false;
-        let controlsVisible = true;
+    const slidesData = [
+      {
+        type: "cover",
+        html: `
+          <div class="title">VIBE CODING</div>
+          <div class="subtitle">비개발자를 위한 AI 코딩 특강</div>
+          <div class="body">코드를 모르는 당신도,<br>AI와 함께 서비스를 만들 수 있습니다</div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="heading">목차</div>
+          <ol class="numbered-list">
+            <li>바이브코딩 소개 — 바이브코딩이란?</li>
+            <li>PC 세팅 — 개발 환경 준비하기</li>
+            <li>바이브코딩 시작 — 직접 만들어보기</li>
+            <li>인사이트 — AI를 잘 부리는 법</li>
+          </ol>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="part-title">PART 1</div>
+          <div class="heading">바이브코딩이란?</div>
+          <div class="content-body">
+            코드를 직접 쓰지 않고 AI에게 자연어로 지시해서<br>소프트웨어를 만드는 방법
+            <div class="highlight-box">
+              예창패 도전? 창업? <strong>개발자 없이도</strong> 내 아이디어를 서비스로 만들 수 있습니다.<br>
+              프로그래밍 언어 대신 <strong>'한국어'</strong>로 AI에게 일을 시키세요.
+            </div>
+          </div>
+        `
+      },
+      {
+        type: "data",
+        html: `
+          <div class="heading">바이브코딩으로 할 수 있는 것들</div>
+          <div class="card-grid">
+            <div class="card"><div class="card-title">웹사이트/앱</div>랜딩페이지, SaaS, 대시보드</div>
+            <div class="card"><div class="card-title">자동화</div>뉴스 요약, 일정 관리, 데이터 수집</div>
+            <div class="card"><div class="card-title">데이터 분석</div>재무제표 분석, 시장 조사</div>
+            <div class="card"><div class="card-title">콘텐츠 생성</div>블로그 자동 포스팅, SNS 관리</div>
+            <div class="card"><div class="card-title">업무 도구</div>매출 계산기, CRM, 프로젝트 관리</div>
+          </div>
+        `
+      },
+      {
+        type: "data",
+        html: `
+          <div class="heading">여러분이 원하는 것들 <span style="font-size:24px;color:#818cf8">(사전 설문 결과)</span></div>
+          <div class="card-grid">
+            <div class="card"><div class="card-title">퀀트 자동투자</div>트레이딩 프로그램</div>
+            <div class="card"><div class="card-title">데일리 뉴스 요약</div>매일 아침 자동 브리핑</div>
+            <div class="card"><div class="card-title">일정/업무/TODO</div>자동 관리</div>
+            <div class="card"><div class="card-title">이유식 식단</div>+ 장보기 리스트 자동화</div>
+            <div class="card"><div class="card-title">블로그/SNS</div>자동 포스팅</div>
+            <div class="card"><div class="card-title">유튜브 강의</div>자동 요약 리포트</div>
+            <div class="card"><div class="card-title">해외 플랫폼</div>매출 자동 계산기</div>
+          </div>
+          <div class="highlight-box" style="margin-top:24px">이 모든 것이 바이브코딩으로 가능합니다</div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="part-title">PART 2</div>
+          <div class="heading">PC 세팅</div>
+          <div class="content-body">
+            <div style="font-size:20px;color:#94a3b8;margin-bottom:20px">준비물 체크리스트 (딱 3가지 + Droid)</div>
+            <ol class="numbered-list">
+              <li><strong>VS Code</strong> — 코드를 담는 그릇 (무료)</li>
+              <li><strong>Git</strong> — 코드를 저장할 창고 (무료)</li>
+              <li><strong>Node.js</strong> — 코드를 실행할 엔진 (무료)</li>
+            </ol>
+            <div class="highlight-box" style="margin-top:20px">+ <strong>Droid</strong> (AI 코딩 에이전트) — 핵심 도구!</div>
+          </div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="step-badge">Step 1</div>
+          <div class="heading">VS Code 다운로드 & 폴더 열기</div>
+          <ol class="numbered-list">
+            <li>Google에 <strong>'VS Code'</strong> 검색 → 파란 다운로드 버튼 클릭</li>
+            <li>설치 후 실행</li>
+            <li>바탕화면에 <strong>'MyProject'</strong> 폴더 새로 만들기</li>
+            <li>VS Code에서 <strong>File > Open Folder</strong> → 해당 폴더 선택</li>
+          </ol>
+          <div class="highlight-box" style="margin-top:20px">이것이 여러분의 작업 공간입니다!</div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="step-badge">Step 2</div>
+          <div class="heading">Node.js & Git 다운로드</div>
+          <div class="content-body" style="display:flex;gap:40px">
+            <div style="flex:1">
+              <div style="color:#a78bfa;font-weight:700;font-size:24px;margin-bottom:12px">Node.js 설치</div>
+              <div class="item">Google에 'Node.js' 검색</div>
+              <div class="item">LTS 버전 다운로드</div>
+              <div class="item">'Next'만 계속 누르면 설치 완료!</div>
+            </div>
+            <div style="flex:1">
+              <div style="color:#a78bfa;font-weight:700;font-size:24px;margin-bottom:12px">Git 설치</div>
+              <div class="item">Google에 'Git' 검색</div>
+              <div class="item">다운로드</div>
+              <div class="item">역시 'Next'만 계속 누르면 끝!</div>
+            </div>
+          </div>
+          <div class="highlight-box" style="margin-top:24px">두 개 다 합쳐서 5분이면 충분합니다.</div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="step-badge">Step 3</div>
+          <div class="heading">Droid(드로이드) 시작하기</div>
+          <div class="content-body">
+            <div class="highlight-box">가입하면 <strong>무료 크레딧</strong>이 제공됩니다!</div>
+            <div style="margin-top:24px;font-size:24px;color:#a78bfa;font-weight:700">언어(파운데이션 모델) 선택하기</div>
+            <div class="item" style="margin-top:8px"><strong>Claude Sonnet</strong> — 코딩을 가장 잘함 (추천!)</div>
+            <div class="item"><strong>GPT-4o</strong> — 범용적으로 우수</div>
+            <div style="margin-top:24px;font-size:20px;color:#94a3b8">
+              Droid에게 '이거 만들어줘'라고 말하면<br>
+              설치된 도구를 활용해서 알아서 코딩합니다.
+            </div>
+          </div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="part-title">PART 3</div>
+          <div class="heading">플레이북(가이드) 활용법</div>
+          <div class="content-body">
+            Droid는 이미 수많은 '플레이북'을 알고 있습니다.<br>
+            <span style="color:#94a3b8">굳이 가이드북을 찾아 읽지 않아도,<br>궁금한 것을 물어보면 Droid가 알려줍니다.</span>
+            <div style="margin-top:24px;font-size:24px;color:#a78bfa;font-weight:700">이렇게 물어보세요:</div>
+            <div class="highlight-box">
+              '프롬프트 잘 짜는 법 알려줘'<br>
+              '웹사이트 만드는 법 알려줘'<br>
+              '자동화 봇 만드는 법 알려줘'
+            </div>
+          </div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="heading">막막할 때 이렇게 시작하세요</div>
+          <div class="content-body">
+            <div style="margin-bottom:20px">
+              <div style="color:#a78bfa;font-weight:700;font-size:22px">방법 1: 레퍼런스 URL 활용</div>
+              <div class="highlight-box">'(URL) 이 웹사이트랑 비슷하게 만들어줘'</div>
+            </div>
+            <div style="margin-bottom:20px">
+              <div style="color:#a78bfa;font-weight:700;font-size:22px">방법 2: 단순하게 시작</div>
+              <div class="highlight-box">'테트리스 게임 만들어줘'<br>'내 포트폴리오 사이트 만들어줘'</div>
+            </div>
+            <div>
+              <div style="color:#a78bfa;font-weight:700;font-size:22px">방법 3: 가이드 요청</div>
+              <div class="highlight-box">'프롬프트 잘 짜는 법 가이드북 참고해서 알려줘'</div>
+            </div>
+          </div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="heading">만든 것을 세상에 공개하기 <span style="font-size:24px;color:#818cf8">(무료 배포)</span></div>
+          <div class="content-body">
+            내 컴퓨터에서만 보면 아쉽죠?
+            <div style="margin-top:24px;font-size:28px;color:#a78bfa;font-weight:700">Vercel 무료 배포</div>
+            <div class="item">Droid에게 <strong>'이거 Vercel로 배포해줘'</strong> 한 마디면 끝</div>
+            <div class="item">5분이면 전 세계 누구나 접속 가능한 URL 생성</div>
+            <div class="item">비용: <strong>0원</strong> (무료 플랜)</div>
+            <div class="highlight-box" style="margin-top:24px;font-size:24px;text-align:center">내 서비스를 세상에 보여주세요!</div>
+          </div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="part-title">PART 4</div>
+          <div class="heading">AI는 코딩 도구가 아니라 직원이다</div>
+          <div class="content-body">
+            <div style="display:flex;gap:40px;margin-bottom:24px">
+              <div style="flex:1;text-align:center;padding:20px;background:rgba(239,68,68,0.1);border-radius:12px">
+                <div style="color:#f87171;font-weight:700;font-size:18px;margin-bottom:8px">기존 사고</div>
+                AI에게 코드를 시킨다
+              </div>
+              <div style="flex:1;text-align:center;padding:20px;background:rgba(99,102,241,0.15);border-radius:12px">
+                <div style="color:#818cf8;font-weight:700;font-size:18px;margin-bottom:8px">새로운 사고</div>
+                AI 직원에게 업무를 위임한다
+              </div>
+            </div>
+            <div style="font-size:20px;color:#94a3b8;margin-bottom:12px">AI 에이전트의 구조:</div>
+            <div style="padding:20px;background:rgba(255,255,255,0.03);border-radius:12px;font-size:20px;line-height:2">
+              메인 에이전트 <span style="color:#818cf8">(팀장)</span><br>
+              &nbsp;&nbsp;→ 코딩 서브에이전트 <span style="color:#818cf8">(개발자)</span><br>
+              &nbsp;&nbsp;→ 검색 서브에이전트 <span style="color:#818cf8">(리서처)</span><br>
+              &nbsp;&nbsp;→ 파일 서브에이전트 <span style="color:#818cf8">(비서)</span>
+            </div>
+            <div class="highlight-box" style="margin-top:16px;text-align:center;font-size:24px">여러분은 <strong>사장</strong>, AI는 <strong>팀</strong></div>
+          </div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="heading">프롬프트 4단계 공식</div>
+          <div class="content-body">
+            <ol class="numbered-list">
+              <li><strong>Context</strong> (배경) — 나는 누구, 상황은 무엇</li>
+              <li><strong>Action</strong> (행동) — 뭘 해줘</li>
+              <li><strong>Constraint</strong> (제약) — 이런 조건으로</li>
+              <li><strong>Output</strong> (결과물) — 이런 형태로 줘</li>
+            </ol>
+            <div class="highlight-box" style="margin-top:24px">
+              '나는 비개발자인데<span style="color:#818cf8">(C)</span>, 테트리스 게임을 만들어줘<span style="color:#818cf8">(A)</span>,<br>
+              HTML/CSS/JS 한 파일로<span style="color:#818cf8">(Con)</span>, 바로 실행 가능하게<span style="color:#818cf8">(O)</span>'
+            </div>
+          </div>
+        `
+      },
+      {
+        type: "data",
+        html: `
+          <div class="heading">여러분의 아이디어를 실현하는 로드맵</div>
+          <div class="card-grid" style="grid-template-columns:repeat(3,1fr)">
+            <div class="card" style="border-color:rgba(74,222,128,0.3)">
+              <div class="card-title" style="color:#4ade80">즉시 가능 (오늘)</div>
+              <div class="item">데일리 뉴스 요약 봇</div>
+              <div class="item">웹페이지/랜딩페이지</div>
+              <div class="item">PPT 자동 생성</div>
+            </div>
+            <div class="card" style="border-color:rgba(250,204,21,0.3)">
+              <div class="card-title" style="color:#facc15">1주 안에 가능</div>
+              <div class="item">블로그/SNS 자동 포스팅</div>
+              <div class="item">이유식 식단 생성기</div>
+            </div>
+            <div class="card" style="border-color:rgba(168,85,247,0.3)">
+              <div class="card-title" style="color:#a855f7">2-4주 프로젝트</div>
+              <div class="item">퀀트 자동투자 트레이딩</div>
+              <div class="item">매출 자동 계산기</div>
+            </div>
+          </div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="heading">QnA — 자주 묻는 질문</div>
+          <div class="content-body">
+            <div class="qa-block">
+              <div class="q">Q: 코딩을 전혀 몰라도 되나요?</div>
+              <div class="a">A: 네! 한국어로 AI에게 지시만 하면 됩니다</div>
+            </div>
+            <div class="qa-block">
+              <div class="q">Q: 40대 아날로그 인간인데 따라갈 수 있나요?</div>
+              <div class="a">A: 스마트폰 쓸 수 있으면 충분합니다</div>
+            </div>
+            <div class="qa-block">
+              <div class="q">Q: 정말 무료인가요?</div>
+              <div class="a">A: VS Code, Git, Node.js, Vercel 모두 무료입니다</div>
+            </div>
+          </div>
+        `
+      },
+      {
+        type: "content",
+        html: `
+          <div class="heading">특강 후 다음 단계</div>
+          <ol class="numbered-list">
+            <li>오늘 배운 도구 설치하기 <span style="color:#94a3b8">(VS Code, Git, Node.js, Droid)</span></li>
+            <li>Droid에게 아무거나 만들어보라고 시켜보기</li>
+            <li>막히면 <strong>'어떻게 해야 해?'</strong> 라고 Droid에게 물어보기</li>
+            <li>만든 것을 Vercel로 배포해서 친구에게 보여주기</li>
+          </ol>
+          <div class="highlight-box" style="margin-top:30px;text-align:center;font-size:24px">
+            혼자서도 충분히 할 수 있습니다!
+          </div>
+        `
+      },
+      {
+        type: "cover",
+        html: `
+          <div class="title">THANK YOU</div>
+          <div class="subtitle">바이브코딩의 시작, 오늘부터</div>
+          <div class="contact-info">
+            문의 & 네트워킹<br>
+            <a href="tel:010-7695-9895">010-7695-9895</a><br>
+            <a href="mailto:starcasso@snu.ac.kr">starcasso@snu.ac.kr</a>
+          </div>
+          <div class="body" style="margin-top:30px">여러분의 첫 시작을 응원합니다.</div>
+        `
+      }
+    ];
 
-        function init() {
-            const container = document.getElementById('slideContainer');
-            const loading = document.getElementById('loading');
+    let currentSlide = 0;
+    const totalSlides = slidesData.length;
 
-            if (slides.length === 0) {
-                loading.textContent = '未找到幻灯片图片';
-                return;
-            }
+    function init() {
+        const container = document.getElementById('slideContainer');
+        document.getElementById('total').textContent = totalSlides;
 
-            slides.forEach((src, index) => {
-                const img = document.createElement('img');
-                img.src = src;
-                img.className = 'slide' + (index === 0 ? ' active' : '');
-                img.alt = `幻灯片 ${index + 1}`;
-                img.onerror = function() {
-                    console.error(`Failed to load image: ${src}`);
-                };
-                container.appendChild(img);
-            });
-
-            document.getElementById('total').textContent = slides.length;
-            updateIndicator();
-
-            // 隐藏加载提示
-            loading.style.display = 'none';
-
-            // 3秒后自动隐藏控件
-            setTimeout(() => {
-                hideControls();
-            }, 3000);
-        }
-
-        function showSlide(index) {
-            const allSlides = document.querySelectorAll('.slide');
-
-            if (index < 0 || index >= slides.length) {
-                return;
-            }
-
-            allSlides.forEach(s => s.classList.remove('active'));
-            allSlides[index].classList.add('active');
-            currentSlide = index;
-            updateIndicator();
-
-            // 显示控件
-            showControls();
-
-            // 3秒后再次隐藏
-            setTimeout(() => {
-                hideControls();
-            }, 3000);
-        }
-
-        function updateIndicator() {
-            document.getElementById('current').textContent = currentSlide + 1;
-        }
-
-        function nextSlide() {
-            if (currentSlide < slides.length - 1) {
-                showSlide(currentSlide + 1);
-            } else if (isAutoPlaying) {
-                // 自动播放模式下循环
-                showSlide(0);
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                showSlide(currentSlide - 1);
-            } else if (isAutoPlaying) {
-                // 自动播放模式下循环
-                showSlide(slides.length - 1);
-            }
-        }
-
-        function toggleFullscreen() {
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            } else {
-                document.documentElement.requestFullscreen();
-            }
-        }
-
-        function toggleAutoPlay() {
-            if (isAutoPlaying) {
-                stopAutoPlay();
-            } else {
-                startAutoPlay();
-            }
-        }
-
-        function startAutoPlay() {
-            if (autoPlayInterval) {
-                clearInterval(autoPlayInterval);
-            }
-            autoPlayInterval = setInterval(() => {
-                nextSlide();
-            }, 3000); // 每3秒切换一次
-            isAutoPlaying = true;
-            updateControlsText();
-        }
-
-        function stopAutoPlay() {
-            if (autoPlayInterval) {
-                clearInterval(autoPlayInterval);
-                autoPlayInterval = null;
-            }
-            isAutoPlaying = false;
-            updateControlsText();
-        }
-
-        function updateControlsText() {
-            const controls = document.getElementById('controls');
-            const playText = isAutoPlaying ? '暂停' : '继续';
-            controls.textContent = `← → 切换页面 | ↑ 首页 | ↓ 末页 | ESC 全屏 | 空格 ${playText} | H 隐藏控件`;
-        }
-
-        function hideControls() {
-            if (controlsVisible) {
-                document.getElementById('indicator').classList.add('hidden');
-                document.getElementById('controls').classList.add('hidden');
-                controlsVisible = false;
-            }
-        }
-
-        function showControls() {
-            if (!controlsVisible) {
-                document.getElementById('indicator').classList.remove('hidden');
-                document.getElementById('controls').classList.remove('hidden');
-                controlsVisible = true;
-            }
-        }
-
-        function toggleControls() {
-            if (controlsVisible) {
-                hideControls();
-            } else {
-                showControls();
-            }
-        }
-
-        // 键盘事件监听
-        document.addEventListener('keydown', (e) => {
-            switch(e.key) {
-                case 'ArrowLeft':
-                    prevSlide();
-                    stopAutoPlay(); // 手动操作时停止自动播放
-                    break;
-                case 'ArrowRight':
-                    nextSlide();
-                    stopAutoPlay();
-                    break;
-                case 'ArrowUp':
-                case 'Home':
-                    showSlide(0);
-                    stopAutoPlay();
-                    break;
-                case 'ArrowDown':
-                case 'End':
-                    showSlide(slides.length - 1);
-                    stopAutoPlay();
-                    break;
-                case 'Escape':
-                    toggleFullscreen();
-                    break;
-                case ' ': // 空格键
-                    e.preventDefault(); // 防止页面滚动
-                    toggleAutoPlay();
-                    break;
-                case 'h':
-                case 'H':
-                    toggleControls();
-                    break;
-            }
+        slidesData.forEach((s, i) => {
+            const div = document.createElement('div');
+            div.className = `slide ${s.type}` + (i === 0 ? ' active' : '');
+            div.innerHTML = s.html;
+            container.appendChild(div);
         });
+        updateProgress();
+    }
 
-        // 鼠标移动时显示控件
-        let mouseTimer = null;
-        document.addEventListener('mousemove', () => {
-            showControls();
+    function showSlide(index) {
+        if (index < 0 || index >= totalSlides) return;
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.slide')[index].classList.add('active');
+        currentSlide = index;
+        document.getElementById('current').textContent = currentSlide + 1;
+        updateProgress();
+    }
 
-            // 清除之前的定时器
-            if (mouseTimer) {
-                clearTimeout(mouseTimer);
-            }
+    function updateProgress() {
+        const pct = ((currentSlide + 1) / totalSlides) * 100;
+        document.getElementById('progressBar').style.width = pct + '%';
+    }
 
-            // 3秒后隐藏控件
-            mouseTimer = setTimeout(() => {
-                hideControls();
-            }, 3000);
-        });
-
-        // 触摸滑动支持（移动设备）
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        document.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            const swipeThreshold = 50; // 最小滑动距离
-
-            if (touchEndX < touchStartX - swipeThreshold) {
-                // 向左滑动，显示下一页
-                nextSlide();
-                stopAutoPlay();
-            }
-
-            if (touchEndX > touchStartX + swipeThreshold) {
-                // 向右滑动，显示上一页
-                prevSlide();
-                stopAutoPlay();
-            }
+    document.addEventListener('keydown', (e) => {
+        switch(e.key) {
+            case 'ArrowRight': case ' ':
+                e.preventDefault(); showSlide(currentSlide + 1); break;
+            case 'ArrowLeft':
+                showSlide(currentSlide - 1); break;
+            case 'Home': case 'ArrowUp':
+                showSlide(0); break;
+            case 'End': case 'ArrowDown':
+                showSlide(totalSlides - 1); break;
+            case 'Escape':
+                if (document.fullscreenElement) document.exitFullscreen();
+                else document.documentElement.requestFullscreen();
+                break;
         }
+    });
 
-        // 初始化
-        init();
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+    document.addEventListener('touchend', e => {
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (diff < -50) showSlide(currentSlide + 1);
+        if (diff > 50) showSlide(currentSlide - 1);
+    });
+
+    init();
     </script>
 </body>
 </html>

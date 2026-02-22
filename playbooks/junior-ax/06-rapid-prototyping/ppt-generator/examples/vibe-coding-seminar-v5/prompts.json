@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "title": "바이브코딩 특강 - 비개발자를 위한 AI 코딩의 시작 (v5)",
+    "total_slides": 21,
+    "resolution": "2K",
+    "style": "styles/gradient-glass.md",
+    "generated_at": "2026-02-22T10:34:19.248086"
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "page_type": "cover",
+      "content": "Title: VIBE CODING\nSubtitle: 비개발자를 위한 AI 코딩 특강\n\n코드를 모르는 당신도, AI와 함께 서비스를 만들 수 있습니다",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a cover page based on visual balance aesthetics.\nPlace a large complex 3D glass object in the center, overlaid with bold text:\n\nTitle: VIBE CODING\nSubtitle: 비개발자를 위한 AI 코딩 특강\n\n코드를 모르는 당신도, AI와 함께 서비스를 만들 수 있습니다\n\nBackground with extended aurora waves.",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-01.png"
+    },
+    {
+      "slide_number": 2,
+      "page_type": "content",
+      "content": "목차\n\n1. 바이브코딩 소개 - 바이브코딩이란?\n2. PC 세팅 - 개발 환경 준비하기\n3. 바이브코딩 실습 - 직접 만들어보기\n4. 인사이트 - AI를 잘 부리는 법",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\n목차\n\n1. 바이브코딩 소개 - 바이브코딩이란?\n2. PC 세팅 - 개발 환경 준비하기\n3. 바이브코딩 실습 - 직접 만들어보기\n4. 인사이트 - AI를 잘 부리는 법",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-02.png"
+    },
+    {
+      "slide_number": 3,
+      "page_type": "content",
+      "content": "PART 1. 바이브코딩 소개\n\n바이브코딩이란?\n\n코드를 직접 쓰지 않고 AI에게 자연어로 지시해서 소프트웨어를 만드는 방법\n\n예창패 도전? 창업? 개발자 없이도 내 아이디어를 서비스로 만들 수 있습니다.\n프로그래밍 언어 대신 '한국어'로 AI에게 일을 시키세요.",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nPART 1. 바이브코딩 소개\n\n바이브코딩이란?\n\n코드를 직접 쓰지 않고 AI에게 자연어로 지시해서 소프트웨어를 만드는 방법\n\n예창패 도전? 창업? 개발자 없이도 내 아이디어를 서비스로 만들 수 있습니다.\n프로그래밍 언어 대신 '한국어'로 AI에게 일을 시키세요.",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-03.png"
+    },
+    {
+      "slide_number": 4,
+      "page_type": "data",
+      "content": "바이브코딩으로 할 수 있는 것들\n\n웹사이트/앱 만들기 - 랜딩페이지, SaaS, 대시보드\n자동화 - 뉴스 요약, 일정 관리, 데이터 수집\n데이터 분석 - 재무제표 분석, 시장 조사\n콘텐츠 생성 - 블로그 자동 포스팅, SNS 관리\n업무 도구 - 매출 계산기, CRM, 프로젝트 관리",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a data/summary page using split-screen design.\nLeft side: typeset the following text.\nRight side: floating large glowing 3D data visualization:\n\n바이브코딩으로 할 수 있는 것들\n\n웹사이트/앱 만들기 - 랜딩페이지, SaaS, 대시보드\n자동화 - 뉴스 요약, 일정 관리, 데이터 수집\n데이터 분석 - 재무제표 분석, 시장 조사\n콘텐츠 생성 - 블로그 자동 포스팅, SNS 관리\n업무 도구 - 매출 계산기, CRM, 프로젝트 관리",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-04.png"
+    },
+    {
+      "slide_number": 5,
+      "page_type": "data",
+      "content": "여러분이 원하는 것들 (사전 설문 결과)\n\n자동화 니즈\n- 퀀트 자동투자 트레이딩 프로그램\n- 데일리 뉴스 요약\n- 일정/업무/TODO 자동 관리\n- 이유식 식단 + 장보기 리스트 자동화\n- 블로그/SNS 자동 포스팅\n- 유튜브 강의 자동 요약 리포트\n- 해외 플랫폼 매출 자동 계산기\n\n이 모든 것이 바이브코딩으로 가능합니다",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a data/summary page using split-screen design.\nLeft side: typeset the following text.\nRight side: floating large glowing 3D data visualization:\n\n여러분이 원하는 것들 (사전 설문 결과)\n\n자동화 니즈\n- 퀀트 자동투자 트레이딩 프로그램\n- 데일리 뉴스 요약\n- 일정/업무/TODO 자동 관리\n- 이유식 식단 + 장보기 리스트 자동화\n- 블로그/SNS 자동 포스팅\n- 유튜브 강의 자동 요약 리포트\n- 해외 플랫폼 매출 자동 계산기\n\n이 모든 것이 바이브코딩으로 가능합니다",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-05.png"
+    },
+    {
+      "slide_number": 6,
+      "page_type": "content",
+      "content": "PART 2. PC 세팅\n\n준비물 체크리스트 (딱 3가지 + OpenCode)\n\n1. VS Code - 코드를 담는 그릇 (무료)\n2. Git - 코드를 저장할 창고 (무료)\n3. Node.js - 코드를 실행할 엔진 (무료)\n\n+ OpenCode (AI 코딩 에이전트) - 핵심 도구!",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nPART 2. PC 세팅\n\n준비물 체크리스트 (딱 3가지 + OpenCode)\n\n1. VS Code - 코드를 담는 그릇 (무료)\n2. Git - 코드를 저장할 창고 (무료)\n3. Node.js - 코드를 실행할 엔진 (무료)\n\n+ OpenCode (AI 코딩 에이전트) - 핵심 도구!",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-06.png"
+    },
+    {
+      "slide_number": 7,
+      "page_type": "content",
+      "content": "Step 1. VS Code 다운로드 & 폴더 열기\n\n1. Google에 'VS Code' 검색 -> 파란 다운로드 버튼 클릭\n2. 설치 후 실행\n3. 바탕화면에 'MyProject' 폴더 새로 만들기\n4. VS Code에서 File > Open Folder 클릭 -> 해당 폴더 선택\n\n이것이 여러분의 작업 공간입니다!",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nStep 1. VS Code 다운로드 & 폴더 열기\n\n1. Google에 'VS Code' 검색 -> 파란 다운로드 버튼 클릭\n2. 설치 후 실행\n3. 바탕화면에 'MyProject' 폴더 새로 만들기\n4. VS Code에서 File > Open Folder 클릭 -> 해당 폴더 선택\n\n이것이 여러분의 작업 공간입니다!",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-07.png"
+    },
+    {
+      "slide_number": 8,
+      "page_type": "content",
+      "content": "Step 2. Node.js & Git 다운로드\n\nNode.js 설치\n- Google에 'Node.js' 검색 -> LTS 버전 다운로드\n- 'Next'만 계속 누르면 설치 완료!\n\nGit 설치\n- Google에 'Git' 검색 -> 다운로드\n- 역시 'Next'만 계속 누르면 끝!\n\n두 개 다 합쳐서 5분이면 충분합니다.",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nStep 2. Node.js & Git 다운로드\n\nNode.js 설치\n- Google에 'Node.js' 검색 -> LTS 버전 다운로드\n- 'Next'만 계속 누르면 설치 완료!\n\nGit 설치\n- Google에 'Git' 검색 -> 다운로드\n- 역시 'Next'만 계속 누르면 끝!\n\n두 개 다 합쳐서 5분이면 충분합니다.",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-08.png"
+    },
+    {
+      "slide_number": 9,
+      "page_type": "content",
+      "content": "Step 3. OpenCode 설치하기\n\n터미널에서 한 줄이면 끝!\n\ncurl -fsSL https://opencode.ai/install | bash\n\n설치 후 VS Code를 재시작하면\n사이드바에 OpenCode가 나타납니다.\n\nOpenCode에게 '이거 만들어줘'라고 말하면\n설치된 도구를 활용해서 알아서 코딩합니다.",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nStep 3. OpenCode 설치하기\n\n터미널에서 한 줄이면 끝!\n\ncurl -fsSL https://opencode.ai/install | bash\n\n설치 후 VS Code를 재시작하면\n사이드바에 OpenCode가 나타납니다.\n\nOpenCode에게 '이거 만들어줘'라고 말하면\n설치된 도구를 활용해서 알아서 코딩합니다.",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-09.png"
+    },
+    {
+      "slide_number": 10,
+      "page_type": "content",
+      "content": "Git이 뭔가요? (비개발자 비유)\n\nGit = 구글 드라이브의 '버전 관리' 기능!\n\nclone = 공유 폴더를 내 컴퓨터로 다운로드\n'친구가 공유한 폴더를 내 컴퓨터에 저장하기'\n\npull = 최신 버전으로 업데이트\n'친구가 수정한 파일 가져오기'\n\npush = 내 수정사항 업로드\n'내가 수정한 파일 친구에게 공유하기'\n\nGit = 협업을 위한 '파일 공유 시스템'",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nGit이 뭔가요? (비개발자 비유)\n\nGit = 구글 드라이브의 '버전 관리' 기능!\n\nclone = 공유 폴더를 내 컴퓨터로 다운로드\n'친구가 공유한 폴더를 내 컴퓨터에 저장하기'\n\npull = 최신 버전으로 업데이트\n'친구가 수정한 파일 가져오기'\n\npush = 내 수정사항 업로드\n'내가 수정한 파일 친구에게 공유하기'\n\nGit = 협업을 위한 '파일 공유 시스템'",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-10.png"
+    },
+    {
+      "slide_number": 11,
+      "page_type": "data",
+      "content": "로컬(Local) vs 서버(Server)\n\n로컬 (내 컴퓨터)\n- 내 노트북에서 실행\n- localhost:3000으로 접속\n- 나만 볼 수 있음\n- 수정하면 바로 반영\n- 인터넷 없이도 가능\n\n서버 (클라우드 컴퓨터)\n- 24시간 켜진 컴퓨터\n- example.com으로 접속\n- 전 세계 누구나 접속 가능\n- 배포해야 반영됨\n- 인터넷 필수\n\n지금은 로컬에서 연습!\n준비되면 서버로 배포!",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a data/summary page using split-screen design.\nLeft side: typeset the following text.\nRight side: floating large glowing 3D data visualization:\n\n로컬(Local) vs 서버(Server)\n\n로컬 (내 컴퓨터)\n- 내 노트북에서 실행\n- localhost:3000으로 접속\n- 나만 볼 수 있음\n- 수정하면 바로 반영\n- 인터넷 없이도 가능\n\n서버 (클라우드 컴퓨터)\n- 24시간 켜진 컴퓨터\n- example.com으로 접속\n- 전 세계 누구나 접속 가능\n- 배포해야 반영됨\n- 인터넷 필수\n\n지금은 로컬에서 연습!\n준비되면 서버로 배포!",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-11.png"
+    },
+    {
+      "slide_number": 12,
+      "page_type": "content",
+      "content": "실습 전 준비운동: 사다리 게임 만들기\n\n실제 서비스 전에 간단한 것부터!\n\nOpenCode에게 요청:\n'사다리 게임 만들어줘. HTML, CSS, JavaScript로 한 파일로, 당첨자가 나오면 폭죽 터지게 해줘'\n\n5분이면 완성!\n- 파일 하나만 있으면 됨\n- 브라우저에서 바로 실행\n- 성공의 맛을 먼저 느껴보자!\n\n성공하면 자신감 UP!",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\n실습 전 준비운동: 사다리 게임 만들기\n\n실제 서비스 전에 간단한 것부터!\n\nOpenCode에게 요청:\n'사다리 게임 만들어줘. HTML, CSS, JavaScript로 한 파일로, 당첨자가 나오면 폭죽 터지게 해줘'\n\n5분이면 완성!\n- 파일 하나만 있으면 됨\n- 브라우저에서 바로 실행\n- 성공의 맛을 먼저 느껴보자!\n\n성공하면 자신감 UP!",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-12.png"
+    },
+    {
+      "slide_number": 13,
+      "page_type": "content",
+      "content": "PART 3. 바이브코딩 실습\n\n실제 서비스 수정해보기\n\n이론만 배우면 재미없죠?\n실제 서비스를 clone 받아서\n직접 UI를 수정해봅시다!\n\n실습 프로젝트: VibeTask\n태스크 관리 서비스의 UI를 바꿔보겠습니다.",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nPART 3. 바이브코딩 실습\n\n실제 서비스 수정해보기\n\n이론만 배우면 재미없죠?\n실제 서비스를 clone 받아서\n직접 UI를 수정해봅시다!\n\n실습 프로젝트: VibeTask\n태스크 관리 서비스의 UI를 바꿔보겠습니다.",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-13.png"
+    },
+    {
+      "slide_number": 14,
+      "page_type": "content",
+      "content": "실습 Step 1. 프로젝트 클론하기\n\n터미널에서 실행:\n\ngit clone https://github.com/your-org/vibetask-app.git\ncd vibetask-app\nnpm install\nnpm run dev\n\n브라우저에서 localhost:3000 접속하면\nVibeTask 서비스가 실행됩니다.",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\n실습 Step 1. 프로젝트 클론하기\n\n터미널에서 실행:\n\ngit clone https://github.com/your-org/vibetask-app.git\ncd vibetask-app\nnpm install\nnpm run dev\n\n브라우저에서 localhost:3000 접속하면\nVibeTask 서비스가 실행됩니다.",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-14.png"
+    },
+    {
+      "slide_number": 15,
+      "page_type": "content",
+      "content": "실습 Step 2. UI 수정하기\n\nOpenCode에게 이렇게 요청해보세요:\n\n1. 스타일 변경\n'메인 색상을 보라색으로 바꿔줘'\n'버튼 스타일을 더 둥글게 해줘'\n\n2. 기능 추가\n'태스크를 드래그해서 이동할 수 있게 해줘'\n'태스크 카드에 우선순위 표시를 추가해줘'\n\nOpenCode가 알아서 코드를 수정합니다!",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\n실습 Step 2. UI 수정하기\n\nOpenCode에게 이렇게 요청해보세요:\n\n1. 스타일 변경\n'메인 색상을 보라색으로 바꿔줘'\n'버튼 스타일을 더 둥글게 해줘'\n\n2. 기능 추가\n'태스크를 드래그해서 이동할 수 있게 해줘'\n'태스크 카드에 우선순위 표시를 추가해줘'\n\nOpenCode가 알아서 코드를 수정합니다!",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-15.png"
+    },
+    {
+      "slide_number": 16,
+      "page_type": "content",
+      "content": "실습 Step 3. 변경사항 확인하기\n\n수정 후 바로 브라우저에서 확인!\n\nHot Reload로 저장하면 즉시 반영\n\n원하는 대로 안 나오면?\n'이 부분 좀 더 어둡게 해줘'\n'애니메이션 추가해줘'\n\n계속 수정 요청하면서 완성해 나갑니다.",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\n실습 Step 3. 변경사항 확인하기\n\n수정 후 바로 브라우저에서 확인!\n\nHot Reload로 저장하면 즉시 반영\n\n원하는 대로 안 나오면?\n'이 부분 좀 더 어둡게 해줘'\n'애니메이션 추가해줘'\n\n계속 수정 요청하면서 완성해 나갑니다.",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-16.png"
+    },
+    {
+      "slide_number": 17,
+      "page_type": "content",
+      "content": "PART 4. 인사이트\n\nAI는 코딩 도구가 아니라 직원이다\n\n기존 사고: AI에게 코드를 시킨다\n새로운 사고: AI 직원에게 업무를 위임한다\n\nAI 에이전트의 구조:\n메인 에이전트 (팀장)\n  -> 코딩 서브에이전트 (개발자)\n  -> 검색 서브에이전트 (리서처)\n  -> 파일 서브에이전트 (비서)\n\n여러분은 사장, AI는 팀",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nPART 4. 인사이트\n\nAI는 코딩 도구가 아니라 직원이다\n\n기존 사고: AI에게 코드를 시킨다\n새로운 사고: AI 직원에게 업무를 위임한다\n\nAI 에이전트의 구조:\n메인 에이전트 (팀장)\n  -> 코딩 서브에이전트 (개발자)\n  -> 검색 서브에이전트 (리서처)\n  -> 파일 서브에이전트 (비서)\n\n여러분은 사장, AI는 팀",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-17.png"
+    },
+    {
+      "slide_number": 18,
+      "page_type": "content",
+      "content": "프롬프트 4단계 공식\n\n1. Context (배경) - 나는 누구, 상황은 무엇\n2. Action (행동) - 뭘 해줘\n3. Constraint (제약) - 이런 조건으로\n4. Output (결과물) - 이런 형태로 줘\n\n예시:\n'나는 비개발자인데(C), 태스크 관리 앱을 만들어줘(A),\n드래그앤드롭으로 태스크 이동하게(Con), React로(O)'",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\n프롬프트 4단계 공식\n\n1. Context (배경) - 나는 누구, 상황은 무엇\n2. Action (행동) - 뭘 해줘\n3. Constraint (제약) - 이런 조건으로\n4. Output (결과물) - 이런 형태로 줘\n\n예시:\n'나는 비개발자인데(C), 태스크 관리 앱을 만들어줘(A),\n드래그앤드롭으로 태스크 이동하게(Con), React로(O)'",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-18.png"
+    },
+    {
+      "slide_number": 19,
+      "page_type": "data",
+      "content": "여러분의 아이디어를 실현하는 로드맵\n\n즉시 가능 (오늘 만들 수 있음)\n- 데일리 뉴스 요약 봇\n- 웹페이지/랜딩페이지 제작\n- PPT 자동 생성\n\n1주 안에 가능\n- 블로그/SNS 자동 포스팅 시스템\n- 이유식 식단 + 장보기 리스트 생성기\n\n2-4주 프로젝트\n- 퀀트 자동투자 트레이딩\n- 해외 플랫폼 매출 자동 계산기",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a data/summary page using split-screen design.\nLeft side: typeset the following text.\nRight side: floating large glowing 3D data visualization:\n\n여러분의 아이디어를 실현하는 로드맵\n\n즉시 가능 (오늘 만들 수 있음)\n- 데일리 뉴스 요약 봇\n- 웹페이지/랜딩페이지 제작\n- PPT 자동 생성\n\n1주 안에 가능\n- 블로그/SNS 자동 포스팅 시스템\n- 이유식 식단 + 장보기 리스트 생성기\n\n2-4주 프로젝트\n- 퀀트 자동투자 트레이딩\n- 해외 플랫폼 매출 자동 계산기",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-19.png"
+    },
+    {
+      "slide_number": 20,
+      "page_type": "content",
+      "content": "QnA - 자주 묻는 질문\n\nQ: 코딩을 전혀 몰라도 되나요?\nA: 네! 한국어로 AI에게 지시만 하면 됩니다\n\nQ: 40대 아날로그 인간인데 따라갈 수 있나요?\nA: 스마트폰 쓸 수 있으면 충분합니다\n\nQ: 정말 무료인가요?\nA: VS Code, Git, Node.js, OpenCode 모두 무료입니다",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a content page using Bento grid layout.\nOrganize the following content in modular rounded rectangle containers.\nContainer material must be frosted glass with blur effect:\n\nQnA - 자주 묻는 질문\n\nQ: 코딩을 전혀 몰라도 되나요?\nA: 네! 한국어로 AI에게 지시만 하면 됩니다\n\nQ: 40대 아날로그 인간인데 따라갈 수 있나요?\nA: 스마트폰 쓸 수 있으면 충분합니다\n\nQ: 정말 무료인가요?\nA: VS Code, Git, Node.js, OpenCode 모두 무료입니다",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-20.png"
+    },
+    {
+      "slide_number": 21,
+      "page_type": "cover",
+      "content": "Title: THANK YOU\nSubtitle: 바이브코딩의 시작, 오늘부터\n\n문의 & 네트워킹\n📞 010-7695-9895\n✉️ starcasso@snu.ac.kr\n\n여러분의 첫 시작을 응원합니다.",
+      "prompt": "风格ID\ngradient-glass\n\nPlease generate a cover page based on visual balance aesthetics.\nPlace a large complex 3D glass object in the center, overlaid with bold text:\n\nTitle: THANK YOU\nSubtitle: 바이브코딩의 시작, 오늘부터\n\n문의 & 네트워킹\n📞 010-7695-9895\n✉️ starcasso@snu.ac.kr\n\n여러분의 첫 시작을 응원합니다.\n\nBackground with extended aurora waves.",
+      "image_path": "outputs/vibe-coding-seminar-v5/images/slide-21.png"
+    }
+  ]
+}

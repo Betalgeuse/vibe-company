@@ -1,0 +1,9 @@
+{
+  "pid": 60726,
+  "started_at": "2026-02-19T07:20:29.210Z",
+  "cwd": "/Users/zayden/Documents/vibe-company",
+  "notify_script": "/opt/homebrew/lib/node_modules/oh-my-codex/scripts/notify-hook.js",
+  "poll_ms": 700,
+  "tracked_files": 8,
+  "seen_turns": 0
+}

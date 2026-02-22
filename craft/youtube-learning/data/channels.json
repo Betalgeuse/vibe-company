@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ch-1",
+    "name": "삼프로TV",
+    "youtubeChannelId": "UCrMBpfFQMFzb4D27m8Pbyxw",
+    "category": "경제",
+    "isActive": true,
+    "createdAt": "2025-01-01"
+  },
+  {
+    "id": "ch-2",
+    "name": "슈카월드",
+    "youtubeChannelId": "UCsJ6RuBiTVWRX156FVbeaGg",
+    "category": "투자",
+    "isActive": true,
+    "createdAt": "2025-01-01"
+  },
+  {
+    "id": "ch-3",
+    "name": "안될과학",
+    "youtubeChannelId": "UCmFjEhp9DgOc49xHxMbUzTw",
+    "category": "시사",
+    "isActive": true,
+    "createdAt": "2025-01-01"
+  }
+]

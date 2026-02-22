@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사다리 게임</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 { margin-bottom: 20px; font-size: 2rem; color: #e94560; }
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .controls label { font-size: 0.95rem; }
+    .controls input[type="number"] {
+      width: 60px;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #16213e;
+      color: #eee;
+      text-align: center;
+      font-size: 1rem;
+    }
+    button {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.1s;
+    }
+    button:active { transform: scale(0.95); }
+    .btn-generate { background: #0f3460; color: #eee; }
+    .btn-start { background: #e94560; color: #fff; }
+    .btn-reset { background: #533483; color: #fff; }
+    .names-section {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .names-section div { display: flex; flex-direction: column; gap: 6px; }
+    .names-section input {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #16213e;
+      color: #eee;
+      font-size: 0.9rem;
+      width: 120px;
+      text-align: center;
+    }
+    .names-section span {
+      font-size: 0.8rem;
+      color: #aaa;
+      text-align: center;
+    }
+    canvas {
+      background: #16213e;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+    .result-box {
+      margin-top: 20px;
+      padding: 16px 30px;
+      background: #0f3460;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      display: none;
+      text-align: center;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <h1>🪜 사다리 게임</h1>
+  <div class="controls">
+    <label>참가자 수:
+      <input type="number" id="playerCount" value="4" min="2" max="8">
+    </label>
+    <button class="btn-generate" onclick="generate()">생성</button>
+    <button class="btn-start" onclick="startAll()">전체 출발!</button>
+    <button class="btn-reset" onclick="generate()">초기화</button>
+  </div>
+  <div class="names-section" id="namesSection"></div>
+  <canvas id="canvas" width="600" height="500"></canvas>
+  <div class="result-box" id="resultBox"></div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let ladderData = { cols: 0, rungs: [], names: [], results: [] };
+    const COLORS = ['#e94560','#f5a623','#50e3c2','#4a90d9','#b8e986','#bd10e0','#f8e71c','#7ed321'];
+
+    function generate() {
+      const n = parseInt(document.getElementById('playerCount').value);
+      if (n < 2 || n > 8) return;
+
+      const cw = Math.max(600, n * 120);
+      canvas.width = cw;
+      canvas.height = 500;
+
+      const namesDiv = document.getElementById('namesSection');
+      
+      // Preserve existing values if regenerating same count or partial
+      const prevNames = ladderData.names && ladderData.names.length > 0 ? ladderData.names : [];
+      const prevResults = ladderData.results && ladderData.results.length > 0 ? ladderData.results : [];
+
+      namesDiv.innerHTML = '';
+      const nameInputs = [];
+      const resultInputs = [];
+
+      for (let i = 0; i < n; i++) {
+        const wrap = document.createElement('div');
+        const sp1 = document.createElement('span');
+        sp1.textContent = '참가자 ' + (i + 1);
+        const inp1 = document.createElement('input');
+        inp1.value = prevNames[i] || '참가자' + (i + 1);
+        inp1.dataset.idx = i;
+        inp1.className = 'name-input';
+        
+        const sp2 = document.createElement('span');
+        sp2.textContent = '결과';
+        const inp2 = document.createElement('input');
+        inp2.value = prevResults[i] || '결과' + (i + 1);
+        inp2.dataset.idx = i;
+        inp2.className = 'result-input';
+        
+        wrap.append(sp1, inp1, sp2, inp2);
+        namesDiv.appendChild(wrap);
+        nameInputs.push(inp1);
+        resultInputs.push(inp2);
+      }
+
+      const rungs = [];
+      const rows = 8 + Math.floor(Math.random() * 5);
+      const gap = 400 / (rows + 1);
+      for (let r = 1; r <= rows; r++) {
+        const y = 50 + r * gap;
+        for (let c = 0; c < n - 1; c++) {
+          if (Math.random() < 0.45) {
+            rungs.push({ col: c, y: y });
+          }
+        }
+      }
+
+      ladderData = {
+        cols: n,
+        rungs: rungs,
+        // Define getters to always pull fresh values from DOM at runtime
+        get names() {
+          return Array.from(document.querySelectorAll('.name-input')).map(el => el.value);
+        },
+        get results() {
+          return Array.from(document.querySelectorAll('.result-input')).map(el => el.value);
+        }
+      };
+
+      document.getElementById('resultBox').style.display = 'none';
+      drawLadder();
+    }
+
+    function colX(c) {
+      const margin = 60;
+      const spacing = (canvas.width - margin * 2) / (ladderData.cols - 1);
+      return margin + c * spacing;
+    }
+
+    function drawLadder() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const n = ladderData.cols;
+
+      ctx.strokeStyle = '#444';
+      ctx.lineWidth = 3;
+      for (let c = 0; c < n; c++) {
+        const x = colX(c);
+        ctx.beginPath();
+        ctx.moveTo(x, 40);
+        ctx.lineTo(x, 460);
+        ctx.stroke();
+      }
+
+      ctx.strokeStyle = '#666';
+      ctx.lineWidth = 2;
+      for (const rung of ladderData.rungs) {
+        const x1 = colX(rung.col);
+        const x2 = colX(rung.col + 1);
+        ctx.beginPath();
+        ctx.moveTo(x1, rung.y);
+        ctx.lineTo(x2, rung.y);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = '#eee';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.textAlign = 'center';
+      
+      const currentNames = ladderData.names;
+      const currentResults = ladderData.results;
+      
+      for (let c = 0; c < n; c++) {
+        ctx.fillStyle = COLORS[c % COLORS.length];
+        ctx.fillText(currentNames[c] || '', colX(c), 28);
+        ctx.fillStyle = '#aaa';
+        ctx.fillText(currentResults[c] || '', colX(c), 485);
+      }
+    }
+
+    function tracePath(startCol) {
+      const points = [];
+      let col = startCol;
+      let y = 40;
+      points.push({ x: colX(col), y: y });
+
+      const sorted = [...ladderData.rungs].sort((a, b) => a.y - b.y);
+
+      for (const rung of sorted) {
+        if (rung.y <= y) continue;
+        if (rung.col === col) {
+          points.push({ x: colX(col), y: rung.y });
+          col = col + 1;
+          points.push({ x: colX(col), y: rung.y });
+        } else if (rung.col === col - 1) {
+          points.push({ x: colX(col), y: rung.y });
+          col = col - 1;
+          points.push({ x: colX(col), y: rung.y });
+        }
+        y = rung.y;
+      }
+      points.push({ x: colX(col), y: 460 });
+      return { points, endCol: col };
+    }
+
+    function animatePath(startCol, color, onDone) {
+      const { points, endCol } = tracePath(startCol);
+      let segIdx = 0;
+      let progress = 0;
+      const speed = 4;
+
+      function step() {
+        if (segIdx >= points.length - 1) {
+          if (onDone) onDone(endCol);
+          return;
+        }
+        const p1 = points[segIdx];
+        const p2 = points[segIdx + 1];
+        const dx = p2.x - p1.x;
+        const dy = p2.y - p1.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        progress += speed;
+        const t = Math.min(progress / dist, 1);
+        const cx = p1.x + dx * t;
+        const cy = p1.y + dy * t;
+
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        
+        // Only draw the new segment portion
+        const prevT = Math.max(0, (progress - speed) / dist);
+        ctx.moveTo(p1.x + dx * prevT, p1.y + dy * prevT);
+        ctx.lineTo(cx, cy);
+        ctx.stroke();
+
+        if (t >= 1) {
+          // Draw final dot at end of path
+          if (segIdx === points.length - 2) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(p2.x, p2.y, 6, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          segIdx++;
+          progress = 0;
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function startAll() {
+      drawLadder(); // Reset canvas
+      const n = ladderData.cols;
+      let done = 0;
+      const mapping = [];
+      const currentNames = ladderData.names;
+      const currentResults = ladderData.results;
+
+      for (let i = 0; i < n; i++) {
+        const color = COLORS[i % COLORS.length];
+        // Add slight random delay for each start to make it look natural
+        setTimeout(() => {
+            animatePath(i, color, (endCol) => {
+            mapping.push({ idx: i, name: currentNames[i], result: currentResults[endCol] });
+            done++;
+            if (done === n) showResults(mapping);
+            });
+        }, i * 100);
+      }
+    }
+
+    function showResults(mapping) {
+      const box = document.getElementById('resultBox');
+      // Sort mapping by original player index for readability
+      mapping.sort((a, b) => a.idx - b.idx);
+      
+      box.innerHTML = '<strong>🎯 결과</strong><br>' +
+        mapping.map(m => `${m.name} → ${m.result}`).join('<br>');
+      box.style.display = 'block';
+    }
+
+    // Initial draw
+    generate();
+  </script>
+</body>
+</html>
